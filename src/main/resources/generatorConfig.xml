@@ -9,9 +9,9 @@
         </commentGenerator>
         <!--需要配置数据库连接-->
         <jdbcConnection driverClass="com.mysql.jdbc.Driver"
-                        connectionURL="jdbc:mysql://1864973bi4.iask.in:16545/competition?characterEncoding=utf-8&amp;useSSL=false"
+                        connectionURL="jdbc:mysql://47.95.231.218:3306/competition?characterEncoding=utf-8&amp;useSSL=false"
                         userId="root"
-                        password="root">
+                        password="Hu123321..">
         </jdbcConnection>
         <javaTypeResolver >
             <property name="forceBigDecimals" value="false" />
