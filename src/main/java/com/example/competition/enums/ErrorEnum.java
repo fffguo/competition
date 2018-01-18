@@ -4,6 +4,7 @@ import lombok.Data;
 import lombok.Getter;
 
 /**
+ * 错误码 枚举类
  * @作者：刘富国
  * @创建时间：2018/1/18 10:19
  */

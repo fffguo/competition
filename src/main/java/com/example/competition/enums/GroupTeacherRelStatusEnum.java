@@ -3,19 +3,18 @@ package com.example.competition.enums;
 import lombok.Getter;
 
 /**
- * 返回结果 枚举类
  * @作者：刘富国
- * @创建时间：2018/1/18 10:27
+ * @创建时间：2018/1/18 15:21
  */
 @Getter
-public enum ResultVOEnum {
-    SUCCESS(1, "成功"),
-    ERROR(0,"失败"),
+public enum GroupTeacherRelStatusEnum {
+    UNBIND(0, "解绑"),
+    BINDING(1, "绑定"),
     ;
     private Integer code;
     private String message;
 
-    ResultVOEnum(Integer code, String message) {
+    GroupTeacherRelStatusEnum(Integer code, String message) {
         this.code = code;
         this.message = message;
     }
