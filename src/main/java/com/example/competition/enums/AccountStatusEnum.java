@@ -9,9 +9,8 @@ import lombok.Getter;
 @Getter
 public enum AccountStatusEnum {
     NORMAL(1, "正常"),
-    STOP(0, "已禁用"),
+    NOT_ACTIVATE(0, "未激活"),
     DELETE(2, "已删除"),
-    NOT_ACTIVATE(3, "未激活"),
     ;
     private Integer code;
     private String message;

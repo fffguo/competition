@@ -1,16 +1,18 @@
-package com.example.competition.dao.entity;
+package com.example.competition.dto;
 
+import com.example.competition.dao.entity.Teacher;
 import lombok.Data;
-import org.hibernate.annotations.DynamicUpdate;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
 import java.util.Date;
-@DynamicUpdate
-@Entity
+import java.util.List;
+
+/**
+ * @作者：刘富国
+ * @创建时间：2018/1/18 15:37
+ */
 @Data
-public class Student {
-    @Id
+public class AccountDTO {
+
     private Integer studentId;
 
     private String studentNo;
@@ -29,4 +31,5 @@ public class Student {
 
     private Date updateTime;
 
+    private List<Teacher> teachers;
 }
