@@ -8,4 +8,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
  * @创建时间：2018/1/18 16:01
  */
 public interface AccountRepository extends JpaRepository<Account, Integer> {
+
+    Account findByAccountLoginName(String accountLoginName);
+
 }

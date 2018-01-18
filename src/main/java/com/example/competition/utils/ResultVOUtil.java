@@ -27,7 +27,7 @@ public class ResultVOUtil {
     public static ResultVO error(ErrorEnum errorEnum){
         ResultVO resultVO=new ResultVO();
         resultVO.setCode(errorEnum.getCode());
-        resultVO.setMessage(errorEnum.getMsg());
+        resultVO.setMessage(errorEnum.getMessage());
         return resultVO;
     }
     /** 失败，自定义入参 */

@@ -11,12 +11,15 @@ import lombok.Getter;
 @Getter
 public enum ErrorEnum {
     PARAM_ERROR(1,"参数不正确"),
+
+    ACCOUNT_NOT_EXIST(10,"账号不存在"),
+    ACCOUNT_UPDATE_FAIL(11,"账号更新失败"),
     ;
     private Integer code;
-    private String msg;
+    private String message;
 
-    ErrorEnum(Integer code, String msg) {
+    ErrorEnum(Integer code, String message) {
         this.code = code;
-        this.msg = msg;
+        this.message = message;
     }
 }

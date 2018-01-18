@@ -11,10 +11,9 @@ import lombok.Getter;
 @Data
 public class CompetitionException extends RuntimeException {
     private Integer code;
-    private String message;
 
     public CompetitionException(ErrorEnum errorEnum) {
-        super(errorEnum.getMsg());
+        super(errorEnum.getMessage());
         this.code=errorEnum.getCode();
     }
 

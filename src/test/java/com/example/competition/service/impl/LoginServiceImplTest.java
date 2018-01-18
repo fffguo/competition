@@ -23,7 +23,7 @@ public class LoginServiceImplTest {
 
     @Test
     public void createAccount() {
-        Account result=loginService.createAccount("595726017@qq.com");
+        Account result=loginService.createAccount("595726018@qq.com");
         Assert.assertNotNull(result);
     }
 }
