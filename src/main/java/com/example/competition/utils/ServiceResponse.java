@@ -1,4 +1,4 @@
-package com.example.competition.VO;
+package com.example.competition.utils;
 
 import lombok.Data;
 
@@ -7,15 +7,15 @@ import lombok.Data;
  * @创建时间：2018/1/18 10:33
  */
 @Data
-public class ResultVO<T> {
+public class ServiceResponse<T> {
     private Integer code;
     private String message;
     private T data;
 
-    public ResultVO() {
+    public ServiceResponse() {
     }
 
-    public ResultVO(Integer code, String message, T data) {
+    public ServiceResponse(Integer code, String message, T data) {
         this.code = code;
         this.message = message;
         this.data = data;

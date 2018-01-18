@@ -1,8 +1,16 @@
 package com.example.competition.dao.entity;
 
-import java.util.Date;
+import lombok.Data;
+import org.hibernate.annotations.DynamicUpdate;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import java.util.Date;
+@DynamicUpdate
+@Entity
+@Data
 public class Student {
+    @Id
     private Integer studentId;
 
     private String studentNo;

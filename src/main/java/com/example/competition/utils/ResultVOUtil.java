@@ -1,6 +1,5 @@
 package com.example.competition.utils;
 
-import com.example.competition.VO.ResultVO;
 import com.example.competition.enums.ErrorEnum;
 import com.example.competition.enums.ResultVOEnum;
 
@@ -11,28 +10,28 @@ import com.example.competition.enums.ResultVOEnum;
 public class ResultVOUtil {
 
     /** 成功，返回data*/
-    public static ResultVO success(Object data){
-        ResultVO resultVO=new ResultVO();
+    public static ServiceResponse success(Object data){
+        ServiceResponse resultVO=new ServiceResponse();
         resultVO.setCode(ResultVOEnum.SUCCESS.getCode());
         resultVO.setMessage(ResultVOEnum.SUCCESS.getMessage());
         resultVO.setData(data);
         return resultVO;
     }
     /** 成功，返回null */
-    public static ResultVO success(){
+    public static ServiceResponse success(){
         return success(null);
     }
 
     /** 失败，入参为ErrorEnum */
-    public static ResultVO error(ErrorEnum errorEnum){
-        ResultVO resultVO=new ResultVO();
+    public static ServiceResponse error(ErrorEnum errorEnum){
+        ServiceResponse resultVO=new ServiceResponse();
         resultVO.setCode(errorEnum.getCode());
         resultVO.setMessage(errorEnum.getMsg());
         return resultVO;
     }
     /** 失败，自定义入参 */
-    public static ResultVO error(Integer code,String message){
-        ResultVO resultVO=new ResultVO();
+    public static ServiceResponse error(Integer code, String message){
+        ServiceResponse resultVO=new ServiceResponse();
         resultVO.setCode(code);
         resultVO.setMessage(message);
         return resultVO;
