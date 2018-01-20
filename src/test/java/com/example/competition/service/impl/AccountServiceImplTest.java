@@ -26,4 +26,11 @@ public class AccountServiceImplTest {
         Account result=accountService.updatePassword("595726017@qq.com","456");
         Assert.assertNotNull(result);
     }
+    @Test
+    public void findLoginName(){
+        Account account=new Account();
+        account.setAccountLoginName("595726017@qq.com");
+        Account result=accountService.verifyAccount(account);
+        Assert.assertNotNull(result);
+    }
 }

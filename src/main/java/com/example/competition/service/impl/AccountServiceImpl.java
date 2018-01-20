@@ -2,12 +2,14 @@ package com.example.competition.service.impl;
 
 import com.example.competition.dao.entity.Account;
 import com.example.competition.dao.repository.AccountRepository;
+import com.example.competition.enums.AccountStatusEnum;
 import com.example.competition.enums.ErrorEnum;
 import com.example.competition.exception.CompetitionException;
 import com.example.competition.service.AccountService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
 
 import javax.transaction.Transactional;
 
@@ -37,5 +39,17 @@ public class AccountServiceImpl implements AccountService {
             throw new CompetitionException(ErrorEnum.ACCOUNT_UPDATE_FAIL);
         }
         return account;
+    }
+
+    @Override
+    public Account verifyAccount(Account account) {
+        //1.验证登录名是否有重复
+        Account result=new Account();
+        if((!StringUtils.isEmpty(account.getAccountLoginName()))&&StringUtils.isEmpty(account.getAccountPassword())){
+            result=accountRepository.findByAccountLoginNameAndAccountStatus(account.getAccountLoginName(), AccountStatusEnum.NORMAL.getCode());
+        }
+        //2.验证登录名密码是否正确
+        return result;
+
     }
 }
