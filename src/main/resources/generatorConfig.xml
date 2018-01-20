@@ -41,6 +41,7 @@
         <!--<table tableName="student" domainObjectName="Student"></table>-->
         <!--<table tableName="teacher" domainObjectName="Teacher"></table>-->
         <table tableName="test" domainObjectName="Test"></table>
+        <!--<table tableName="report" domainObjectName="Report"></table>-->
         <!--<table tableName="verify_code" domainObjectName="Verify_code"></table>-->
         <!--<table tableName="account" domainObjectName="Account"></table>-->
     </context>

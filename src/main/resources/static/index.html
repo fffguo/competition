@@ -34,9 +34,9 @@
                     <span class="input-group-addon">
                          <img src="assets/img/account.png" alt="账号" style="width: 22px" height="22px">
                     </span>
-                        <input type="text" class="form-control"  placeholder="请输入邮箱：">
+                        <input type="text" class="form-control" placeholder="请输入邮箱：">
                         <span class="input-group-addon icon" id="loginIcon1">
-                            <img  src="assets/img/errorIcon.png" style="width: 22px" height="22px">
+                            <img src="assets/img/errorIcon.png" style="width: 22px" height="22px">
                         </span>
                         </button>
 
@@ -75,16 +75,18 @@
                     <span class="input-group-addon">
                          <img src="assets/img/account.png" alt="账号" style="width: 22px" height="22px">
                     </span>
-                        <input type="email" class="form-control" id="registerMail" onblur="verifyLoginName()" placeholder="请输入邮箱：">
-                        <span class="input-group-addon icon" id="registerIcon1" >
-                            <img  src="assets/img/errorIcon.png" style="width: 22px" height="22px">
+                        <input type="email" class="form-control" id="registerMail" onblur="verifyLoginName()"
+                               placeholder="请输入邮箱：">
+                        <span class="input-group-addon icon" id="registerIcon1">
+                            <img src="assets/img/errorIcon.png" style="width: 22px" height="22px">
                         </span>
                     </div>
                     <div class="input-group" style="margin-bottom: 24px;margin-top: 18px">
                     <span class="input-group-addon">
                         <img src="assets/img/password.png" alt="密码" style="width: 22px" height="22px">
                     </span>
-                        <input type="password" class="form-control" placeholder="请输入密码：" id="registerPassword1" onblur="verifyPassword1()">
+                        <input type="password" class="form-control" placeholder="请输入密码：" id="registerPassword1"
+                               onblur="verifyPassword1()">
                         <span class="input-group-addon icon" id="registerIcon2">
                             <img src="assets/img/errorIcon.png" style="width: 22px" height="22px">
                         </span>
@@ -93,12 +95,15 @@
                     <span class="input-group-addon">
                         <img src="assets/img/password.png" alt="重复密码" style="width: 22px" height="24px">
                     </span>
-                        <input type="password" class="form-control" placeholder="请再次输入密码：" id="registerPassword2" onblur="verifyPassword2()">
+                        <input type="password" class="form-control" placeholder="请再次输入密码：" id="registerPassword2"
+                               onblur="verifyPassword2()">
                         <span class="input-group-addon icon" id="registerIcon3">
                             <img src="assets/img/errorIcon.png" style="width: 22px" height="22px">
                         </span>
                     </div>
-                    <button type="button" class="btn btn-primary btn-block" style="margin-bottom: 20px" onclick="register()" >开始注册</button>
+                    <button type="button" class="btn btn-primary btn-block" style="margin-bottom: 20px"
+                            onclick="register()">开始注册
+                    </button>
                 </form>
             </div>
             <!--<div class="modal-footer">-->
@@ -132,8 +137,9 @@
                     class="fa fa-tasks fa-fw"></i> <i class="material-icons right">arrow_drop_down</i></a></li>
             <li><a class="dropdown-button waves-effect waves-dark" href="#!" data-activates="dropdown2"><i
                     class="fa fa-bell fa-fw"></i> <i class="material-icons right">arrow_drop_down</i></a></li>
-            <li><a class="dropdown-button waves-effect waves-dark" href="#!" data-activates="dropdown1"><i
-                    class="fa fa-user fa-fw"></i> <b>注册/登录</b> <i class="material-icons right">arrow_drop_down</i></a>
+            <li><a class="dropdown-button waves-effect waves-dark" href="#!" data-toggle="modal"
+                   data-target="#loginModel"  onclick="hideIcon()" ><i
+                    class=" fa fa-power-off fa-fw" ></i>&nbsp;&nbsp;登录 &nbsp; </a>
             </li>
         </ul>
     </nav>
@@ -147,16 +153,14 @@
     <!--</li>-->
     <!--</ul>-->
 
-    <ul id="dropdown1" class="dropdown-content">
-        <!--TODO 注册登录-->
-        <!--<li><a href="#"><i class="fa fa-user fa-fw"></i> 注册</a></li>-->
-        <!--onclick="openLoginModal();"-->
-        <li><a href="#" data-toggle="modal" data-target="#registerModel" onclick="hideIcon()"><i
-                class="fa fa-user fa-fw"></i>
-            注册</a></li>
-        <li><a href="#" data-toggle="modal" data-target="#loginModel" onclick="hideIcon()"><i
-                class="fa fa-power-off fa-fw"></i> 登录</a></li>
-    </ul>
+    <!--<ul id="dropdown1" class="dropdown-content">-->
+        <!--&lt;!&ndash;TODO 注册登录&ndash;&gt;-->
+        <!--&lt;!&ndash;<li><a href="#" data-toggle="modal" data-target="#registerModel" onclick="hideIcon()"><i&ndash;&gt;-->
+        <!--&lt;!&ndash;class="fa fa-user fa-fw"></i>&ndash;&gt;-->
+        <!--&lt;!&ndash;注册</a></li>&ndash;&gt;-->
+        <!--<li><a href="#" data-toggle="modal" data-target="#loginModel" onclick="hideIcon()"><i-->
+                <!--class="fa fa-power-off fa-fw"></i> 登录</a></li>-->
+    <!--</ul>-->
 
 
     <ul id="dropdown2" class="dropdown-content w250">

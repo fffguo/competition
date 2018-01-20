@@ -50,6 +50,10 @@ public class AccountServiceImpl implements AccountService {
         }
         //2.验证登录名密码是否正确
         return result;
+    }
 
+    @Override
+    public Account createAccount(Account account) {
+        return accountRepository.save(account);
     }
 }

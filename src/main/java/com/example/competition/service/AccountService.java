@@ -3,6 +3,7 @@ package com.example.competition.service;
 import com.example.competition.dao.entity.Account;
 
 /**
+ * 账号服务
  * @作者：刘富国
  * @创建时间：2018/1/18 18:53
  */
@@ -13,4 +14,6 @@ public interface AccountService {
     /** 验证账号信息 */
     Account verifyAccount(Account account);
 
+    /** 创建账号 */
+    Account createAccount(Account account);
 }
