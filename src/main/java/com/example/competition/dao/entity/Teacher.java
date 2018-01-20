@@ -11,6 +11,12 @@ public class Teacher {
 
     private Integer departmentId;
 
+    private String teacherPhone;
+
+    private String teacherEmail;
+
+    private String teacherQq;
+
     private Date createTime;
 
     private Date updateTime;
@@ -45,6 +51,30 @@ public class Teacher {
 
     public void setDepartmentId(Integer departmentId) {
         this.departmentId = departmentId;
+    }
+
+    public String getTeacherPhone() {
+        return teacherPhone;
+    }
+
+    public void setTeacherPhone(String teacherPhone) {
+        this.teacherPhone = teacherPhone == null ? null : teacherPhone.trim();
+    }
+
+    public String getTeacherEmail() {
+        return teacherEmail;
+    }
+
+    public void setTeacherEmail(String teacherEmail) {
+        this.teacherEmail = teacherEmail == null ? null : teacherEmail.trim();
+    }
+
+    public String getTeacherQq() {
+        return teacherQq;
+    }
+
+    public void setTeacherQq(String teacherQq) {
+        this.teacherQq = teacherQq == null ? null : teacherQq.trim();
     }
 
     public Date getCreateTime() {

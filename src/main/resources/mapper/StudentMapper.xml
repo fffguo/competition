@@ -9,6 +9,325 @@
     <result column="student_specialty_id" jdbcType="INTEGER" property="studentSpecialtyId" />
     <result column="student_grade" jdbcType="INTEGER" property="studentGrade" />
     <result column="student_status" jdbcType="INTEGER" property="studentStatus" />
+    <result column="student_phone" jdbcType="VARCHAR" property="studentPhone" />
+    <result column="student_email" jdbcType="VARCHAR" property="studentEmail" />
+    <result column="student_QQ" jdbcType="VARCHAR" property="studentQq" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    student_id, student_no, student_name, group_id, student_specialty_id, student_grade, 
+    student_status, student_phone, student_email, student_QQ, create_time, update_time
+  </sql>
+  <select id="selectByExample" parameterType="com.example.competition.dao.entity.StudentExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from student
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from student
+    where student_id = #{studentId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from student
+    where student_id = #{studentId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.example.competition.dao.entity.StudentExample">
+    delete from student
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.example.competition.dao.entity.Student">
+    insert into student (student_id, student_no, student_name, 
+      group_id, student_specialty_id, student_grade, 
+      student_status, student_phone, student_email, 
+      student_QQ, create_time, update_time
+      )
+    values (#{studentId,jdbcType=INTEGER}, #{studentNo,jdbcType=VARCHAR}, #{studentName,jdbcType=VARCHAR}, 
+      #{groupId,jdbcType=INTEGER}, #{studentSpecialtyId,jdbcType=INTEGER}, #{studentGrade,jdbcType=INTEGER}, 
+      #{studentStatus,jdbcType=INTEGER}, #{studentPhone,jdbcType=VARCHAR}, #{studentEmail,jdbcType=VARCHAR}, 
+      #{studentQq,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.example.competition.dao.entity.Student">
+    insert into student
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="studentId != null">
+        student_id,
+      </if>
+      <if test="studentNo != null">
+        student_no,
+      </if>
+      <if test="studentName != null">
+        student_name,
+      </if>
+      <if test="groupId != null">
+        group_id,
+      </if>
+      <if test="studentSpecialtyId != null">
+        student_specialty_id,
+      </if>
+      <if test="studentGrade != null">
+        student_grade,
+      </if>
+      <if test="studentStatus != null">
+        student_status,
+      </if>
+      <if test="studentPhone != null">
+        student_phone,
+      </if>
+      <if test="studentEmail != null">
+        student_email,
+      </if>
+      <if test="studentQq != null">
+        student_QQ,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="studentId != null">
+        #{studentId,jdbcType=INTEGER},
+      </if>
+      <if test="studentNo != null">
+        #{studentNo,jdbcType=VARCHAR},
+      </if>
+      <if test="studentName != null">
+        #{studentName,jdbcType=VARCHAR},
+      </if>
+      <if test="groupId != null">
+        #{groupId,jdbcType=INTEGER},
+      </if>
+      <if test="studentSpecialtyId != null">
+        #{studentSpecialtyId,jdbcType=INTEGER},
+      </if>
+      <if test="studentGrade != null">
+        #{studentGrade,jdbcType=INTEGER},
+      </if>
+      <if test="studentStatus != null">
+        #{studentStatus,jdbcType=INTEGER},
+      </if>
+      <if test="studentPhone != null">
+        #{studentPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="studentEmail != null">
+        #{studentEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="studentQq != null">
+        #{studentQq,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.example.competition.dao.entity.StudentExample" resultType="java.lang.Long">
+    select count(*) from student
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update student
+    <set>
+      <if test="record.studentId != null">
+        student_id = #{record.studentId,jdbcType=INTEGER},
+      </if>
+      <if test="record.studentNo != null">
+        student_no = #{record.studentNo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.studentName != null">
+        student_name = #{record.studentName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.groupId != null">
+        group_id = #{record.groupId,jdbcType=INTEGER},
+      </if>
+      <if test="record.studentSpecialtyId != null">
+        student_specialty_id = #{record.studentSpecialtyId,jdbcType=INTEGER},
+      </if>
+      <if test="record.studentGrade != null">
+        student_grade = #{record.studentGrade,jdbcType=INTEGER},
+      </if>
+      <if test="record.studentStatus != null">
+        student_status = #{record.studentStatus,jdbcType=INTEGER},
+      </if>
+      <if test="record.studentPhone != null">
+        student_phone = #{record.studentPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="record.studentEmail != null">
+        student_email = #{record.studentEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="record.studentQq != null">
+        student_QQ = #{record.studentQq,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createTime != null">
+        create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.updateTime != null">
+        update_time = #{record.updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update student
+    set student_id = #{record.studentId,jdbcType=INTEGER},
+      student_no = #{record.studentNo,jdbcType=VARCHAR},
+      student_name = #{record.studentName,jdbcType=VARCHAR},
+      group_id = #{record.groupId,jdbcType=INTEGER},
+      student_specialty_id = #{record.studentSpecialtyId,jdbcType=INTEGER},
+      student_grade = #{record.studentGrade,jdbcType=INTEGER},
+      student_status = #{record.studentStatus,jdbcType=INTEGER},
+      student_phone = #{record.studentPhone,jdbcType=VARCHAR},
+      student_email = #{record.studentEmail,jdbcType=VARCHAR},
+      student_QQ = #{record.studentQq,jdbcType=VARCHAR},
+      create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      update_time = #{record.updateTime,jdbcType=TIMESTAMP}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.example.competition.dao.entity.Student">
+    update student
+    <set>
+      <if test="studentNo != null">
+        student_no = #{studentNo,jdbcType=VARCHAR},
+      </if>
+      <if test="studentName != null">
+        student_name = #{studentName,jdbcType=VARCHAR},
+      </if>
+      <if test="groupId != null">
+        group_id = #{groupId,jdbcType=INTEGER},
+      </if>
+      <if test="studentSpecialtyId != null">
+        student_specialty_id = #{studentSpecialtyId,jdbcType=INTEGER},
+      </if>
+      <if test="studentGrade != null">
+        student_grade = #{studentGrade,jdbcType=INTEGER},
+      </if>
+      <if test="studentStatus != null">
+        student_status = #{studentStatus,jdbcType=INTEGER},
+      </if>
+      <if test="studentPhone != null">
+        student_phone = #{studentPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="studentEmail != null">
+        student_email = #{studentEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="studentQq != null">
+        student_QQ = #{studentQq,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where student_id = #{studentId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.example.competition.dao.entity.Student">
+    update student
+    set student_no = #{studentNo,jdbcType=VARCHAR},
+      student_name = #{studentName,jdbcType=VARCHAR},
+      group_id = #{groupId,jdbcType=INTEGER},
+      student_specialty_id = #{studentSpecialtyId,jdbcType=INTEGER},
+      student_grade = #{studentGrade,jdbcType=INTEGER},
+      student_status = #{studentStatus,jdbcType=INTEGER},
+      student_phone = #{studentPhone,jdbcType=VARCHAR},
+      student_email = #{studentEmail,jdbcType=VARCHAR},
+      student_QQ = #{studentQq,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP}
+    where student_id = #{studentId,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="com.example.competition.dao.entity.Student">
+    <id column="student_id" jdbcType="INTEGER" property="studentId" />
+    <result column="student_no" jdbcType="VARCHAR" property="studentNo" />
+    <result column="student_name" jdbcType="VARCHAR" property="studentName" />
+    <result column="group_id" jdbcType="INTEGER" property="groupId" />
+    <result column="student_specialty_id" jdbcType="INTEGER" property="studentSpecialtyId" />
+    <result column="student_grade" jdbcType="INTEGER" property="studentGrade" />
+    <result column="student_status" jdbcType="INTEGER" property="studentStatus" />
     <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
     <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
   </resultMap>
