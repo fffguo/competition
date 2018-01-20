@@ -49,6 +49,9 @@ public class AccountServiceImpl implements AccountService {
             result=accountRepository.findByAccountLoginNameAndAccountStatus(account.getAccountLoginName(), AccountStatusEnum.NORMAL.getCode());
         }
         //2.验证登录名密码是否正确
+        if(!StringUtils.isEmpty(account.getAccountLoginName())&&!StringUtils.isEmpty(account.getAccountPassword())){
+            result=accountRepository.findByAccountLoginNameAndAccountPasswordAndAccountStatus(account.getAccountLoginName(),account.getAccountPassword(),AccountStatusEnum.NORMAL.getCode());
+        }
         return result;
     }
 
