@@ -96,12 +96,12 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    report_id, main_student_no, main_student_name, main_student_specialty, main_student_phone, 
-    main_student_email, main_student_department, main_student_grade, main_student_QQ, 
-    student1_no, student1_name, student1_specialty, student1_phone, student1_email, student1_department, 
-    student1_grade, student1_QQ, student2_no, student2_name, student2_specialty, student2_phone, 
-    student2_email, student2_department, student2_grade, student2_QQ, teacher_name, teacher_phone, 
-    teacher_email, teacher_department, teacher_QQ, works_no, works_name, create_time, 
+    report_id, main_student_no, main_student_name, main_student_specialty, main_student_phone,
+    main_student_email, main_student_department, main_student_grade, main_student_QQ,
+    student1_no, student1_name, student1_specialty, student1_phone, student1_email, student1_department,
+    student1_grade, student1_QQ, student2_no, student2_name, student2_specialty, student2_phone,
+    student2_email, student2_department, student2_grade, student2_QQ, teacher_name, teacher_phone,
+    teacher_email, teacher_department, teacher_QQ, works_no, works_name, create_time,
     update_time
   </sql>
   <select id="selectByExample" parameterType="com.example.competition.dao.entity.ReportExample" resultMap="BaseResultMap">
@@ -119,7 +119,7 @@
     </if>
   </select>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    select 
+    select
     <include refid="Base_Column_List" />
     from report
     where report_id = #{reportId,jdbcType=INTEGER}
@@ -135,30 +135,30 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.example.competition.dao.entity.Report">
-    insert into report (report_id, main_student_no, main_student_name, 
-      main_student_specialty, main_student_phone, 
-      main_student_email, main_student_department, 
-      main_student_grade, main_student_QQ, student1_no, 
-      student1_name, student1_specialty, student1_phone, 
-      student1_email, student1_department, student1_grade, 
-      student1_QQ, student2_no, student2_name, 
-      student2_specialty, student2_phone, student2_email, 
-      student2_department, student2_grade, student2_QQ, 
-      teacher_name, teacher_phone, teacher_email, 
-      teacher_department, teacher_QQ, works_no, 
+    insert into report (report_id, main_student_no, main_student_name,
+      main_student_specialty, main_student_phone,
+      main_student_email, main_student_department,
+      main_student_grade, main_student_QQ, student1_no,
+      student1_name, student1_specialty, student1_phone,
+      student1_email, student1_department, student1_grade,
+      student1_QQ, student2_no, student2_name,
+      student2_specialty, student2_phone, student2_email,
+      student2_department, student2_grade, student2_QQ,
+      teacher_name, teacher_phone, teacher_email,
+      teacher_department, teacher_QQ, works_no,
       works_name, create_time, update_time
       )
-    values (#{reportId,jdbcType=INTEGER}, #{mainStudentNo,jdbcType=VARCHAR}, #{mainStudentName,jdbcType=VARCHAR}, 
-      #{mainStudentSpecialty,jdbcType=VARCHAR}, #{mainStudentPhone,jdbcType=VARCHAR}, 
-      #{mainStudentEmail,jdbcType=VARCHAR}, #{mainStudentDepartment,jdbcType=VARCHAR}, 
-      #{mainStudentGrade,jdbcType=VARCHAR}, #{mainStudentQq,jdbcType=VARCHAR}, #{student1No,jdbcType=VARCHAR}, 
-      #{student1Name,jdbcType=VARCHAR}, #{student1Specialty,jdbcType=VARCHAR}, #{student1Phone,jdbcType=VARCHAR}, 
-      #{student1Email,jdbcType=VARCHAR}, #{student1Department,jdbcType=VARCHAR}, #{student1Grade,jdbcType=VARCHAR}, 
-      #{student1Qq,jdbcType=VARCHAR}, #{student2No,jdbcType=VARCHAR}, #{student2Name,jdbcType=VARCHAR}, 
-      #{student2Specialty,jdbcType=VARCHAR}, #{student2Phone,jdbcType=VARCHAR}, #{student2Email,jdbcType=VARCHAR}, 
-      #{student2Department,jdbcType=VARCHAR}, #{student2Grade,jdbcType=VARCHAR}, #{student2Qq,jdbcType=VARCHAR}, 
-      #{teacherName,jdbcType=VARCHAR}, #{teacherPhone,jdbcType=VARCHAR}, #{teacherEmail,jdbcType=VARCHAR}, 
-      #{teacherDepartment,jdbcType=VARCHAR}, #{teacherQq,jdbcType=VARCHAR}, #{worksNo,jdbcType=VARCHAR}, 
+    values (#{reportId,jdbcType=INTEGER}, #{mainStudentNo,jdbcType=VARCHAR}, #{mainStudentName,jdbcType=VARCHAR},
+      #{mainStudentSpecialty,jdbcType=VARCHAR}, #{mainStudentPhone,jdbcType=VARCHAR},
+      #{mainStudentEmail,jdbcType=VARCHAR}, #{mainStudentDepartment,jdbcType=VARCHAR},
+      #{mainStudentGrade,jdbcType=VARCHAR}, #{mainStudentQq,jdbcType=VARCHAR}, #{student1No,jdbcType=VARCHAR},
+      #{student1Name,jdbcType=VARCHAR}, #{student1Specialty,jdbcType=VARCHAR}, #{student1Phone,jdbcType=VARCHAR},
+      #{student1Email,jdbcType=VARCHAR}, #{student1Department,jdbcType=VARCHAR}, #{student1Grade,jdbcType=VARCHAR},
+      #{student1Qq,jdbcType=VARCHAR}, #{student2No,jdbcType=VARCHAR}, #{student2Name,jdbcType=VARCHAR},
+      #{student2Specialty,jdbcType=VARCHAR}, #{student2Phone,jdbcType=VARCHAR}, #{student2Email,jdbcType=VARCHAR},
+      #{student2Department,jdbcType=VARCHAR}, #{student2Grade,jdbcType=VARCHAR}, #{student2Qq,jdbcType=VARCHAR},
+      #{teacherName,jdbcType=VARCHAR}, #{teacherPhone,jdbcType=VARCHAR}, #{teacherEmail,jdbcType=VARCHAR},
+      #{teacherDepartment,jdbcType=VARCHAR}, #{teacherQq,jdbcType=VARCHAR}, #{worksNo,jdbcType=VARCHAR},
       #{worksName,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}
       )
   </insert>

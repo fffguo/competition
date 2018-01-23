@@ -5,6 +5,7 @@ import com.example.competition.dao.entity.Account;
 import com.example.competition.service.AccountService;
 import com.example.competition.utils.ResultVOUtil;
 import org.apache.ibatis.io.ResolverUtil;
+import org.omg.CORBA.PUBLIC_MEMBER;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -29,4 +30,5 @@ public class RegisterController {
         else
             return ResultVOUtil.success(0);
     }
+
 }

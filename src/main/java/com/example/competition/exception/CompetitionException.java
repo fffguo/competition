@@ -4,6 +4,8 @@ import com.example.competition.enums.ErrorEnum;
 import lombok.Data;
 import lombok.Getter;
 
+import javax.servlet.http.HttpServletRequest;
+
 /**
  * @作者：刘富国
  * @创建时间：2018/1/18 10:22
