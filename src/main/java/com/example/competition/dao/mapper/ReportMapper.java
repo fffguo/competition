@@ -1,12 +1,10 @@
 package com.example.competition.dao.mapper;
 
-import com.example.competition.dao.entity.Report;
-import com.example.competition.dao.entity.ReportExample;
+import com.example.competition.dao.model.Report;
+import com.example.competition.dao.model.ReportExample;
 import java.util.List;
-
-import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
-@Mapper
+
 public interface ReportMapper {
     long countByExample(ReportExample example);
 

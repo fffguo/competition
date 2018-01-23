@@ -1,7 +1,7 @@
 package com.example.competition.dao.mapper;
 
-import com.example.competition.dao.entity.Group_teacher_rel;
-import com.example.competition.dao.entity.Group_teacher_relExample;
+import com.example.competition.dao.model.Group_teacher_rel;
+import com.example.competition.dao.model.Group_teacher_relExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 

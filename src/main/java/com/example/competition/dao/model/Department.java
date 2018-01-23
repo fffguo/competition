@@ -1,19 +1,8 @@
-package com.example.competition.dao.entity;
+package com.example.competition.dao.model;
 
-import lombok.Data;
-import org.hibernate.annotations.DynamicUpdate;
-
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 import java.util.Date;
-@Data
-@Entity
-@DynamicUpdate
-public class Department {
 
-    @Id
-    @GeneratedValue
+public class Department {
     private Integer departmentId;
 
     private String departmentName;

@@ -1,7 +1,7 @@
 package com.example.competition.dao.mapper;
 
-import com.example.competition.dao.entity.Verify_code;
-import com.example.competition.dao.entity.Verify_codeExample;
+import com.example.competition.dao.model.Verify_code;
+import com.example.competition.dao.model.Verify_codeExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 

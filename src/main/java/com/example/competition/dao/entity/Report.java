@@ -8,7 +8,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import java.util.Date;
 @Data
+@Entity
+@DynamicUpdate
 public class Report {
+    @Id
+    @GeneratedValue
     private Integer reportId;
 
     private String mainStudentNo;

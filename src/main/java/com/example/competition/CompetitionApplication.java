@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 
-//@MapperScan("com.example.competition.dao.mapper")
+@MapperScan(basePackages = "com.example.competition.dao.mapper")
 public class CompetitionApplication {
 
 	public static void main(String[] args) {

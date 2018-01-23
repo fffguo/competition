@@ -5,6 +5,7 @@ import com.example.competition.dao.entity.Report;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -52,8 +53,23 @@ public class ReflectFields {
 
 	public static void main(String[] args) throws Exception, InvocationTargetException, Exception {
 		Report  report = new Report();
-		ReflectFields reflectFields = new ReflectFields(report, null);
-		reflectFields.getFields();
+		report.setMainStudentGrade("2018");
+		report.setMainStudentSpecialty("jisuanji");
+		report.setMainStudentQq("5957");
+		report.setMainStudentPhone("111111");
+		report.setMainStudentName("qqq");
+		report.setStudent1No("415");
+		report.setMainStudentEmail("sss");
+		report.setMainStudentDepartment("dd");
+		report.setTeacherDepartment("ww");
+		report.setTeacherEmail("www");
+		report.setTeacherName("Wwwww");
+		report.setTeacherPhone("wwaa");
+		report.setTeacherQq("qqq");
+		Map<String,String> map=new HashMap<>();
+		ReflectFields reflectFields = new ReflectFields(report,map);
+		Report result=reflectFields.getFields();
+		System.out.println(result.toString());
 	}
 	/** 
 	 * @Title: getRealName 

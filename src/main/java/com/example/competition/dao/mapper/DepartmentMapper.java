@@ -1,10 +1,13 @@
 package com.example.competition.dao.mapper;
 
-import com.example.competition.dao.entity.Department;
-import com.example.competition.dao.entity.DepartmentExample;
-import java.util.List;
+import com.example.competition.dao.model.Department;
+import com.example.competition.dao.model.DepartmentExample;
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Component;
 
+import java.util.List;
+@Component
 public interface DepartmentMapper {
     long countByExample(DepartmentExample example);
 

@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="utf-8"/>
@@ -29,12 +29,12 @@
                 <h4 class="modal-title" id="myModalLabel" style="text-align: center;font-size: 28px">登录</h4>
             </div>
             <div class="modal-body">
-                <form class="bs-example bs-example-form" role="form">
+                <form class="bs-example bs-example-form" role="form" id="loginForm" action="account/login" method="post">
                     <div class="input-group" style="margin-bottom: 24px ;" id="loginLoginName">
-                    <span class="input-group-addon">
+                    <span class="input-group-addon" >
                          <img src="assets/img/account.png" alt="账号" style="width: 22px" height="22px">
                     </span>
-                        <input type="text" class="form-control" placeholder="请输入邮箱：">
+                        <input type="text" name="loginName" class="form-control" placeholder="请输入学号：" id="loginOne" onblur="loginVerifyLoginName()">
                         <span class="input-group-addon icon" id="loginIcon1">
                             <img src="assets/img/errorIcon.png" style="width: 22px" height="22px">
                         </span>
@@ -45,12 +45,12 @@
                     <span class="input-group-addon">
                         <img src="assets/img/password.png" alt="密码" style="width: 22px" height="24px">
                     </span>
-                        <input type="password" class="form-control" placeholder="请输入密码：">
+                        <input type="password" name="password" class="form-control" placeholder="请输入密码：" id="loginTwo" onblur="loginVerifyPassword()">
                         <span class="input-group-addon icon" id="loginIcon2">
                             <img src="assets/img/errorIcon.png" style="width: 22px" height="22px">
                         </span>
                     </div>
-                    <button type="button" class="btn btn-primary btn-block" style="margin-bottom: 20px">现在登录</button>
+                    <button type="button" class="btn btn-primary btn-block" style="margin-bottom: 20px" onclick="login()">现在登录</button>
                 </form>
             </div>
             <!--<div class="modal-footer">-->
@@ -705,7 +705,8 @@
 <script src="assets/js/custom-scripts.js"></script>
 <!--login-register-->
 <script src="assets/js/login-register.js"></script>
-
+<!--jquerySession-->
+<script src="assets/js/jquerySession.js"></script>
 </body>
 
 </html>

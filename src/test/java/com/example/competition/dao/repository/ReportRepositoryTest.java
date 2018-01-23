@@ -1,7 +1,6 @@
 package com.example.competition.dao.repository;
 
 import com.example.competition.dao.entity.Report;
-import com.example.competition.dao.mapper.ReportMapper;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,9 +20,6 @@ public class ReportRepositoryTest {
     @Autowired
     private ReportRepository repository;
 
-    @Autowired
-    ReportMapper reportMapper;
-
     @Test
     public void save(){
         Report report=new Report();
@@ -40,8 +36,8 @@ public class ReportRepositoryTest {
         report.setTeacherName("Wwwww");
         report.setTeacherPhone("wwaa");
         report.setTeacherQq("qqq");
-        //Report result=repository.save(report);
-        reportMapper.insert(report);
+        Report result=repository.save(report);
+        System.out.println(result);
     }
 
 }

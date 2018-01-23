@@ -1,7 +1,7 @@
 package com.example.competition.dao.mapper;
 
-import com.example.competition.dao.entity.Groups;
-import com.example.competition.dao.entity.GroupsExample;
+import com.example.competition.dao.model.Groups;
+import com.example.competition.dao.model.GroupsExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 

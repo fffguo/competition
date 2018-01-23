@@ -18,13 +18,13 @@
         </javaTypeResolver>
 
         <!--指定entity生成的位置-->
-        <javaModelGenerator targetPackage="com.example.competition.dao.entity" targetProject="./src/main/java">
+        <javaModelGenerator targetPackage="com.example.competition.dao.model" targetProject="./src/main/java">
             <property name="enableSubPackages" value="true" />
             <property name="trimStrings" value="true" />
         </javaModelGenerator>
 
         <!--sql映射文件生成的位置 mapper.xml-->
-        <sqlMapGenerator targetPackage="mapper"  targetProject="./src/main/resources">
+        <sqlMapGenerator targetPackage="com.example.competition.dao.mapper"  targetProject="./src/main/java">
             <property name="enableSubPackages" value="true" />
         </sqlMapGenerator>
 
