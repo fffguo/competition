@@ -17,18 +17,18 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/register")
 public class RegisterController {
 
-    @Autowired
-    private AccountService accountService;
-
-    @PostMapping("verify/loginName")
-    public ResultVO<Integer> verfityLoginName(@RequestParam("loginName")String loginName){
-        Account account=new Account();
-        account.setAccountLoginName(loginName);
-        Account result=accountService.verifyAccount(account);
-        if(result==null)
-            return ResultVOUtil.success(1);
-        else
-            return ResultVOUtil.success(0);
-    }
+//    @Autowired
+//    private AccountService accountService;
+//
+//    @PostMapping("verify/loginName")
+//    public ResultVO<Integer> verfityLoginName(@RequestParam("loginName")String loginName){
+//        Account account=new Account();
+//        account.setAccountLoginName(loginName);
+//        Account result=accountService.verifyAccount(account);
+//        if(result==null)
+//            return ResultVOUtil.success(1);
+//        else
+//            return ResultVOUtil.success(0);
+//    }
 
 }

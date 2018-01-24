@@ -1,16 +1,11 @@
 package com.example.competition.dao.mapper;
 
-import com.example.competition.dao.model.Department;
 import com.example.competition.dao.repository.DepartmentRepository;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
-
-import java.util.Date;
-
-import static org.junit.Assert.*;
 
 /**
  * @作者：刘富国

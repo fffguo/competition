@@ -35,10 +35,10 @@ public class
 SinUpController {
 
     private static final String[] fields = {
-            "main_student_no", "main_student_name", "main_student_specialty", "main_student_phone", "main_student_email", "main_student_QQ", "main_student_department", "main_student_grade",
-            "student1_no", "student1_name", "student1_department", "student1_specialty", "student1_grade", "student1_phone", "student1_email", "student1_QQ",
-            "student2_no", "student2_name", "student2_department", "student2_specialty", "student2_grade", "student2_phone", "student2_email", "student2_QQ",
-            "teacher_name", "teacher_department", "teacher_phone", "teacher_email", "teacher_QQ", "works_no", "works_name"
+            "main_student_no", "main_student_name", "main_student_specialty", "main_student_phone", "main_student_email", "main_student_qq", "main_student_department", "main_student_grade",
+            "one_student_no", "one_student_name", "one_student_department", "one_student_specialty", "one_student_grade", "one_student_phone", "one_student_email", "one_student_qq",
+            "two_student_no", "two_student_name", "two_student_department", "two_student_specialty", "two_student_grade", "two_student_phone", "two_student_email", "two_student_qq",
+            "teacher_name", "teacher_department", "teacher_phone", "teacher_email", "teacher_qq", "works_no", "works_name"
     };
 /*    @Autowired
     ReportMapper reportMapper;*/
@@ -129,30 +129,30 @@ SinUpController {
         a=a.replaceAll("1516349264621", "main_student_specialty");
         a=a.replaceAll("1516349273675", "main_student_phone");
         a=a.replaceAll("1516349337388", "main_student_email");
-        a=a.replaceAll("1516349342444", "main_student_QQ");
+        a=a.replaceAll("1516349342444", "main_student_qq");
         a=a.replaceAll("1516350388788", "main_student_department");
         a=a.replaceAll("1516350673843", "main_student_grade");
-        a=a.replaceAll("1516351102484", "student1_no");
-        a=a.replaceAll("1516351118406", "student1_name");
-        a=a.replaceAll("1516351123143", "student1_department");
-        a=a.replaceAll("1516351126645", "student1_specialty");
-        a=a.replaceAll("1516351131174", "student1_grade");
-        a=a.replaceAll("1516351136219", "student1_phone");
-        a=a.replaceAll("1516351140628", "student1_email");
-        a=a.replaceAll("1516351147597", "student1_QQ");
-        a=a.replaceAll("1516351371398", "student2_no");
-        a=a.replaceAll("1516351371400", "student2_name");
-        a=a.replaceAll("1516351371401", "student2_department");
-        a=a.replaceAll("1516351371402", "student2_specialty");
-        a=a.replaceAll("1516351371403", "student2_grade");
-        a=a.replaceAll("1516351371404", "student2_phone");
-        a=a.replaceAll("1516351371405", "student2_email");
-        a=a.replaceAll("1516351371406", "student2_QQ");
+        a=a.replaceAll("1516351102484", "one_student_no");
+        a=a.replaceAll("1516351118406", "one_student_name");
+        a=a.replaceAll("1516351123143", "one_student_department");
+        a=a.replaceAll("1516351126645", "one_student_specialty");
+        a=a.replaceAll("1516351131174", "one_student_grade");
+        a=a.replaceAll("1516351136219", "one_student_phone");
+        a=a.replaceAll("1516351140628", "one_student_email");
+        a=a.replaceAll("1516351147597", "one_student_qq");
+        a=a.replaceAll("1516351371398", "two_student_no");
+        a=a.replaceAll("1516351371400", "two_student_name");
+        a=a.replaceAll("1516351371401", "two_student_department");
+        a=a.replaceAll("1516351371402", "two_student_specialty");
+        a=a.replaceAll("1516351371403", "two_student_grade");
+        a=a.replaceAll("1516351371404", "two_student_phone");
+        a=a.replaceAll("1516351371405", "two_student_email");
+        a=a.replaceAll("1516351371406", "two_student_qq");
         a=a.replaceAll("1516351439671", "teacher_name");
         a=a.replaceAll("1516351439673", "teacher_department");
         a=a.replaceAll("1516351439674", "teacher_phone");
         a=a.replaceAll("1516351439676", "teacher_email");
-        a=a.replaceAll("1516351439678", "teacher_QQ");
+        a=a.replaceAll("1516351439678", "teacher_qq");
         a=a.replaceAll("1516351952598", "works_no");
         a=a.replaceAll("1516352107187", "works_name");
         return a;
