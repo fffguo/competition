@@ -9,8 +9,6 @@ var tip="";
 
 $(document).ready(function () {
     var account=$.session.get("account");
-    // alert(account);
-
 });
 
 //隐藏提示小图

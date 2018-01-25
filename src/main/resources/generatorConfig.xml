@@ -41,6 +41,9 @@
         <!--<table tableName="student" domainObjectName="Student"></table>-->
         <!--<table tableName="teacher" domainObjectName="Teacher"></table>-->
         <table tableName="test" domainObjectName="Test"></table>
+        <!--<table tableName="users" domainObjectName="Users"></table>-->
+        <!--<table tableName="user_roles" domainObjectName="UserRoles"></table>-->
+        <!--<table tableName="roles_permissions" domainObjectName="RolesPermissions"></table>-->
         <!--<table tableName="report" domainObjectName="Report"></table>-->
         <!--<table tableName="verify_code" domainObjectName="Verify_code"></table>-->
         <!--<table tableName="account" domainObjectName="Account"></table>-->

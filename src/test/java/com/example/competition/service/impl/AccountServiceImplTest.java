@@ -1,6 +1,7 @@
 package com.example.competition.service.impl;
 
 import com.example.competition.dao.entity.Account;
+import com.example.competition.dao.entity.Users;
 import com.example.competition.service.AccountService;
 import org.junit.Assert;
 import org.junit.Test;
@@ -20,6 +21,7 @@ import static org.junit.Assert.*;
 public class AccountServiceImplTest {
     @Autowired
     private AccountService accountService;
+
 
     @Test
     public void updatePassword() {
@@ -41,5 +43,14 @@ public class AccountServiceImplTest {
         account.setAccountPassword("456");
         Account result=accountService.verifyAccount(account);
         Assert.assertNotNull(result);
+    }
+
+    @Test
+    public void findOne(){
+        Users user=new Users();
+//        user.setId(new Long(1));
+        user.setUsername("root");
+//        user.setStatus(0);
+        System.out.println(accountService.findOne(user).toString());
     }
 }

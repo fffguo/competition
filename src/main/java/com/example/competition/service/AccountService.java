@@ -1,6 +1,7 @@
 package com.example.competition.service;
 
 import com.example.competition.dao.entity.Account;
+import com.example.competition.dao.entity.Users;
 import org.springframework.stereotype.Service;
 
 /**
@@ -18,6 +19,11 @@ public interface AccountService {
 
     /** 创建账号 */
     Account createAccount(Account account);
+
+    /** 查询账号信息 */
+    Account findOne(Account account);
+
+    Users findOne(Users user);
 
 
 }

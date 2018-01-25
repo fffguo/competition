@@ -15,6 +15,8 @@ public enum ErrorEnum {
     ACCOUNT_NOT_EXIST(10,"账号不存在"),
     ACCOUNT_UPDATE_FAIL(11,"账号更新失败"),
     ACCOUNT_PASSWORD_ERROR(12,"账号密码错误"),
+
+    USERNAME_PASSWORD_NOT_NULL(20,"用户名密码不能为空"),
     ;
     private Integer code;
     private String message;
