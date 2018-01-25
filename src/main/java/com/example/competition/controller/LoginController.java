@@ -10,14 +10,24 @@ import com.example.competition.utils.StringUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.shiro.crypto.SecureRandomNumberGenerator;
 import org.apache.shiro.crypto.hash.Md5Hash;
+import org.apache.shiro.session.Session;
+import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.util.StringUtils;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.security.SecureRandom;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * @作者：刘富国
@@ -29,8 +39,9 @@ public class LoginController {
     @Autowired
     private AccountServiceImpl accountService;
 
+    /** 登录 */
     @PostMapping("/login")
-    public String login(HttpServletRequest request, HttpServletResponse response){
+    public String login(HttpServletRequest request){
         String username=request.getParameter("username");
         String password=request.getParameter("password");
         if(StringUtils.isEmpty(username)||StringUtils.isEmpty(password)){
@@ -46,12 +57,26 @@ public class LoginController {
         }
         String salt=accountService.findOne(user).getPasswordSalt();
         password=new Md5Hash(username+password,salt,2).toBase64();
-        System.out.println(password);
-        ShiroUtil.login(username,password);
-        System.out.println(ShiroUtil.getSubject().isAuthenticated());
+        Subject subject=ShiroUtil.login(username,password);
+        request.getSession().setAttribute("user",subject.getSession());
         return "redirect:/index.html";
     }
 
+    /** 是否已经登录*/
+    @GetMapping("/isAuthenticated")
+    @ResponseBody
+    public boolean isAuthenticated(HttpServletRequest request){
+        return request.getSession().getAttribute("user")==null?false:true;
+    }
 
+    @GetMapping("/logout")
+    public void logout(HttpServletRequest request){
+        request.getSession().removeAttribute("user");
+    }
 
+    @RequestMapping("test")
+    public String test(Map<String,Object> map){
+        map.put("hello","from TemplateController.helloHtml");
+        return"/test";
+    }
 }

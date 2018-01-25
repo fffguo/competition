@@ -10,7 +10,6 @@ import javax.servlet.http.HttpServletRequest;
  * @作者：刘富国
  * @创建时间：2018/1/18 10:22
  */
-@Data
 public class CompetitionException extends RuntimeException {
     private Integer code;
 
@@ -23,4 +22,10 @@ public class CompetitionException extends RuntimeException {
         super(message);
         this.code = code;
     }
+
+    public Integer getCode() {
+        return code;
+    }
+
+
 }

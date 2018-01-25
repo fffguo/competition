@@ -1,5 +1,7 @@
 ﻿<!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
+      xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
 
 <head>
     <meta charset="utf-8"/>
@@ -138,9 +140,29 @@
             <li><a class="dropdown-button waves-effect waves-dark" href="#!" data-activates="dropdown2"><i
                     class="fa fa-bell fa-fw"></i> <i class="material-icons right">arrow_drop_down</i></a></li>
             <li><a class="dropdown-button waves-effect waves-dark" href="#!" data-toggle="modal"
-                   data-target="#loginModel"  onclick="hideIcon()" ><i
-                    class=" fa fa-power-off fa-fw" ></i>&nbsp;&nbsp;登录 &nbsp; </a>
+                   data-target="#loginModel"  onclick="hideIcon()" ><i class=" fa fa-power-off fa-fw" ></i>&nbsp;&nbsp;登录 &nbsp; </a>
             </li>
+            <p shiro:notAuthenticated="true">
+            <li><a class="dropdown-button waves-effect waves-dark" href="#!" data-toggle="modal"
+                   data-target="#loginModel"  ><i class=" fa fa-power-off fa-fw" ></i>not </a>
+            </li>
+            </p>
+            <p shiro:authenticated="true">
+            <li><a class="dropdown-button waves-effect waves-dark" href="#!" data-toggle="modal"
+                   data-target="#loginModel"  ><i class=" fa fa-power-off fa-fw" ></i>yes </a>
+            </li>
+            </p>
+            <shiro:authenticated>
+                <li><a class="dropdown-button waves-effect waves-dark" href="#!" data-toggle="modal"
+                       data-target="#loginModel"  ><i class=" fa fa-power-off fa-fw" ></i>not2 </a>
+                </li>
+            </shiro:authenticated>
+            <shiro:notAuthenticated>
+                <li><a class="dropdown-button waves-effect waves-dark" href="#!" data-toggle="modal"
+                       data-target="#loginModel"  ><i class=" fa fa-power-off fa-fw" ></i>yes2</a>
+                </li>
+            </shiro:notAuthenticated>
+
         </ul>
     </nav>
     <!-- Dropdown Structure -->
@@ -166,8 +188,8 @@
     <ul id="dropdown2" class="dropdown-content w250">
         <li>
             <a href="#">
-                <div>
-                    <i class="fa fa-comment fa-fw"></i> New Comment
+                <div onclick="test()">
+                    <i class="fa fa-comment fa-fw"></i> 测试按钮
                     <span class="pull-right text-muted small">4 min</span>
                 </div>
             </a>

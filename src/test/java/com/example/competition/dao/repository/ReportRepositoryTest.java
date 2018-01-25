@@ -36,8 +36,8 @@ public class ReportRepositoryTest {
         report.setTeacherName("Wwwww");
         report.setTeacherPhone("wwaa");
         report.setTeacherQq("qqq");
-        Report result=repository.save(report);
-        System.out.println(result);
+//        Report result=repository.save(report);
+//        System.out.println(result);
     }
 
 }

@@ -22,14 +22,18 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
+        <!--###############################################################################-->
+        <thymeleaf.version>3.0.3.RELEASE</thymeleaf.version>
+        <thymeleaf-layout-dialect.version>2.2.1</thymeleaf-layout-dialect.version>
+        <!--###############################################################################-->
     </properties>
 
     <dependencies>
         <!-- web -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
+        <!--<dependency>-->
+            <!--<groupId>org.springframework.boot</groupId>-->
+            <!--<artifactId>spring-boot-starter-web</artifactId>-->
+        <!--</dependency>-->
         <!-- test -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -70,6 +74,21 @@
             <artifactId>druid</artifactId>
             <version>0.2.23</version>
         </dependency>
+        <!--加入thymeleaf-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-thymeleaf</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>nz.net.ultraq.thymeleaf</groupId>
+            <artifactId>thymeleaf-layout-dialect</artifactId>
+        </dependency>
+        <!--thymeleaf支持shiro标签-->
+        <!--<dependency>-->
+            <!--<groupId>com.github.theborakompanioni</groupId>-->
+            <!--<artifactId>thymeleaf-extras-shiro</artifactId>-->
+            <!--<version>1.2.1</version>-->
+        <!--</dependency>-->
 
         <!--<dependency>-->
         <!--<groupId>org.mybatis</groupId>-->
@@ -104,11 +123,11 @@
             <artifactId>junit-jupiter-api</artifactId>
             <version>RELEASE</version>
         </dependency>
-        <dependency>
-            <groupId>com.fasterxml.jackson.core</groupId>
-            <artifactId>jackson-core</artifactId>
-            <version>2.7.3</version>
-        </dependency>
+        <!--<dependency>-->
+            <!--<groupId>com.fasterxml.jackson.core</groupId>-->
+            <!--<artifactId>jackson-core</artifactId>-->
+            <!--<version>2.7.3</version>-->
+        <!--</dependency>-->
 
     </dependencies>
 

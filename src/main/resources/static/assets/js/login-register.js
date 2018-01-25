@@ -7,8 +7,21 @@ var loginVerify2=false;
 // var registerVerify3=false;
 var tip="";
 
+//是否已经登录
+function isAuthenticated() {
+    $.ajax({
+        url:projectName+"/isAuthenticated",
+        data:"",
+        type:"get",
+        dataType:"json",
+        success:function (data) {
+           return data;
+        },
+    })
+}
+
 $(document).ready(function () {
-    var account=$.session.get("account");
+
 });
 
 //隐藏提示小图
@@ -50,15 +63,6 @@ function login() {
         alert(tip);
     } else {
         $("#loginForm").submit();
-        // var loginName=$("#loginOne").val().trim();
-        // var password=$("#loginTwo").val().trim();
-        // $.ajax({
-        //     async:false,
-        //     type:"post",
-        //     url:projectName+"/account/login",
-        //     data:"loginName="+loginName+"&password="+password,
-        //     dataType:"json",
-        // });
     }
 }
 
