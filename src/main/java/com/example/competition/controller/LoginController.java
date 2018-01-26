@@ -60,12 +60,12 @@ private ShiroUtil shiroUtil;
 
     @RequestMapping("index.html")
     public String test(Map<String, Object> map) {
-        Subject subject = SecurityUtils.getSubject();
-        try {
-            subject.login(shiroUtil.getToken("root","123456",true));
-        } catch (AuthenticationException e) {
-            e.printStackTrace();
-        }
+//        Subject subject = SecurityUtils.getSubject();
+//        try {
+//            subject.login(shiroUtil.getToken("root","123456",true));
+//        } catch (AuthenticationException e) {
+//            e.printStackTrace();
+//        }
         map.put("hello", "from TemplateController.helloHtml");
         return "/index.html";
     }
