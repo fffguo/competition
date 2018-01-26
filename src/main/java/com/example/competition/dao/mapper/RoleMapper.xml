@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.example.competition.dao.mapper.RolesPermissionsMapper">
-  <resultMap id="BaseResultMap" type="com.example.competition.dao.model.RolesPermissions">
-    <id column="id" jdbcType="INTEGER" property="id" />
+<mapper namespace="com.example.competition.dao.mapper.RoleMapper">
+  <resultMap id="BaseResultMap" type="com.example.competition.dao.model.Role">
+    <id column="role_id" jdbcType="INTEGER" property="roleId" />
     <result column="role_name" jdbcType="VARCHAR" property="roleName" />
-    <result column="permission" jdbcType="VARCHAR" property="permission" />
-    <result column="status" jdbcType="INTEGER" property="status" />
+    <result column="role_status" jdbcType="INTEGER" property="roleStatus" />
     <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
     <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
   </resultMap>
@@ -68,15 +67,15 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, role_name, permission, status, create_time, update_time
+    role_id, role_name, role_status, create_time, update_time
   </sql>
-  <select id="selectByExample" parameterType="com.example.competition.dao.model.RolesPermissionsExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.example.competition.dao.model.RoleExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
     </if>
     <include refid="Base_Column_List" />
-    from roles_permissions
+    from role
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
@@ -87,41 +86,36 @@
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
-    from roles_permissions
-    where id = #{id,jdbcType=INTEGER}
+    from role
+    where role_id = #{roleId,jdbcType=INTEGER}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from roles_permissions
-    where id = #{id,jdbcType=INTEGER}
+    delete from role
+    where role_id = #{roleId,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="com.example.competition.dao.model.RolesPermissionsExample">
-    delete from roles_permissions
+  <delete id="deleteByExample" parameterType="com.example.competition.dao.model.RoleExample">
+    delete from role
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.example.competition.dao.model.RolesPermissions">
-    insert into roles_permissions (id, role_name, permission, 
-      status, create_time, update_time
-      )
-    values (#{id,jdbcType=INTEGER}, #{roleName,jdbcType=VARCHAR}, #{permission,jdbcType=VARCHAR}, 
-      #{status,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}
-      )
+  <insert id="insert" parameterType="com.example.competition.dao.model.Role">
+    insert into role (role_id, role_name, role_status, 
+      create_time, update_time)
+    values (#{roleId,jdbcType=INTEGER}, #{roleName,jdbcType=VARCHAR}, #{roleStatus,jdbcType=INTEGER}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP})
   </insert>
-  <insert id="insertSelective" parameterType="com.example.competition.dao.model.RolesPermissions">
-    insert into roles_permissions
+  <insert id="insertSelective" parameterType="com.example.competition.dao.model.Role">
+    insert into role
     <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="id != null">
-        id,
+      <if test="roleId != null">
+        role_id,
       </if>
       <if test="roleName != null">
         role_name,
       </if>
-      <if test="permission != null">
-        permission,
-      </if>
-      <if test="status != null">
-        status,
+      <if test="roleStatus != null">
+        role_status,
       </if>
       <if test="createTime != null">
         create_time,
@@ -131,17 +125,14 @@
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="id != null">
-        #{id,jdbcType=INTEGER},
+      <if test="roleId != null">
+        #{roleId,jdbcType=INTEGER},
       </if>
       <if test="roleName != null">
         #{roleName,jdbcType=VARCHAR},
       </if>
-      <if test="permission != null">
-        #{permission,jdbcType=VARCHAR},
-      </if>
-      <if test="status != null">
-        #{status,jdbcType=INTEGER},
+      <if test="roleStatus != null">
+        #{roleStatus,jdbcType=INTEGER},
       </if>
       <if test="createTime != null">
         #{createTime,jdbcType=TIMESTAMP},
@@ -151,26 +142,23 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.example.competition.dao.model.RolesPermissionsExample" resultType="java.lang.Long">
-    select count(*) from roles_permissions
+  <select id="countByExample" parameterType="com.example.competition.dao.model.RoleExample" resultType="java.lang.Long">
+    select count(*) from role
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </select>
   <update id="updateByExampleSelective" parameterType="map">
-    update roles_permissions
+    update role
     <set>
-      <if test="record.id != null">
-        id = #{record.id,jdbcType=INTEGER},
+      <if test="record.roleId != null">
+        role_id = #{record.roleId,jdbcType=INTEGER},
       </if>
       <if test="record.roleName != null">
         role_name = #{record.roleName,jdbcType=VARCHAR},
       </if>
-      <if test="record.permission != null">
-        permission = #{record.permission,jdbcType=VARCHAR},
-      </if>
-      <if test="record.status != null">
-        status = #{record.status,jdbcType=INTEGER},
+      <if test="record.roleStatus != null">
+        role_status = #{record.roleStatus,jdbcType=INTEGER},
       </if>
       <if test="record.createTime != null">
         create_time = #{record.createTime,jdbcType=TIMESTAMP},
@@ -184,28 +172,24 @@
     </if>
   </update>
   <update id="updateByExample" parameterType="map">
-    update roles_permissions
-    set id = #{record.id,jdbcType=INTEGER},
+    update role
+    set role_id = #{record.roleId,jdbcType=INTEGER},
       role_name = #{record.roleName,jdbcType=VARCHAR},
-      permission = #{record.permission,jdbcType=VARCHAR},
-      status = #{record.status,jdbcType=INTEGER},
+      role_status = #{record.roleStatus,jdbcType=INTEGER},
       create_time = #{record.createTime,jdbcType=TIMESTAMP},
       update_time = #{record.updateTime,jdbcType=TIMESTAMP}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.example.competition.dao.model.RolesPermissions">
-    update roles_permissions
+  <update id="updateByPrimaryKeySelective" parameterType="com.example.competition.dao.model.Role">
+    update role
     <set>
       <if test="roleName != null">
         role_name = #{roleName,jdbcType=VARCHAR},
       </if>
-      <if test="permission != null">
-        permission = #{permission,jdbcType=VARCHAR},
-      </if>
-      <if test="status != null">
-        status = #{status,jdbcType=INTEGER},
+      <if test="roleStatus != null">
+        role_status = #{roleStatus,jdbcType=INTEGER},
       </if>
       <if test="createTime != null">
         create_time = #{createTime,jdbcType=TIMESTAMP},
@@ -214,15 +198,14 @@
         update_time = #{updateTime,jdbcType=TIMESTAMP},
       </if>
     </set>
-    where id = #{id,jdbcType=INTEGER}
+    where role_id = #{roleId,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.example.competition.dao.model.RolesPermissions">
-    update roles_permissions
+  <update id="updateByPrimaryKey" parameterType="com.example.competition.dao.model.Role">
+    update role
     set role_name = #{roleName,jdbcType=VARCHAR},
-      permission = #{permission,jdbcType=VARCHAR},
-      status = #{status,jdbcType=INTEGER},
+      role_status = #{roleStatus,jdbcType=INTEGER},
       create_time = #{createTime,jdbcType=TIMESTAMP},
       update_time = #{updateTime,jdbcType=TIMESTAMP}
-    where id = #{id,jdbcType=INTEGER}
+    where role_id = #{roleId,jdbcType=INTEGER}
   </update>
 </mapper>

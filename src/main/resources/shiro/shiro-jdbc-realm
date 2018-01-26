@@ -1,11 +1,11 @@
-[main]
-#自定义realm 一定要放在securityManager.authorizer赋值之后（因为调用setRealms会将realms设置给authorizer，并给各个Realm设置permissionResolver和rolePermissionResolver）
-jdbcRealm=org.apache.shiro.realm.jdbc.JdbcRealm
-dataSource=com.alibaba.druid.pool.DruidDataSource
-dataSource.driverClassName=com.mysql.jdbc.Driver
-dataSource.url=jdbc:mysql://47.95.231.218:3306/competition?characterEncoding=utf-8&useSSL=false
-dataSource.username=root
-dataSource.password=Hu123321..
-jdbcRealm.dataSource=$dataSource
-jdbcRealm.permissionsLookupEnabled=true
-securityManager.realms=$jdbcRealm
+;[main]
+;#自定义realm 一定要放在securityManager.authorizer赋值之后（因为调用setRealms会将realms设置给authorizer，并给各个Realm设置permissionResolver和rolePermissionResolver）
+;jdbcRealm=org.apache.shiro.realm.jdbc.JdbcRealm
+;dataSource=com.alibaba.druid.pool.DruidDataSource
+;dataSource.driverClassName=com.mysql.jdbc.Driver
+;dataSource.url=jdbc:mysql://47.95.231.218:3306/competition?characterEncoding=utf-8&useSSL=false
+;dataSource.username=root
+;dataSource.password=Hu123321..
+;jdbcRealm.dataSource=$dataSource
+;jdbcRealm.permissionsLookupEnabled=true
+;securityManager.realms=$jdbcRealm

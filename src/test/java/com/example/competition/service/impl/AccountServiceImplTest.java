@@ -1,16 +1,13 @@
 package com.example.competition.service.impl;
 
 import com.example.competition.dao.entity.Account;
-import com.example.competition.dao.entity.Users;
+import com.example.competition.dao.entity.User;
 import com.example.competition.service.AccountService;
-import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
-
-import static org.junit.Assert.*;
 
 /**
  * @作者：刘富国
@@ -47,7 +44,7 @@ public class AccountServiceImplTest {
 
     @Test
     public void findOne(){
-        Users user=new Users();
+        User user=new User();
 //        user.setId(new Long(1));
         user.setUsername("root");
 //        user.setStatus(0);

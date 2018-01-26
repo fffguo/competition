@@ -1,7 +1,7 @@
 package com.example.competition.service;
 
 import com.example.competition.dao.entity.Account;
-import com.example.competition.dao.entity.Users;
+import com.example.competition.dao.entity.User;
 import org.springframework.stereotype.Service;
 
 /**
@@ -23,7 +23,8 @@ public interface AccountService {
     /** 查询账号信息 */
     Account findOne(Account account);
 
-    Users findOne(Users user);
+    /** 查询查询用户信息 */
+    User findOne(User user);
 
 
 }

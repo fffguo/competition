@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button shiro:hasPermission="sys:user:add" type="button" class="btn  btn-primary" onclick="add()">
+    <i class="fa fa-plus" aria-hidden="true"></i>添加
+</button>
+<p shiro:authenticated="">
+    Hello, <span shiro:principal=""></span>, how are you today?
+</p>
+<p shiro:notAuthenticated="">
+    Hello, how are you today?
+</p>
+<p shiro:notAuthenticated="true">
+<li><a class="dropdown-button waves-effect waves-dark" href="#!" data-toggle="modal"
+       data-target="#loginModel"  ><i class=" fa fa-power-off fa-fw" ></i>not </a>
+</li>
+</p>
+<p shiro:authenticated="true">
+<li><a class="dropdown-button waves-effect waves-dark" href="#!" data-toggle="modal"
+       data-target="#loginModel"  ><i class=" fa fa-power-off fa-fw" ></i>yes </a>
+</li>
+</p>
+<shiro:authenticated>
+    <li><a class="dropdown-button waves-effect waves-dark" href="#!" data-toggle="modal"
+           data-target="#loginModel"  ><i class=" fa fa-power-off fa-fw" ></i>not2 </a>
+    </li>
+</shiro:authenticated>
+<shiro:notAuthenticated>
+    <li><a class="dropdown-button waves-effect waves-dark" href="#!" data-toggle="modal"
+           data-target="#loginModel"  ><i class=" fa fa-power-off fa-fw" ></i>yes2</a>
+    </li>
+</shiro:notAuthenticated>
+</body>
+</html>

@@ -1,32 +1,20 @@
 package com.example.competition.controller;
 
-import com.example.competition.dao.entity.Account;
-import com.example.competition.dao.entity.Users;
+import com.example.competition.dao.entity.User;
 import com.example.competition.enums.ErrorEnum;
 import com.example.competition.exception.CompetitionException;
 import com.example.competition.service.impl.AccountServiceImpl;
 import com.example.competition.utils.ShiroUtil;
-import com.example.competition.utils.StringUtil;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.shiro.crypto.SecureRandomNumberGenerator;
-import org.apache.shiro.crypto.hash.Md5Hash;
-import org.apache.shiro.session.Session;
+import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.ui.ModelMap;
 import org.springframework.util.StringUtils;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import java.security.SecureRandom;
-import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -38,45 +26,47 @@ import java.util.Map;
 public class LoginController {
     @Autowired
     private AccountServiceImpl accountService;
-
-    /** 登录 */
+@Autowired
+private ShiroUtil shiroUtil;
+    /**
+     * 登录
+     */
     @PostMapping("/login")
-    public String login(HttpServletRequest request){
-        String username=request.getParameter("username");
-        String password=request.getParameter("password");
-        if(StringUtils.isEmpty(username)||StringUtils.isEmpty(password)){
-            log.error("【登录】用户名密码不能为空，username={}，password={}",username,password);
-            throw new CompetitionException(ErrorEnum.USERNAME_PASSWORD_NOT_NULL);
+    public String login(@RequestParam(value = "username") String username,
+                        @RequestParam(value = "password") String password,
+                        @RequestParam(value = "rememberMe", defaultValue = "false") boolean rememberMe) {
+        Subject subject = SecurityUtils.getSubject();
+        try {
+            subject.login(shiroUtil.getToken(username,password,rememberMe));
+        } catch (AuthenticationException e) {
+            e.printStackTrace();
         }
-        Users user=new Users();
-        user.setUsername(username);
-        user=accountService.findOne(user);
-        if(user==null){
-            log.error("【登录】账号不存在，username={}",username);
-            throw new CompetitionException(ErrorEnum.ACCOUNT_NOT_EXIST);
-        }
-        String salt=accountService.findOne(user).getPasswordSalt();
-        password=new Md5Hash(username+password,salt,2).toBase64();
-        Subject subject=ShiroUtil.login(username,password);
-        request.getSession().setAttribute("user",subject.getSession());
         return "redirect:/index.html";
     }
 
-    /** 是否已经登录*/
+    /**
+     * 是否已经登录
+     */
     @GetMapping("/isAuthenticated")
     @ResponseBody
-    public boolean isAuthenticated(HttpServletRequest request){
-        return request.getSession().getAttribute("user")==null?false:true;
+    public boolean isAuthenticated(HttpServletRequest request) {
+        return request.getSession().getAttribute("user") == null ? false : true;
     }
 
     @GetMapping("/logout")
-    public void logout(HttpServletRequest request){
+    public void logout(HttpServletRequest request) {
         request.getSession().removeAttribute("user");
     }
 
-    @RequestMapping("test")
-    public String test(Map<String,Object> map){
-        map.put("hello","from TemplateController.helloHtml");
-        return"/test";
+    @RequestMapping("index.html")
+    public String test(Map<String, Object> map) {
+        Subject subject = SecurityUtils.getSubject();
+        try {
+            subject.login(shiroUtil.getToken("root","123456",true));
+        } catch (AuthenticationException e) {
+            e.printStackTrace();
+        }
+        map.put("hello", "from TemplateController.helloHtml");
+        return "/index.html";
     }
 }

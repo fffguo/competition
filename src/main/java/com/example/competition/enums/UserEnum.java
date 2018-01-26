@@ -4,20 +4,19 @@ import lombok.Getter;
 
 /**
  * @作者：刘富国
- * @创建时间：2018/1/18 15:12
+ * @创建时间：2018/1/26 10:36
  */
 @Getter
-public enum AccountStatusEnum {
+public enum UserEnum {
     NORMAL(1, "正常"),
-    NOT_ACTIVATE(0, "未激活"),
+    NEED_RESET_PASSWORD(0, "需要重置密码"),
     DELETE(2, "已删除"),
     ;
     private Integer code;
     private String message;
 
-    AccountStatusEnum(Integer code, String message) {
+    UserEnum(Integer code, String message) {
         this.code = code;
         this.message = message;
     }
-
 }

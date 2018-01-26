@@ -1,5 +1,6 @@
 package com.example.competition.dao.entity;
 
+import com.example.competition.enums.UserEnum;
 import lombok.Data;
 import org.hibernate.annotations.DynamicUpdate;
 
@@ -15,12 +16,12 @@ import java.util.Date;
 @Data
 @Entity
 @DynamicUpdate
-public class Users {
+public class User {
     @Id
     @GeneratedValue
-    private Long id;
+    private Long userId;
 
-    private Integer status;
+    private Integer userStatus;
 
     private String username;
 
