@@ -30,7 +30,9 @@
             <li><a class="dropdown-button waves-effect waves-dark" href="#!" data-activates="dropdown2"><i
                     class="fa fa-bell fa-fw"></i> <i class="material-icons right">arrow_drop_down</i></a></li>
             <li><a class="dropdown-button waves-effect waves-dark" href="#!" data-activates="dropdown1"><i
-                    class="fa fa-user fa-fw"></i> <i class="material-icons right">arrow_drop_down</i></a></li>
+                    class="fa fa-user fa-fw"></i><span shiro:authenticated="">&nbsp;欢迎您，<span shiro:principal=""></span></span>
+                <span shiro:notAuthenticated="">&nbsp;请登录<span shiro:principal=""></span></span><i
+                        class="material-icons right">arrow_drop_down</i></a></li>
 
         </ul>
     </nav>
@@ -220,51 +222,51 @@
         <div class="sidebar-collapse">
             <ul class="nav" id="main-menu">
                 <li>
-                    <a class="active-menu waves-effect waves-dark" href="index.html"><i class="fa fa-dashboard"></i>信息公示</a>
+                    <a  href="index.html" class="active-menu waves-effect waves-dark menu-br"><i class="fa fa-dashboard"></i>主页</a>
                 </li>
                 <li>
-                    <a href="ui-elements.html" class="waves-effect waves-dark"><i class="fa fa-desktop"></i> UI Elements</a>
+                    <a href="ui-elements.html" class="waves-effect waves-dark menu-br"><i class="fa fa-desktop"></i>不可用</a>
                 </li>
                 <li>
-                    <a href="chart.html" class="waves-effect waves-dark"><i class="fa fa-bar-chart-o"></i> Charts</a>
+                    <a href="chart.html" class="waves-effect waves-dark menu-br"><i class="fa fa-bar-chart-o"></i> 不可用</a>
                 </li>
                 <li>
-                    <a href="tab-panel.html" class="waves-effect waves-dark"><i class="fa fa-qrcode"></i> Tabs & Panels</a>
+                    <a href="tab-panel.html" class="waves-effect waves-dark menu-br"><i class="fa fa-qrcode"></i> 不可用</a>
                 </li>
                 <li>
-                    <a th:href="@{/table.html}" class="waves-effect waves-dark"><i class="fa fa-table"></i>报名审批</a>
+                    <a th:href="table.html" class="waves-effect waves-dark menu-br"><i class="fa fa-table"></i>报名表</a>
                 </li>
                 <li>
-                    <a href="form.html" class="waves-effect waves-dark"><i class="fa fa-edit"></i> Forms </a>
+                    <a href="form.html" class="waves-effect waves-dark menu-br"><i class="fa fa-edit"></i> 不可用 </a>
                 </li>
                 <li>
-                    <a href="#" class="waves-effect waves-dark"><i class="fa fa-sitemap"></i> Multi-Level Dropdown<span
+                    <a href="#" class="waves-effect waves-dark menu-br"><i class="fa fa-sitemap"></i> 不可用<span
                             class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
                         <li>
-                            <a href="#">Second Level Link</a>
+                            <a href="#">不可用</a>
                         </li>
                         <li>
-                            <a href="#">Second Level Link</a>
+                            <a href="#">不可用</a>
                         </li>
                         <li>
-                            <a href="#">Second Level Link<span class="fa arrow"></span></a>
+                            <a href="#">不可用<span class="fa arrow"></span></a>
                             <ul class="nav nav-third-level">
                                 <li>
-                                    <a href="#">Third Level Link</a>
+                                    <a href="#">不可用</a>
                                 </li>
                                 <li>
-                                    <a href="#">Third Level Link</a>
+                                    <a href="#">不可用</a>
                                 </li>
                                 <li>
-                                    <a href="#">Third Level Link</a>
+                                    <a href="#">不可用</a>
                                 </li>
                             </ul>
                         </li>
                     </ul>
                 </li>
                 <li>
-                    <a href="empty.html" class="waves-effect waves-dark"><i class="fa fa-fw fa-file"></i> Empty Page</a>
+                    <a href="empty.html" class="waves-effect waves-dark menu-br"><i class="fa fa-fw fa-file"></i> 不可用</a>
                 </li>
             </ul>
         </div>

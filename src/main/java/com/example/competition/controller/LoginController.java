@@ -39,7 +39,7 @@ public class LoginController {
         } catch (AuthenticationException e) {
             e.printStackTrace();
         }
-        return "redirect:/index.html";
+        return "index";
     }
 
 
@@ -47,7 +47,7 @@ public class LoginController {
     @GetMapping("/logout")
     public String logout() {
         SecurityUtils.getSubject().logout();
-        return "redirect:/index.html";
+        return "index";
     }
 
 
