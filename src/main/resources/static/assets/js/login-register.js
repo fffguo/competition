@@ -7,30 +7,14 @@ var loginVerify2=false;
 // var registerVerify3=false;
 var tip="";
 
-//是否已经登录
-function isAuthenticated() {
-    $.ajax({
-        url:projectName+"/isAuthenticated",
-        data:"",
-        type:"get",
-        dataType:"json",
-        success:function (data) {
-           return data;
-        },
-    })
-}
 
 $(document).ready(function () {
-
+    // $("#logout").attr("href",projectName+"/logout");
 });
 
 //隐藏提示小图
 function hideIcon() {
     $(".icon").hide();
-}
-
-function login() {
-    
 }
 
 //登录，验证loginName

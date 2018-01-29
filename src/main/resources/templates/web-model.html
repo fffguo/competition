@@ -34,18 +34,15 @@
 
         </ul>
     </nav>
-    <!-- 登录 -->
-    <ul id="dropdown1" class="dropdown-content" shiro:notAuthenticated="">
-        <li><a class="dropdown-button waves-effect waves-dark" href="#!" data-toggle="modal"
-               data-target="#loginModel" onclick="hideIcon()"><i class=" fa fa-power-off fa-fw"></i>&nbsp;登录 </a>
+    <ul id="dropdown1" class="dropdown-content">
+        <li shiro:notAuthenticated=""><a class="dropdown-button waves-effect waves-dark" href="#!" data-toggle="modal"
+                                         data-target="#loginModel" onclick="hideIcon()"><i
+                class=" fa fa-power-off fa-fw"></i>&nbsp;登录 </a>
         </li>
-    </ul>
-    <!--注销-->
-    <ul id="dropdown1" class="dropdown-content" shiro:authenticated="">
-        <li><a class="dropdown-button waves-effect waves-dark" href="#!" data-toggle="modal"
-               data-target="#loginModel" onclick="hideIcon()"><i class=" fa fa-power-off fa-fw"></i>&nbsp;注销 </a>
+        <li shiro:authenticated=""><a id="logout" class="dropdown-button waves-effect waves-dark" href="logout"><i
+                class=" fa fa-power-off fa-fw"></i>&nbsp;注销 </a>
         </li>
-        <li><a href="#"><i class="fa fa-user fa-fw"></i>个人信息</a>
+        <li shiro:authenticated=""><a href="#"><i class="fa fa-user fa-fw"></i>个人信息</a>
         </li>
     </ul>
     <ul id="dropdown2" class="dropdown-content w250">
@@ -223,8 +220,7 @@
         <div class="sidebar-collapse">
             <ul class="nav" id="main-menu">
                 <li>
-                    <a class="active-menu waves-effect waves-dark" href="index.html"><i class="fa fa-dashboard"></i>
-                        信息公示</a>
+                    <a class="active-menu waves-effect waves-dark" href="index.html"><i class="fa fa-dashboard"></i>信息公示</a>
                 </li>
                 <li>
                     <a href="ui-elements.html" class="waves-effect waves-dark"><i class="fa fa-desktop"></i> UI Elements</a>

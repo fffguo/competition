@@ -2,11 +2,15 @@ package com.example.competition.shiro;
 
 import at.pollux.thymeleaf.shiro.dialect.ShiroDialect;
 import org.apache.shiro.authc.credential.HashedCredentialsMatcher;
+import org.apache.shiro.codec.Base64;
+import org.apache.shiro.mgt.RememberMeManager;
 import org.apache.shiro.spring.LifecycleBeanPostProcessor;
 import org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor;
 import org.apache.shiro.spring.web.ShiroFilterFactoryBean;
 import org.apache.shiro.web.filter.authc.LogoutFilter;
+import org.apache.shiro.web.mgt.CookieRememberMeManager;
 import org.apache.shiro.web.mgt.DefaultWebSecurityManager;
+import org.apache.shiro.web.servlet.SimpleCookie;
 import org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.context.annotation.Bean;
@@ -79,6 +83,7 @@ public class ShiroConfiguration {
     public DefaultWebSecurityManager securityManager() {
         DefaultWebSecurityManager securityManager = new DefaultWebSecurityManager();
         securityManager.setRealm(shiroRealm());
+        securityManager.setRememberMeManager(rememberMeManager());
 //        securityManager.setCacheManager(ehCacheManager());
         return securityManager;
     }
@@ -99,7 +104,7 @@ public class ShiroConfiguration {
         shiroFilterFactoryBean.setFilters(filters);
 
         Map<String, String> filterChainDefinitionManager = new LinkedHashMap<String, String>();
-        filterChainDefinitionManager.put("/logout", "logout");
+//        filterChainDefinitionManager.put("/logout", "logout");
         filterChainDefinitionManager.put("/user/**", "authc,roles[ROLE_USER]");
         filterChainDefinitionManager.put("/events/**", "authc,roles[ROLE_ADMIN]");
 //        filterChainDefinitionManager.put("/user/edit/**", "authc,perms[user:edit]");// 这里为了测试，固定写死的值，也可以从数据库或其他配置中读取
@@ -139,5 +144,27 @@ public class ShiroConfiguration {
         return new ShiroDialect();
     }
 
+    /**
+     * 配置cookies
+     */
+    @Bean(name = "rememberMeCookie")
+    public SimpleCookie rememberMeCookie(){
+        SimpleCookie simpleCookie=new SimpleCookie();
+        simpleCookie.setName("user");
+        simpleCookie.setHttpOnly(true);
+        simpleCookie.setMaxAge(60*60*24*7);//七天免登陆
+        return simpleCookie;
+    }
+
+    /**
+     * 记住我管理器
+     */
+    @Bean(name = "rememberMeManager")
+    public CookieRememberMeManager rememberMeManager(){
+        CookieRememberMeManager cookieRememberMeManager=new CookieRememberMeManager();
+        cookieRememberMeManager.setCookie(rememberMeCookie());
+        cookieRememberMeManager.setCipherKey(Base64.decode("4AvVhmFLUs0KTA3Kprsdag=="));
+        return cookieRememberMeManager;
+    }
 
 }
