@@ -7,6 +7,105 @@
 </head>
 <body>
 <div th:fragment="top" th:remove="tag">
+
+    <!--TODO loginModel-->
+    <div class="modal fade" id="loginModel" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog" style="width: 288px;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel" style="text-align: center;font-size: 28px">登录</h4>
+                </div>
+                <div class="modal-body">
+                    <form class="bs-example bs-example-form" role="form" id="loginForm"  th:action="@{/login}" method="post">
+                        <div class="input-group" style="margin-bottom: 24px ;" id="loginLoginName">
+                    <span class="input-group-addon">
+                         <img th:src="@{/assets/img/account.png}" alt="账号" style="width: 22px" height="22px">
+                    </span>
+                            <input type="text" name="username" class="form-control" placeholder="请输入学号：" id="loginOne"
+                                   onblur="loginVerifyLoginName()">
+                            <span class="input-group-addon icon" id="loginIcon1">
+                            <img th:src="@{/assets/img/errorIcon.png}" style="width: 22px" height="22px">
+                        </span>
+                            </button>
+
+                        </div>
+                        <div class="input-group" style="margin-bottom: 24px;margin-top: 18px">
+                    <span class="input-group-addon">
+                        <img th:src="@{/assets/img/password.png}" alt="密码" style="width: 22px" height="24px">
+                    </span>
+                            <input type="password" name="password" class="form-control" placeholder="请输入密码：" id="loginTwo"
+                                   onblur="loginVerifyPassword()">
+                            <span class="input-group-addon icon" id="loginIcon2">
+                            <img th:src="@{/assets/img/errorIcon.png}" style="width: 22px" height="22px">
+                        </span>
+                        </div>
+                        <p style="padding-left: 14px;">
+                            <input type="checkbox" id="rememberMe" name="rememberMe" />
+                            <label for="rememberMe">记住我!</label>
+                        </p>
+                        <button type="button" class="btn btn-primary btn-block" style="margin-bottom: 20px"
+                                onclick="login()">现在登录
+                        </button>
+                    </form>
+                </div>
+                <!--<div class="modal-footer">-->
+                <!--&lt;!&ndash;<a href="javascript: showRegisterForm();">创建一个账号？</a>&ndash;&gt;-->
+                <!--<a href="javascript:(0);" data-target="#registerModel"  data-dismiss="modal" data-toggle="modal"  >创建一个账号？</a>-->
+                <!--</div>-->
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal -->
+    </div>
+
+    <!--TODO registerModel-->
+    <div class="modal fade login" id="registerModel" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog" style="width: 288px;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" style="text-align: center;font-size: 28px">注册</h4>
+                </div>
+                <div class="modal-body">
+                    <form class="bs-example bs-example-form" role="form">
+                        <div class="input-group" style="margin-bottom: 24px ;" id="registerLoginName">
+                    <span class="input-group-addon">
+                         <img th:src="@{/assets/img/account.png}" alt="账号" style="width: 22px" height="22px">
+                    </span>
+                            <input type="email" class="form-control" id="registerMail" onblur="verifyLoginName()"
+                                   placeholder="请输入邮箱：">
+                            <span class="input-group-addon icon" id="registerIcon1">
+                            <img th:src="@{/assets/img/errorIcon.png}" style="width: 22px" height="22px">
+                        </span>
+                        </div>
+                        <div class="input-group" style="margin-bottom: 24px;margin-top: 18px">
+                    <span class="input-group-addon">
+                        <img th:src="@{/assets/img/password.png}" alt="密码" style="width: 22px" height="22px">
+                    </span>
+                            <input type="password" class="form-control" placeholder="请输入密码：" id="registerPassword1"
+                                   onblur="verifyPassword1()">
+                            <span class="input-group-addon icon" id="registerIcon2">
+                            <img th:src="@{/assets/img/errorIcon.png}" style="width: 22px" height="22px">
+                        </span>
+                        </div>
+                        <div class="input-group" style="margin-bottom: 24px;margin-top: 18px">
+                    <span class="input-group-addon">
+                        <img th:src="@{/assets/img/password.png}" alt="重复密码" style="width: 22px" height="24px">
+                    </span>
+                            <input type="password" class="form-control" placeholder="请再次输入密码：" id="registerPassword2"
+                                   onblur="verifyPassword2()">
+                            <span class="input-group-addon icon" id="registerIcon3">
+                            <img th:src="@{/assets/img/errorIcon.png}" style="width: 22px" height="22px">
+                        </span>
+                        </div>
+                        <button type="button" class="btn btn-primary btn-block" style="margin-bottom: 20px"
+                                onclick="register()">开始注册
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <nav class="navbar navbar-default top-navbar" role="navigation">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle waves-effect waves-dark" data-toggle="collapse"
@@ -16,20 +115,20 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand waves-effect waves-dark" href="index.html"><i class="large material-icons">insert_chart</i>
+            <a class="navbar-brand waves-effect waves-teal" th:href="@{/index.html}"><i class="large material-icons">insert_chart</i>
                 <strong>云计算大赛</strong></a>
 
             <div id="sideNav" href=""><i class="material-icons dp48">toc</i></div>
         </div>
 
         <ul class="nav navbar-top-links navbar-right">
-            <li><a class="dropdown-button waves-effect waves-dark" href="#!" data-activates="dropdown4"><i
+            <li><a class="dropdown-button waves-effect waves-teal" href="#!" data-activates="dropdown4"><i
                     class="fa fa-envelope fa-fw"></i> <i class="material-icons right">arrow_drop_down</i></a></li>
-            <li><a class="dropdown-button waves-effect waves-dark" href="#!" data-activates="dropdown3"><i
+            <li><a class="dropdown-button waves-effect waves-teal" href="#!" data-activates="dropdown3"><i
                     class="fa fa-tasks fa-fw"></i> <i class="material-icons right">arrow_drop_down</i></a></li>
-            <li><a class="dropdown-button waves-effect waves-dark" href="#!" data-activates="dropdown2"><i
+            <li><a class="dropdown-button waves-effect waves-teal" href="#!" data-activates="dropdown2"><i
                     class="fa fa-bell fa-fw"></i> <i class="material-icons right">arrow_drop_down</i></a></li>
-            <li><a class="dropdown-button waves-effect waves-dark" href="#!" data-activates="dropdown1"><i
+            <li><a class="dropdown-button waves-effect waves-teal" href="#!" data-activates="dropdown1"><i
                     class="fa fa-user fa-fw"></i><span shiro:authenticated="">&nbsp;欢迎您，<span shiro:principal=""></span></span>
                 <span shiro:notAuthenticated="">&nbsp;请登录<span shiro:principal=""></span></span><i
                         class="material-icons right">arrow_drop_down</i></a></li>
@@ -41,7 +140,7 @@
                                          data-target="#loginModel" onclick="hideIcon()"><i
                 class=" fa fa-power-off fa-fw"></i>&nbsp;登录 </a>
         </li>
-        <li shiro:authenticated=""><a id="logout" class="dropdown-button waves-effect waves-dark" href="logout"><i
+        <li shiro:authenticated=""><a id="logout" class="dropdown-button waves-effect waves-dark" th:href="@{/logout}"><i
                 class=" fa fa-power-off fa-fw"></i>&nbsp;注销 </a>
         </li>
         <li shiro:authenticated=""><a href="#"><i class="fa fa-user fa-fw"></i>个人信息</a>
@@ -215,37 +314,48 @@
             </a>
         </li>
     </ul>
+
+    <script th:src="@{/assets/js/login-register.js}"></script>
 </div>
 
 <div th:fragment="left" th:remove="tag">
     <nav class="navbar-default navbar-side" role="navigation">
         <div class="sidebar-collapse">
+
             <ul class="nav" id="main-menu">
                 <li>
-                    <a  href="index.html" class="active-menu waves-effect waves-dark menu-br"><i class="fa fa-dashboard"></i>主页</a>
+                    <a th:href="@{/index.html}" th:class="${indexClass}" class="waves-effect waves-dark "><i class="fa fa-dashboard"></i>主页</a>
                 </li>
-                <li>
-                    <a href="ui-elements.html" class="waves-effect waves-dark menu-br"><i class="fa fa-desktop"></i>不可用</a>
+                <li shiro:hasRole="test">
+                    <a href="ui-elements.html" class="waves-effect waves-dark "><i class="fa fa-desktop"></i>不可用</a>
                 </li>
-                <li>
-                    <a href="chart.html" class="waves-effect waves-dark menu-br"><i class="fa fa-bar-chart-o"></i> 不可用</a>
+                <li shiro:hasRole="test">
+                    <a href="chart.html" class="waves-effect waves-dark "><i class="fa fa-bar-chart-o"></i> 不可用</a>
                 </li>
-                <li>
-                    <a href="tab-panel.html" class="waves-effect waves-dark menu-br"><i class="fa fa-qrcode"></i> 不可用</a>
+                <li shiro:hasRole="test">
+                    <a href="tab-panel.html" class="waves-effect waves-dark"><i class="fa fa-qrcode"></i> 不可用</a>
                 </li>
-                <li>
-                    <a th:href="table.html" class="waves-effect waves-dark menu-br"><i class="fa fa-table"></i>报名表</a>
+                <li shiro:hasRole="root">
+                    <a href="#" th:class="${reportTableClass}"  class="waves-effect waves-dark"><i class="fa fa-table"></i>报名表<span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level">
+                        <li shiro:hasPermission="root:reportTable:0">
+                            <a th:href="@{/report/0}" href="#" th:class="${reportTableClass0}" >待审核</a>
+                        </li>
+                        <li shiro:hasPermission="root:reportTable:1">
+                            <a th:href="@{/report/1}" href="#" th:class="${reportTableClass1}" >已通过</a>
+                        </li>
+                        <li shiro:hasPermission="root:reportTable:2">
+                            <a th:href="@{/report/2}" href="#" th:class="${reportTableClass2}" >未通过</a>
+                        </li>
+                    </ul>
                 </li>
-                <li>
-                    <a href="form.html" class="waves-effect waves-dark menu-br"><i class="fa fa-edit"></i> 不可用 </a>
+                <li shiro:hasRole="test">
+                    <a href="form.html" class="waves-effect waves-dark "><i class="fa fa-edit"></i> 不可用 </a>
                 </li>
-                <li>
-                    <a href="#" class="waves-effect waves-dark menu-br"><i class="fa fa-sitemap"></i> 不可用<span
+                <li >
+                    <a href="#" class="waves-effect waves-dark "><i class="fa fa-sitemap"></i> 不可用<span
                             class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
-                        <li>
-                            <a href="#">不可用</a>
-                        </li>
                         <li>
                             <a href="#">不可用</a>
                         </li>
@@ -255,18 +365,12 @@
                                 <li>
                                     <a href="#">不可用</a>
                                 </li>
-                                <li>
-                                    <a href="#">不可用</a>
-                                </li>
-                                <li>
-                                    <a href="#">不可用</a>
-                                </li>
                             </ul>
                         </li>
                     </ul>
                 </li>
-                <li>
-                    <a href="empty.html" class="waves-effect waves-dark menu-br"><i class="fa fa-fw fa-file"></i> 不可用</a>
+                <li shiro:hasRole="test">
+                    <a href="empty.html" class="waves-effect waves-dark "><i class="fa fa-fw fa-file"></i> 不可用</a>
                 </li>
             </ul>
         </div>

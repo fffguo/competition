@@ -3,35 +3,62 @@
 <head>
     <meta charset="utf-8">
     <title>Bootstrap 实例 - 基本表单</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'/>
     <link th:href="@{/assets/css/bootstrap.css}" rel="stylesheet"/>
+    <link th:href="@{/assets/materialize/css/materialize.min.css}" rel="stylesheet" media="screen,projection"/>
 
-
-
-    <script src="../static/assets/js/jquery-3.2.1.min.js"></script>
-    <script src="../static/assets/js/bootstrap.min.js"></script>
-
+    <!--<link th:href="@{/assets/css/font-awesome.css}" rel="stylesheet"/>-->
+    <!--<link th:href="@{/assets/js/morris/morris-0.4.3.min.css}" rel="stylesheet"/>-->
+    <!--<link th:href="@{/assets/css/custom-styles.css}" rel="stylesheet"/>-->
+    <!--<link th:href="@{/assets/js/Lightweight-Chart/cssCharts.css}" rel="stylesheet">-->
+    <script th:src="@{/assets/js/jquery-3.2.1.min.js}"></script>
+    <!--<script th:src="@{/assets/js/bootstrap.min.js}"></script>-->
+    <script th:src="@{/assets/materialize/js/materialize.min.js}"></script>
+    <!--<script th:src="@{/assets/js/jquery.metisMenu.js}"></script>-->
+    <!--<script th:src="@{/assets/js/morris/raphael-2.1.0.min.js}"></script>-->
+    <!--<script th:src="@{/assets/js/morris/morris.js}"></script>-->
+    <!--<script th:src="@{/assets/js/easypiechart.js}"></script>-->
+    <!--<script th:src="@{/assets/js/easypiechart-data.js}"></script>-->
+    <!--<script th:src="@{/assets/js/Lightweight-Chart/jquery.chart.js}"></script>-->
+    <!--<script th:src="@{/assets/js/dataTables/jquery.dataTables.js}"></script>-->
+    <!--<script th:src="@{/assets/js/dataTables/dataTables.bootstrap.js}"></script>-->
+    <!--<script th:src="@{/assets/js/custom-scripts.js}"></script>-->
+    <!--<script th:src="@{/assets/js/report-table.js}"></script>-->
 
 </head>
 <body>
 
-<form role="form">
-    <div class="form-group">
-        <label for="name">名称</label>
-        <input type="text" class="form-control" id="name"
-               placeholder="请输入名称">
-    </div>
-    <div class="form-group">
-        <label for="inputfile">文件输入</label>
-        <input type="file" id="inputfile">
-        <p class="help-block">这里是块级帮助文本的实例2wq。eq</p>
-    </div>
-    <div class="checkbox">
-        <label>
-            <input type="checkbox"> 请打勾
-        </label>
-    </div>
-    <button type="submit" class="btn btn-default">提交</button>
-</form>
-
+<ul id="slide-out" class="side-nav">
+    <li><a href="#!">第一导航链接</a></li>
+    <li><a href="#!">第二导航链接</a></li>
+    <li class="no-padding">
+        <ul class="collapsible collapsible-accordion">
+            <li>
+                <a class="collapsible-header">下拉按钮<i class="material-icons">arrow_drop_down</i></a>
+                <div class="collapsible-body">
+                    <ul>
+                        <li><a href="#!">一</a></li>
+                        <li><a href="#!">二</a></li>
+                        <li><a href="#!">三</a></li>
+                        <li><a href="#!">四</a></li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+    </li>
+</ul>
+<ul class="right hide-on-med-and-down">
+    <li><a href="#!">第一导航链接</a></li>
+    <li><a href="#!">第二导航链接</a></li>
+    <li><a class="dropdown-button" href="#!" data-activates="dropdown1">下拉按钮<i class="material-icons right">arrow_drop_down</i></a></li>
+    <ul id='dropdown1' class='dropdown-content'>
+        <li><a href="#!">一</a></li>
+        <li><a href="#!">二</a></li>
+        <li><a href="#!">三</a></li>
+        <li><a href="#!">四</a></li>
+    </ul>
+</ul>
+<a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>
 </body>
 </html>

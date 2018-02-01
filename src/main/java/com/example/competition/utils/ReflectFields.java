@@ -58,7 +58,7 @@ public class ReflectFields {
 		report.setMainStudentQq("5957");
 		report.setMainStudentPhone("111111");
 		report.setMainStudentName("qqq");
-		report.setStudent1No("415");
+		report.setOneStudentNo("415");
 		report.setMainStudentEmail("sss");
 		report.setMainStudentDepartment("dd");
 		report.setTeacherDepartment("ww");

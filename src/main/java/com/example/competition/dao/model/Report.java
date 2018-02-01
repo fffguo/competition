@@ -5,7 +5,7 @@ import java.util.Date;
 public class Report {
     private Integer reportId;
 
-    private Byte reportStatus;
+    private Integer reportStatus;
 
     private String mainStudentNo;
 
@@ -23,37 +23,37 @@ public class Report {
 
     private String mainStudentQq;
 
-    private String student1No;
+    private String oneStudentNo;
 
-    private String student1Name;
+    private String oneStudentName;
 
-    private String student1Specialty;
+    private String oneStudentSpecialty;
 
-    private String student1Phone;
+    private String oneStudentPhone;
 
-    private String student1Email;
+    private String oneStudentEmail;
 
-    private String student1Department;
+    private String oneStudentDepartment;
 
-    private String student1Grade;
+    private String oneStudentGrade;
 
-    private String student1Qq;
+    private String oneStudentQq;
 
-    private String student2No;
+    private String twoStudentNo;
 
-    private String student2Name;
+    private String twoStudentName;
 
-    private String student2Specialty;
+    private String twoStudentSpecialty;
 
-    private String student2Phone;
+    private String twoStudentPhone;
 
-    private String student2Email;
+    private String twoStudentEmail;
 
-    private String student2Department;
+    private String twoStudentDepartment;
 
-    private String student2Grade;
+    private String twoStudentGrade;
 
-    private String student2Qq;
+    private String twoStudentQq;
 
     private String teacherName;
 
@@ -81,11 +81,11 @@ public class Report {
         this.reportId = reportId;
     }
 
-    public Byte getReportStatus() {
+    public Integer getReportStatus() {
         return reportStatus;
     }
 
-    public void setReportStatus(Byte reportStatus) {
+    public void setReportStatus(Integer reportStatus) {
         this.reportStatus = reportStatus;
     }
 
@@ -153,132 +153,132 @@ public class Report {
         this.mainStudentQq = mainStudentQq == null ? null : mainStudentQq.trim();
     }
 
-    public String getStudent1No() {
-        return student1No;
+    public String getOneStudentNo() {
+        return oneStudentNo;
     }
 
-    public void setStudent1No(String student1No) {
-        this.student1No = student1No == null ? null : student1No.trim();
+    public void setOneStudentNo(String oneStudentNo) {
+        this.oneStudentNo = oneStudentNo == null ? null : oneStudentNo.trim();
     }
 
-    public String getStudent1Name() {
-        return student1Name;
+    public String getOneStudentName() {
+        return oneStudentName;
     }
 
-    public void setStudent1Name(String student1Name) {
-        this.student1Name = student1Name == null ? null : student1Name.trim();
+    public void setOneStudentName(String oneStudentName) {
+        this.oneStudentName = oneStudentName == null ? null : oneStudentName.trim();
     }
 
-    public String getStudent1Specialty() {
-        return student1Specialty;
+    public String getOneStudentSpecialty() {
+        return oneStudentSpecialty;
     }
 
-    public void setStudent1Specialty(String student1Specialty) {
-        this.student1Specialty = student1Specialty == null ? null : student1Specialty.trim();
+    public void setOneStudentSpecialty(String oneStudentSpecialty) {
+        this.oneStudentSpecialty = oneStudentSpecialty == null ? null : oneStudentSpecialty.trim();
     }
 
-    public String getStudent1Phone() {
-        return student1Phone;
+    public String getOneStudentPhone() {
+        return oneStudentPhone;
     }
 
-    public void setStudent1Phone(String student1Phone) {
-        this.student1Phone = student1Phone == null ? null : student1Phone.trim();
+    public void setOneStudentPhone(String oneStudentPhone) {
+        this.oneStudentPhone = oneStudentPhone == null ? null : oneStudentPhone.trim();
     }
 
-    public String getStudent1Email() {
-        return student1Email;
+    public String getOneStudentEmail() {
+        return oneStudentEmail;
     }
 
-    public void setStudent1Email(String student1Email) {
-        this.student1Email = student1Email == null ? null : student1Email.trim();
+    public void setOneStudentEmail(String oneStudentEmail) {
+        this.oneStudentEmail = oneStudentEmail == null ? null : oneStudentEmail.trim();
     }
 
-    public String getStudent1Department() {
-        return student1Department;
+    public String getOneStudentDepartment() {
+        return oneStudentDepartment;
     }
 
-    public void setStudent1Department(String student1Department) {
-        this.student1Department = student1Department == null ? null : student1Department.trim();
+    public void setOneStudentDepartment(String oneStudentDepartment) {
+        this.oneStudentDepartment = oneStudentDepartment == null ? null : oneStudentDepartment.trim();
     }
 
-    public String getStudent1Grade() {
-        return student1Grade;
+    public String getOneStudentGrade() {
+        return oneStudentGrade;
     }
 
-    public void setStudent1Grade(String student1Grade) {
-        this.student1Grade = student1Grade == null ? null : student1Grade.trim();
+    public void setOneStudentGrade(String oneStudentGrade) {
+        this.oneStudentGrade = oneStudentGrade == null ? null : oneStudentGrade.trim();
     }
 
-    public String getStudent1Qq() {
-        return student1Qq;
+    public String getOneStudentQq() {
+        return oneStudentQq;
     }
 
-    public void setStudent1Qq(String student1Qq) {
-        this.student1Qq = student1Qq == null ? null : student1Qq.trim();
+    public void setOneStudentQq(String oneStudentQq) {
+        this.oneStudentQq = oneStudentQq == null ? null : oneStudentQq.trim();
     }
 
-    public String getStudent2No() {
-        return student2No;
+    public String getTwoStudentNo() {
+        return twoStudentNo;
     }
 
-    public void setStudent2No(String student2No) {
-        this.student2No = student2No == null ? null : student2No.trim();
+    public void setTwoStudentNo(String twoStudentNo) {
+        this.twoStudentNo = twoStudentNo == null ? null : twoStudentNo.trim();
     }
 
-    public String getStudent2Name() {
-        return student2Name;
+    public String getTwoStudentName() {
+        return twoStudentName;
     }
 
-    public void setStudent2Name(String student2Name) {
-        this.student2Name = student2Name == null ? null : student2Name.trim();
+    public void setTwoStudentName(String twoStudentName) {
+        this.twoStudentName = twoStudentName == null ? null : twoStudentName.trim();
     }
 
-    public String getStudent2Specialty() {
-        return student2Specialty;
+    public String getTwoStudentSpecialty() {
+        return twoStudentSpecialty;
     }
 
-    public void setStudent2Specialty(String student2Specialty) {
-        this.student2Specialty = student2Specialty == null ? null : student2Specialty.trim();
+    public void setTwoStudentSpecialty(String twoStudentSpecialty) {
+        this.twoStudentSpecialty = twoStudentSpecialty == null ? null : twoStudentSpecialty.trim();
     }
 
-    public String getStudent2Phone() {
-        return student2Phone;
+    public String getTwoStudentPhone() {
+        return twoStudentPhone;
     }
 
-    public void setStudent2Phone(String student2Phone) {
-        this.student2Phone = student2Phone == null ? null : student2Phone.trim();
+    public void setTwoStudentPhone(String twoStudentPhone) {
+        this.twoStudentPhone = twoStudentPhone == null ? null : twoStudentPhone.trim();
     }
 
-    public String getStudent2Email() {
-        return student2Email;
+    public String getTwoStudentEmail() {
+        return twoStudentEmail;
     }
 
-    public void setStudent2Email(String student2Email) {
-        this.student2Email = student2Email == null ? null : student2Email.trim();
+    public void setTwoStudentEmail(String twoStudentEmail) {
+        this.twoStudentEmail = twoStudentEmail == null ? null : twoStudentEmail.trim();
     }
 
-    public String getStudent2Department() {
-        return student2Department;
+    public String getTwoStudentDepartment() {
+        return twoStudentDepartment;
     }
 
-    public void setStudent2Department(String student2Department) {
-        this.student2Department = student2Department == null ? null : student2Department.trim();
+    public void setTwoStudentDepartment(String twoStudentDepartment) {
+        this.twoStudentDepartment = twoStudentDepartment == null ? null : twoStudentDepartment.trim();
     }
 
-    public String getStudent2Grade() {
-        return student2Grade;
+    public String getTwoStudentGrade() {
+        return twoStudentGrade;
     }
 
-    public void setStudent2Grade(String student2Grade) {
-        this.student2Grade = student2Grade == null ? null : student2Grade.trim();
+    public void setTwoStudentGrade(String twoStudentGrade) {
+        this.twoStudentGrade = twoStudentGrade == null ? null : twoStudentGrade.trim();
     }
 
-    public String getStudent2Qq() {
-        return student2Qq;
+    public String getTwoStudentQq() {
+        return twoStudentQq;
     }
 
-    public void setStudent2Qq(String student2Qq) {
-        this.student2Qq = student2Qq == null ? null : student2Qq.trim();
+    public void setTwoStudentQq(String twoStudentQq) {
+        this.twoStudentQq = twoStudentQq == null ? null : twoStudentQq.trim();
     }
 
     public String getTeacherName() {

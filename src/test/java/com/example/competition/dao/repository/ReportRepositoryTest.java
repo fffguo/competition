@@ -28,7 +28,7 @@ public class ReportRepositoryTest {
         report.setMainStudentQq("5957");
         report.setMainStudentPhone("111111");
         report.setMainStudentName("qqq");
-        report.setStudent1No("415");
+        report.setOneStudentNo("415");
         report.setMainStudentEmail("sss");
         report.setMainStudentDepartment("dd");
         report.setTeacherDepartment("ww");
@@ -40,4 +40,9 @@ public class ReportRepositoryTest {
 //        System.out.println(result);
     }
 
+    @Test
+    public void findAll(){
+//        System.out.println(repository.findByReportStatus(1).size());
+//        System.out.println(repository.findByReportStatus(1).get(0).toString());
+    }
 }

@@ -17,108 +17,6 @@
 
 <body>
 
-<!--TODO loginModel-->
-<div class="modal fade" id="loginModel" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog" style="width: 288px;">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title" id="myModalLabel" style="text-align: center;font-size: 28px">登录</h4>
-            </div>
-            <div class="modal-body">
-                <form class="bs-example bs-example-form" role="form" id="loginForm" action="login" method="post">
-                    <div class="input-group" style="margin-bottom: 24px ;" id="loginLoginName">
-                    <span class="input-group-addon">
-                         <img th:src="@{/assets/img/account.png}" alt="账号" style="width: 22px" height="22px">
-                    </span>
-                        <input type="text" name="username" class="form-control" placeholder="请输入学号：" id="loginOne"
-                               onblur="loginVerifyLoginName()">
-                        <span class="input-group-addon icon" id="loginIcon1">
-                            <img th:src="@{/assets/img/errorIcon.png}" style="width: 22px" height="22px">
-                        </span>
-                        </button>
-
-                    </div>
-                    <div class="input-group" style="margin-bottom: 24px;margin-top: 18px">
-                    <span class="input-group-addon">
-                        <img th:src="@{/assets/img/password.png}" alt="密码" style="width: 22px" height="24px">
-                    </span>
-                        <input type="password" name="password" class="form-control" placeholder="请输入密码：" id="loginTwo"
-                               onblur="loginVerifyPassword()">
-                        <span class="input-group-addon icon" id="loginIcon2">
-                            <img th:src="@{/assets/img/errorIcon.png}" style="width: 22px" height="22px">
-                        </span>
-                    </div>
-                    <p style="padding-left: 14px;">
-                        <input type="checkbox" id="rememberMe" name="rememberMe" />
-                        <label for="rememberMe">记住我!</label>
-                    </p>
-                    <button type="button" class="btn btn-primary btn-block" style="margin-bottom: 20px"
-                            onclick="login()">现在登录
-                    </button>
-                </form>
-            </div>
-            <!--<div class="modal-footer">-->
-            <!--&lt;!&ndash;<a href="javascript: showRegisterForm();">创建一个账号？</a>&ndash;&gt;-->
-            <!--<a href="javascript:(0);" data-target="#registerModel"  data-dismiss="modal" data-toggle="modal"  >创建一个账号？</a>-->
-            <!--</div>-->
-        </div><!-- /.modal-content -->
-    </div><!-- /.modal -->
-</div>
-
-<!--TODO registerModel-->
-<div class="modal fade login" id="registerModel" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog" style="width: 288px;">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title" style="text-align: center;font-size: 28px">注册</h4>
-            </div>
-            <div class="modal-body">
-                <form class="bs-example bs-example-form" role="form">
-                    <div class="input-group" style="margin-bottom: 24px ;" id="registerLoginName">
-                    <span class="input-group-addon">
-                         <img th:src="@{/assets/img/account.png}" alt="账号" style="width: 22px" height="22px">
-                    </span>
-                        <input type="email" class="form-control" id="registerMail" onblur="verifyLoginName()"
-                               placeholder="请输入邮箱：">
-                        <span class="input-group-addon icon" id="registerIcon1">
-                            <img th:src="@{/assets/img/errorIcon.png}" style="width: 22px" height="22px">
-                        </span>
-                    </div>
-                    <div class="input-group" style="margin-bottom: 24px;margin-top: 18px">
-                    <span class="input-group-addon">
-                        <img th:src="@{/assets/img/password.png}" alt="密码" style="width: 22px" height="22px">
-                    </span>
-                        <input type="password" class="form-control" placeholder="请输入密码：" id="registerPassword1"
-                               onblur="verifyPassword1()">
-                        <span class="input-group-addon icon" id="registerIcon2">
-                            <img th:src="@{/assets/img/errorIcon.png}" style="width: 22px" height="22px">
-                        </span>
-                    </div>
-                    <div class="input-group" style="margin-bottom: 24px;margin-top: 18px">
-                    <span class="input-group-addon">
-                        <img th:src="@{/assets/img/password.png}" alt="重复密码" style="width: 22px" height="24px">
-                    </span>
-                        <input type="password" class="form-control" placeholder="请再次输入密码：" id="registerPassword2"
-                               onblur="verifyPassword2()">
-                        <span class="input-group-addon icon" id="registerIcon3">
-                            <img th:src="@{/assets/img/errorIcon.png}" style="width: 22px" height="22px">
-                        </span>
-                    </div>
-                    <button type="button" class="btn btn-primary btn-block" style="margin-bottom: 20px"
-                            onclick="register()">开始注册
-                    </button>
-                </form>
-            </div>
-            <!--<div class="modal-footer">-->
-            <!--&lt;!&ndash;<a href="javascript: showRegisterForm();">创建一个账号？</a>&ndash;&gt;-->
-            <!--<a href="javascript:(0);" data-target="#loginModel"  data-dismiss="modal" data-toggle="modal"  >创建一个账号？</a>-->
-            <!--</div>-->
-        </div><!-- /.modal-content -->
-    </div><!-- /.modal -->
-</div>
-
 <div id="wrapper">
     <div th:include="web-model::top" ></div>
 
@@ -399,16 +297,16 @@
     </div>
 
 </div>
+
 <script th:src="@{/assets/js/jquery-3.2.1.min.js}"></script>
 <script th:src="@{/assets/js/bootstrap.min.js}"></script>
 <script th:src="@{/assets/materialize/js/materialize.min.js}"></script>
-<script th:src="@{/static/assets/js/jquery.metisMenu.js}"></script>
+<script th:src="@{/assets/js/jquery.metisMenu.js}"></script>
 <script th:src="@{/assets/js/morris/raphael-2.1.0.min.js}"></script>
 <script th:src="@{/assets/js/morris/morris.js}"></script>
 <script th:src="@{/assets/js/easypiechart.js}"></script>
 <script th:src="@{/assets/js/easypiechart-data.js}"></script>
 <script th:src="@{/assets/js/Lightweight-Chart/jquery.chart.js}"></script>
 <script th:src="@{/assets/js/custom-scripts.js}"></script>
-<script th:src="@{/assets/js/login-register.js}"></script>
 </body>
 </html>

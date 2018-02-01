@@ -6151,7 +6151,7 @@ button.close {
 }
 
 .modal-open .modal {
-    overflow-x: auto;
+    overflow-x: hidden;
     overflow-y: auto;
 }
 

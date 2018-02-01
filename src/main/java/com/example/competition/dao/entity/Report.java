@@ -15,6 +15,8 @@ public class Report {
     @GeneratedValue
     private Integer reportId;
 
+    private Integer reportStatus;
+
     private String mainStudentNo;
 
     private String mainStudentName;
@@ -31,35 +33,37 @@ public class Report {
 
     private String mainStudentQq;
 
-    private String student1No;
+    private String oneStudentNo;
 
-    private String student1Name;
+    private String oneStudentName;
 
-    private String student1Specialty;
+    private String oneStudentSpecialty;
 
-    private String student1Phone;
+    private String oneStudentPhone;
 
-    private String student1Email;
+    private String oneStudentEmail;
 
-    private String student1Grade;
+    private String oneStudentDepartment;
 
-    private String student1Qq;
+    private String oneStudentGrade;
 
-    private String student2No;
+    private String oneStudentQq;
 
-    private String student2Name;
+    private String twoStudentNo;
 
-    private String student2Specialty;
+    private String twoStudentName;
 
-    private String student2Phone;
+    private String twoStudentSpecialty;
 
-    private String student2Email;
+    private String twoStudentPhone;
 
-    private String student2Department;
+    private String twoStudentEmail;
 
-    private String student2Grade;
+    private String twoStudentDepartment;
 
-    private String student2Qq;
+    private String twoStudentGrade;
+
+    private String twoStudentQq;
 
     private String teacherName;
 

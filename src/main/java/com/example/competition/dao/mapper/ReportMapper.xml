@@ -3,7 +3,7 @@
 <mapper namespace="com.example.competition.dao.mapper.ReportMapper">
   <resultMap id="BaseResultMap" type="com.example.competition.dao.model.Report">
     <id column="report_id" jdbcType="INTEGER" property="reportId" />
-    <result column="report_status" jdbcType="TINYINT" property="reportStatus" />
+    <result column="report_status" jdbcType="INTEGER" property="reportStatus" />
     <result column="main_student_no" jdbcType="VARCHAR" property="mainStudentNo" />
     <result column="main_student_name" jdbcType="VARCHAR" property="mainStudentName" />
     <result column="main_student_specialty" jdbcType="VARCHAR" property="mainStudentSpecialty" />
@@ -11,28 +11,28 @@
     <result column="main_student_email" jdbcType="VARCHAR" property="mainStudentEmail" />
     <result column="main_student_department" jdbcType="VARCHAR" property="mainStudentDepartment" />
     <result column="main_student_grade" jdbcType="VARCHAR" property="mainStudentGrade" />
-    <result column="main_student_QQ" jdbcType="VARCHAR" property="mainStudentQq" />
-    <result column="student1_no" jdbcType="VARCHAR" property="student1No" />
-    <result column="student1_name" jdbcType="VARCHAR" property="student1Name" />
-    <result column="student1_specialty" jdbcType="VARCHAR" property="student1Specialty" />
-    <result column="student1_phone" jdbcType="VARCHAR" property="student1Phone" />
-    <result column="student1_email" jdbcType="VARCHAR" property="student1Email" />
-    <result column="student1_department" jdbcType="VARCHAR" property="student1Department" />
-    <result column="student1_grade" jdbcType="VARCHAR" property="student1Grade" />
-    <result column="student1_QQ" jdbcType="VARCHAR" property="student1Qq" />
-    <result column="student2_no" jdbcType="VARCHAR" property="student2No" />
-    <result column="student2_name" jdbcType="VARCHAR" property="student2Name" />
-    <result column="student2_specialty" jdbcType="VARCHAR" property="student2Specialty" />
-    <result column="student2_phone" jdbcType="VARCHAR" property="student2Phone" />
-    <result column="student2_email" jdbcType="VARCHAR" property="student2Email" />
-    <result column="student2_department" jdbcType="VARCHAR" property="student2Department" />
-    <result column="student2_grade" jdbcType="VARCHAR" property="student2Grade" />
-    <result column="student2_QQ" jdbcType="VARCHAR" property="student2Qq" />
+    <result column="main_student_qq" jdbcType="VARCHAR" property="mainStudentQq" />
+    <result column="one_student_no" jdbcType="VARCHAR" property="oneStudentNo" />
+    <result column="one_student_name" jdbcType="VARCHAR" property="oneStudentName" />
+    <result column="one_student_specialty" jdbcType="VARCHAR" property="oneStudentSpecialty" />
+    <result column="one_student_phone" jdbcType="VARCHAR" property="oneStudentPhone" />
+    <result column="one_student_email" jdbcType="VARCHAR" property="oneStudentEmail" />
+    <result column="one_student_department" jdbcType="VARCHAR" property="oneStudentDepartment" />
+    <result column="one_student_grade" jdbcType="VARCHAR" property="oneStudentGrade" />
+    <result column="one_student_qq" jdbcType="VARCHAR" property="oneStudentQq" />
+    <result column="two_student_no" jdbcType="VARCHAR" property="twoStudentNo" />
+    <result column="two_student_name" jdbcType="VARCHAR" property="twoStudentName" />
+    <result column="two_student_specialty" jdbcType="VARCHAR" property="twoStudentSpecialty" />
+    <result column="two_student_phone" jdbcType="VARCHAR" property="twoStudentPhone" />
+    <result column="two_student_email" jdbcType="VARCHAR" property="twoStudentEmail" />
+    <result column="two_student_department" jdbcType="VARCHAR" property="twoStudentDepartment" />
+    <result column="two_student_grade" jdbcType="VARCHAR" property="twoStudentGrade" />
+    <result column="two_student_qq" jdbcType="VARCHAR" property="twoStudentQq" />
     <result column="teacher_name" jdbcType="VARCHAR" property="teacherName" />
     <result column="teacher_phone" jdbcType="VARCHAR" property="teacherPhone" />
     <result column="teacher_email" jdbcType="VARCHAR" property="teacherEmail" />
     <result column="teacher_department" jdbcType="VARCHAR" property="teacherDepartment" />
-    <result column="teacher_QQ" jdbcType="VARCHAR" property="teacherQq" />
+    <result column="teacher_qq" jdbcType="VARCHAR" property="teacherQq" />
     <result column="works_no" jdbcType="VARCHAR" property="worksNo" />
     <result column="works_name" jdbcType="VARCHAR" property="worksName" />
     <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
@@ -99,11 +99,11 @@
   <sql id="Base_Column_List">
     report_id, report_status, main_student_no, main_student_name, main_student_specialty, 
     main_student_phone, main_student_email, main_student_department, main_student_grade, 
-    main_student_QQ, student1_no, student1_name, student1_specialty, student1_phone, 
-    student1_email, student1_department, student1_grade, student1_QQ, student2_no, student2_name, 
-    student2_specialty, student2_phone, student2_email, student2_department, student2_grade, 
-    student2_QQ, teacher_name, teacher_phone, teacher_email, teacher_department, teacher_QQ, 
-    works_no, works_name, create_time, update_time
+    main_student_qq, one_student_no, one_student_name, one_student_specialty, one_student_phone, 
+    one_student_email, one_student_department, one_student_grade, one_student_qq, two_student_no, 
+    two_student_name, two_student_specialty, two_student_phone, two_student_email, two_student_department, 
+    two_student_grade, two_student_qq, teacher_name, teacher_phone, teacher_email, teacher_department, 
+    teacher_qq, works_no, works_name, create_time, update_time
   </sql>
   <select id="selectByExample" parameterType="com.example.competition.dao.model.ReportExample" resultMap="BaseResultMap">
     select
@@ -139,29 +139,29 @@
     insert into report (report_id, report_status, main_student_no, 
       main_student_name, main_student_specialty, 
       main_student_phone, main_student_email, main_student_department, 
-      main_student_grade, main_student_QQ, student1_no, 
-      student1_name, student1_specialty, student1_phone, 
-      student1_email, student1_department, student1_grade, 
-      student1_QQ, student2_no, student2_name, 
-      student2_specialty, student2_phone, student2_email, 
-      student2_department, student2_grade, student2_QQ, 
-      teacher_name, teacher_phone, teacher_email, 
-      teacher_department, teacher_QQ, works_no, 
-      works_name, create_time, update_time
-      )
-    values (#{reportId,jdbcType=INTEGER}, #{reportStatus,jdbcType=TINYINT}, #{mainStudentNo,jdbcType=VARCHAR}, 
+      main_student_grade, main_student_qq, one_student_no, 
+      one_student_name, one_student_specialty, one_student_phone, 
+      one_student_email, one_student_department, 
+      one_student_grade, one_student_qq, two_student_no, 
+      two_student_name, two_student_specialty, two_student_phone, 
+      two_student_email, two_student_department, 
+      two_student_grade, two_student_qq, teacher_name, 
+      teacher_phone, teacher_email, teacher_department, 
+      teacher_qq, works_no, works_name, 
+      create_time, update_time)
+    values (#{reportId,jdbcType=INTEGER}, #{reportStatus,jdbcType=INTEGER}, #{mainStudentNo,jdbcType=VARCHAR}, 
       #{mainStudentName,jdbcType=VARCHAR}, #{mainStudentSpecialty,jdbcType=VARCHAR}, 
       #{mainStudentPhone,jdbcType=VARCHAR}, #{mainStudentEmail,jdbcType=VARCHAR}, #{mainStudentDepartment,jdbcType=VARCHAR}, 
-      #{mainStudentGrade,jdbcType=VARCHAR}, #{mainStudentQq,jdbcType=VARCHAR}, #{student1No,jdbcType=VARCHAR}, 
-      #{student1Name,jdbcType=VARCHAR}, #{student1Specialty,jdbcType=VARCHAR}, #{student1Phone,jdbcType=VARCHAR}, 
-      #{student1Email,jdbcType=VARCHAR}, #{student1Department,jdbcType=VARCHAR}, #{student1Grade,jdbcType=VARCHAR}, 
-      #{student1Qq,jdbcType=VARCHAR}, #{student2No,jdbcType=VARCHAR}, #{student2Name,jdbcType=VARCHAR}, 
-      #{student2Specialty,jdbcType=VARCHAR}, #{student2Phone,jdbcType=VARCHAR}, #{student2Email,jdbcType=VARCHAR}, 
-      #{student2Department,jdbcType=VARCHAR}, #{student2Grade,jdbcType=VARCHAR}, #{student2Qq,jdbcType=VARCHAR}, 
-      #{teacherName,jdbcType=VARCHAR}, #{teacherPhone,jdbcType=VARCHAR}, #{teacherEmail,jdbcType=VARCHAR}, 
-      #{teacherDepartment,jdbcType=VARCHAR}, #{teacherQq,jdbcType=VARCHAR}, #{worksNo,jdbcType=VARCHAR}, 
-      #{worksName,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}
-      )
+      #{mainStudentGrade,jdbcType=VARCHAR}, #{mainStudentQq,jdbcType=VARCHAR}, #{oneStudentNo,jdbcType=VARCHAR}, 
+      #{oneStudentName,jdbcType=VARCHAR}, #{oneStudentSpecialty,jdbcType=VARCHAR}, #{oneStudentPhone,jdbcType=VARCHAR}, 
+      #{oneStudentEmail,jdbcType=VARCHAR}, #{oneStudentDepartment,jdbcType=VARCHAR}, 
+      #{oneStudentGrade,jdbcType=VARCHAR}, #{oneStudentQq,jdbcType=VARCHAR}, #{twoStudentNo,jdbcType=VARCHAR}, 
+      #{twoStudentName,jdbcType=VARCHAR}, #{twoStudentSpecialty,jdbcType=VARCHAR}, #{twoStudentPhone,jdbcType=VARCHAR}, 
+      #{twoStudentEmail,jdbcType=VARCHAR}, #{twoStudentDepartment,jdbcType=VARCHAR}, 
+      #{twoStudentGrade,jdbcType=VARCHAR}, #{twoStudentQq,jdbcType=VARCHAR}, #{teacherName,jdbcType=VARCHAR}, 
+      #{teacherPhone,jdbcType=VARCHAR}, #{teacherEmail,jdbcType=VARCHAR}, #{teacherDepartment,jdbcType=VARCHAR}, 
+      #{teacherQq,jdbcType=VARCHAR}, #{worksNo,jdbcType=VARCHAR}, #{worksName,jdbcType=VARCHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP})
   </insert>
   <insert id="insertSelective" parameterType="com.example.competition.dao.model.Report">
     insert into report
@@ -194,55 +194,55 @@
         main_student_grade,
       </if>
       <if test="mainStudentQq != null">
-        main_student_QQ,
+        main_student_qq,
       </if>
-      <if test="student1No != null">
-        student1_no,
+      <if test="oneStudentNo != null">
+        one_student_no,
       </if>
-      <if test="student1Name != null">
-        student1_name,
+      <if test="oneStudentName != null">
+        one_student_name,
       </if>
-      <if test="student1Specialty != null">
-        student1_specialty,
+      <if test="oneStudentSpecialty != null">
+        one_student_specialty,
       </if>
-      <if test="student1Phone != null">
-        student1_phone,
+      <if test="oneStudentPhone != null">
+        one_student_phone,
       </if>
-      <if test="student1Email != null">
-        student1_email,
+      <if test="oneStudentEmail != null">
+        one_student_email,
       </if>
-      <if test="student1Department != null">
-        student1_department,
+      <if test="oneStudentDepartment != null">
+        one_student_department,
       </if>
-      <if test="student1Grade != null">
-        student1_grade,
+      <if test="oneStudentGrade != null">
+        one_student_grade,
       </if>
-      <if test="student1Qq != null">
-        student1_QQ,
+      <if test="oneStudentQq != null">
+        one_student_qq,
       </if>
-      <if test="student2No != null">
-        student2_no,
+      <if test="twoStudentNo != null">
+        two_student_no,
       </if>
-      <if test="student2Name != null">
-        student2_name,
+      <if test="twoStudentName != null">
+        two_student_name,
       </if>
-      <if test="student2Specialty != null">
-        student2_specialty,
+      <if test="twoStudentSpecialty != null">
+        two_student_specialty,
       </if>
-      <if test="student2Phone != null">
-        student2_phone,
+      <if test="twoStudentPhone != null">
+        two_student_phone,
       </if>
-      <if test="student2Email != null">
-        student2_email,
+      <if test="twoStudentEmail != null">
+        two_student_email,
       </if>
-      <if test="student2Department != null">
-        student2_department,
+      <if test="twoStudentDepartment != null">
+        two_student_department,
       </if>
-      <if test="student2Grade != null">
-        student2_grade,
+      <if test="twoStudentGrade != null">
+        two_student_grade,
       </if>
-      <if test="student2Qq != null">
-        student2_QQ,
+      <if test="twoStudentQq != null">
+        two_student_qq,
       </if>
       <if test="teacherName != null">
         teacher_name,
@@ -257,7 +257,7 @@
         teacher_department,
       </if>
       <if test="teacherQq != null">
-        teacher_QQ,
+        teacher_qq,
       </if>
       <if test="worksNo != null">
         works_no,
@@ -277,7 +277,7 @@
         #{reportId,jdbcType=INTEGER},
       </if>
       <if test="reportStatus != null">
-        #{reportStatus,jdbcType=TINYINT},
+        #{reportStatus,jdbcType=INTEGER},
       </if>
       <if test="mainStudentNo != null">
         #{mainStudentNo,jdbcType=VARCHAR},
@@ -303,53 +303,53 @@
       <if test="mainStudentQq != null">
         #{mainStudentQq,jdbcType=VARCHAR},
       </if>
-      <if test="student1No != null">
-        #{student1No,jdbcType=VARCHAR},
+      <if test="oneStudentNo != null">
+        #{oneStudentNo,jdbcType=VARCHAR},
       </if>
-      <if test="student1Name != null">
-        #{student1Name,jdbcType=VARCHAR},
+      <if test="oneStudentName != null">
+        #{oneStudentName,jdbcType=VARCHAR},
       </if>
-      <if test="student1Specialty != null">
-        #{student1Specialty,jdbcType=VARCHAR},
+      <if test="oneStudentSpecialty != null">
+        #{oneStudentSpecialty,jdbcType=VARCHAR},
       </if>
-      <if test="student1Phone != null">
-        #{student1Phone,jdbcType=VARCHAR},
+      <if test="oneStudentPhone != null">
+        #{oneStudentPhone,jdbcType=VARCHAR},
       </if>
-      <if test="student1Email != null">
-        #{student1Email,jdbcType=VARCHAR},
+      <if test="oneStudentEmail != null">
+        #{oneStudentEmail,jdbcType=VARCHAR},
       </if>
-      <if test="student1Department != null">
-        #{student1Department,jdbcType=VARCHAR},
+      <if test="oneStudentDepartment != null">
+        #{oneStudentDepartment,jdbcType=VARCHAR},
       </if>
-      <if test="student1Grade != null">
-        #{student1Grade,jdbcType=VARCHAR},
+      <if test="oneStudentGrade != null">
+        #{oneStudentGrade,jdbcType=VARCHAR},
       </if>
-      <if test="student1Qq != null">
-        #{student1Qq,jdbcType=VARCHAR},
+      <if test="oneStudentQq != null">
+        #{oneStudentQq,jdbcType=VARCHAR},
       </if>
-      <if test="student2No != null">
-        #{student2No,jdbcType=VARCHAR},
+      <if test="twoStudentNo != null">
+        #{twoStudentNo,jdbcType=VARCHAR},
       </if>
-      <if test="student2Name != null">
-        #{student2Name,jdbcType=VARCHAR},
+      <if test="twoStudentName != null">
+        #{twoStudentName,jdbcType=VARCHAR},
       </if>
-      <if test="student2Specialty != null">
-        #{student2Specialty,jdbcType=VARCHAR},
+      <if test="twoStudentSpecialty != null">
+        #{twoStudentSpecialty,jdbcType=VARCHAR},
       </if>
-      <if test="student2Phone != null">
-        #{student2Phone,jdbcType=VARCHAR},
+      <if test="twoStudentPhone != null">
+        #{twoStudentPhone,jdbcType=VARCHAR},
       </if>
-      <if test="student2Email != null">
-        #{student2Email,jdbcType=VARCHAR},
+      <if test="twoStudentEmail != null">
+        #{twoStudentEmail,jdbcType=VARCHAR},
       </if>
-      <if test="student2Department != null">
-        #{student2Department,jdbcType=VARCHAR},
+      <if test="twoStudentDepartment != null">
+        #{twoStudentDepartment,jdbcType=VARCHAR},
       </if>
-      <if test="student2Grade != null">
-        #{student2Grade,jdbcType=VARCHAR},
+      <if test="twoStudentGrade != null">
+        #{twoStudentGrade,jdbcType=VARCHAR},
       </if>
-      <if test="student2Qq != null">
-        #{student2Qq,jdbcType=VARCHAR},
+      <if test="twoStudentQq != null">
+        #{twoStudentQq,jdbcType=VARCHAR},
       </if>
       <if test="teacherName != null">
         #{teacherName,jdbcType=VARCHAR},
@@ -393,7 +393,7 @@
         report_id = #{record.reportId,jdbcType=INTEGER},
       </if>
       <if test="record.reportStatus != null">
-        report_status = #{record.reportStatus,jdbcType=TINYINT},
+        report_status = #{record.reportStatus,jdbcType=INTEGER},
       </if>
       <if test="record.mainStudentNo != null">
         main_student_no = #{record.mainStudentNo,jdbcType=VARCHAR},
@@ -417,55 +417,55 @@
         main_student_grade = #{record.mainStudentGrade,jdbcType=VARCHAR},
       </if>
       <if test="record.mainStudentQq != null">
-        main_student_QQ = #{record.mainStudentQq,jdbcType=VARCHAR},
+        main_student_qq = #{record.mainStudentQq,jdbcType=VARCHAR},
       </if>
-      <if test="record.student1No != null">
-        student1_no = #{record.student1No,jdbcType=VARCHAR},
+      <if test="record.oneStudentNo != null">
+        one_student_no = #{record.oneStudentNo,jdbcType=VARCHAR},
       </if>
-      <if test="record.student1Name != null">
-        student1_name = #{record.student1Name,jdbcType=VARCHAR},
+      <if test="record.oneStudentName != null">
+        one_student_name = #{record.oneStudentName,jdbcType=VARCHAR},
       </if>
-      <if test="record.student1Specialty != null">
-        student1_specialty = #{record.student1Specialty,jdbcType=VARCHAR},
+      <if test="record.oneStudentSpecialty != null">
+        one_student_specialty = #{record.oneStudentSpecialty,jdbcType=VARCHAR},
       </if>
-      <if test="record.student1Phone != null">
-        student1_phone = #{record.student1Phone,jdbcType=VARCHAR},
+      <if test="record.oneStudentPhone != null">
+        one_student_phone = #{record.oneStudentPhone,jdbcType=VARCHAR},
       </if>
-      <if test="record.student1Email != null">
-        student1_email = #{record.student1Email,jdbcType=VARCHAR},
+      <if test="record.oneStudentEmail != null">
+        one_student_email = #{record.oneStudentEmail,jdbcType=VARCHAR},
       </if>
-      <if test="record.student1Department != null">
-        student1_department = #{record.student1Department,jdbcType=VARCHAR},
+      <if test="record.oneStudentDepartment != null">
+        one_student_department = #{record.oneStudentDepartment,jdbcType=VARCHAR},
       </if>
-      <if test="record.student1Grade != null">
-        student1_grade = #{record.student1Grade,jdbcType=VARCHAR},
+      <if test="record.oneStudentGrade != null">
+        one_student_grade = #{record.oneStudentGrade,jdbcType=VARCHAR},
       </if>
-      <if test="record.student1Qq != null">
-        student1_QQ = #{record.student1Qq,jdbcType=VARCHAR},
+      <if test="record.oneStudentQq != null">
+        one_student_qq = #{record.oneStudentQq,jdbcType=VARCHAR},
       </if>
-      <if test="record.student2No != null">
-        student2_no = #{record.student2No,jdbcType=VARCHAR},
+      <if test="record.twoStudentNo != null">
+        two_student_no = #{record.twoStudentNo,jdbcType=VARCHAR},
       </if>
-      <if test="record.student2Name != null">
-        student2_name = #{record.student2Name,jdbcType=VARCHAR},
+      <if test="record.twoStudentName != null">
+        two_student_name = #{record.twoStudentName,jdbcType=VARCHAR},
       </if>
-      <if test="record.student2Specialty != null">
-        student2_specialty = #{record.student2Specialty,jdbcType=VARCHAR},
+      <if test="record.twoStudentSpecialty != null">
+        two_student_specialty = #{record.twoStudentSpecialty,jdbcType=VARCHAR},
       </if>
-      <if test="record.student2Phone != null">
-        student2_phone = #{record.student2Phone,jdbcType=VARCHAR},
+      <if test="record.twoStudentPhone != null">
+        two_student_phone = #{record.twoStudentPhone,jdbcType=VARCHAR},
       </if>
-      <if test="record.student2Email != null">
-        student2_email = #{record.student2Email,jdbcType=VARCHAR},
+      <if test="record.twoStudentEmail != null">
+        two_student_email = #{record.twoStudentEmail,jdbcType=VARCHAR},
       </if>
-      <if test="record.student2Department != null">
-        student2_department = #{record.student2Department,jdbcType=VARCHAR},
+      <if test="record.twoStudentDepartment != null">
+        two_student_department = #{record.twoStudentDepartment,jdbcType=VARCHAR},
       </if>
-      <if test="record.student2Grade != null">
-        student2_grade = #{record.student2Grade,jdbcType=VARCHAR},
+      <if test="record.twoStudentGrade != null">
+        two_student_grade = #{record.twoStudentGrade,jdbcType=VARCHAR},
       </if>
-      <if test="record.student2Qq != null">
-        student2_QQ = #{record.student2Qq,jdbcType=VARCHAR},
+      <if test="record.twoStudentQq != null">
+        two_student_qq = #{record.twoStudentQq,jdbcType=VARCHAR},
       </if>
       <if test="record.teacherName != null">
         teacher_name = #{record.teacherName,jdbcType=VARCHAR},
@@ -480,7 +480,7 @@
         teacher_department = #{record.teacherDepartment,jdbcType=VARCHAR},
       </if>
       <if test="record.teacherQq != null">
-        teacher_QQ = #{record.teacherQq,jdbcType=VARCHAR},
+        teacher_qq = #{record.teacherQq,jdbcType=VARCHAR},
       </if>
       <if test="record.worksNo != null">
         works_no = #{record.worksNo,jdbcType=VARCHAR},
@@ -502,7 +502,7 @@
   <update id="updateByExample" parameterType="map">
     update report
     set report_id = #{record.reportId,jdbcType=INTEGER},
-      report_status = #{record.reportStatus,jdbcType=TINYINT},
+      report_status = #{record.reportStatus,jdbcType=INTEGER},
       main_student_no = #{record.mainStudentNo,jdbcType=VARCHAR},
       main_student_name = #{record.mainStudentName,jdbcType=VARCHAR},
       main_student_specialty = #{record.mainStudentSpecialty,jdbcType=VARCHAR},
@@ -510,28 +510,28 @@
       main_student_email = #{record.mainStudentEmail,jdbcType=VARCHAR},
       main_student_department = #{record.mainStudentDepartment,jdbcType=VARCHAR},
       main_student_grade = #{record.mainStudentGrade,jdbcType=VARCHAR},
-      main_student_QQ = #{record.mainStudentQq,jdbcType=VARCHAR},
-      student1_no = #{record.student1No,jdbcType=VARCHAR},
-      student1_name = #{record.student1Name,jdbcType=VARCHAR},
-      student1_specialty = #{record.student1Specialty,jdbcType=VARCHAR},
-      student1_phone = #{record.student1Phone,jdbcType=VARCHAR},
-      student1_email = #{record.student1Email,jdbcType=VARCHAR},
-      student1_department = #{record.student1Department,jdbcType=VARCHAR},
-      student1_grade = #{record.student1Grade,jdbcType=VARCHAR},
-      student1_QQ = #{record.student1Qq,jdbcType=VARCHAR},
-      student2_no = #{record.student2No,jdbcType=VARCHAR},
-      student2_name = #{record.student2Name,jdbcType=VARCHAR},
-      student2_specialty = #{record.student2Specialty,jdbcType=VARCHAR},
-      student2_phone = #{record.student2Phone,jdbcType=VARCHAR},
-      student2_email = #{record.student2Email,jdbcType=VARCHAR},
-      student2_department = #{record.student2Department,jdbcType=VARCHAR},
-      student2_grade = #{record.student2Grade,jdbcType=VARCHAR},
-      student2_QQ = #{record.student2Qq,jdbcType=VARCHAR},
+      main_student_qq = #{record.mainStudentQq,jdbcType=VARCHAR},
+      one_student_no = #{record.oneStudentNo,jdbcType=VARCHAR},
+      one_student_name = #{record.oneStudentName,jdbcType=VARCHAR},
+      one_student_specialty = #{record.oneStudentSpecialty,jdbcType=VARCHAR},
+      one_student_phone = #{record.oneStudentPhone,jdbcType=VARCHAR},
+      one_student_email = #{record.oneStudentEmail,jdbcType=VARCHAR},
+      one_student_department = #{record.oneStudentDepartment,jdbcType=VARCHAR},
+      one_student_grade = #{record.oneStudentGrade,jdbcType=VARCHAR},
+      one_student_qq = #{record.oneStudentQq,jdbcType=VARCHAR},
+      two_student_no = #{record.twoStudentNo,jdbcType=VARCHAR},
+      two_student_name = #{record.twoStudentName,jdbcType=VARCHAR},
+      two_student_specialty = #{record.twoStudentSpecialty,jdbcType=VARCHAR},
+      two_student_phone = #{record.twoStudentPhone,jdbcType=VARCHAR},
+      two_student_email = #{record.twoStudentEmail,jdbcType=VARCHAR},
+      two_student_department = #{record.twoStudentDepartment,jdbcType=VARCHAR},
+      two_student_grade = #{record.twoStudentGrade,jdbcType=VARCHAR},
+      two_student_qq = #{record.twoStudentQq,jdbcType=VARCHAR},
       teacher_name = #{record.teacherName,jdbcType=VARCHAR},
       teacher_phone = #{record.teacherPhone,jdbcType=VARCHAR},
       teacher_email = #{record.teacherEmail,jdbcType=VARCHAR},
       teacher_department = #{record.teacherDepartment,jdbcType=VARCHAR},
-      teacher_QQ = #{record.teacherQq,jdbcType=VARCHAR},
+      teacher_qq = #{record.teacherQq,jdbcType=VARCHAR},
       works_no = #{record.worksNo,jdbcType=VARCHAR},
       works_name = #{record.worksName,jdbcType=VARCHAR},
       create_time = #{record.createTime,jdbcType=TIMESTAMP},
@@ -544,7 +544,7 @@
     update report
     <set>
       <if test="reportStatus != null">
-        report_status = #{reportStatus,jdbcType=TINYINT},
+        report_status = #{reportStatus,jdbcType=INTEGER},
       </if>
       <if test="mainStudentNo != null">
         main_student_no = #{mainStudentNo,jdbcType=VARCHAR},
@@ -568,55 +568,55 @@
         main_student_grade = #{mainStudentGrade,jdbcType=VARCHAR},
       </if>
       <if test="mainStudentQq != null">
-        main_student_QQ = #{mainStudentQq,jdbcType=VARCHAR},
+        main_student_qq = #{mainStudentQq,jdbcType=VARCHAR},
       </if>
-      <if test="student1No != null">
-        student1_no = #{student1No,jdbcType=VARCHAR},
+      <if test="oneStudentNo != null">
+        one_student_no = #{oneStudentNo,jdbcType=VARCHAR},
       </if>
-      <if test="student1Name != null">
-        student1_name = #{student1Name,jdbcType=VARCHAR},
+      <if test="oneStudentName != null">
+        one_student_name = #{oneStudentName,jdbcType=VARCHAR},
       </if>
-      <if test="student1Specialty != null">
-        student1_specialty = #{student1Specialty,jdbcType=VARCHAR},
+      <if test="oneStudentSpecialty != null">
+        one_student_specialty = #{oneStudentSpecialty,jdbcType=VARCHAR},
       </if>
-      <if test="student1Phone != null">
-        student1_phone = #{student1Phone,jdbcType=VARCHAR},
+      <if test="oneStudentPhone != null">
+        one_student_phone = #{oneStudentPhone,jdbcType=VARCHAR},
       </if>
-      <if test="student1Email != null">
-        student1_email = #{student1Email,jdbcType=VARCHAR},
+      <if test="oneStudentEmail != null">
+        one_student_email = #{oneStudentEmail,jdbcType=VARCHAR},
       </if>
-      <if test="student1Department != null">
-        student1_department = #{student1Department,jdbcType=VARCHAR},
+      <if test="oneStudentDepartment != null">
+        one_student_department = #{oneStudentDepartment,jdbcType=VARCHAR},
       </if>
-      <if test="student1Grade != null">
-        student1_grade = #{student1Grade,jdbcType=VARCHAR},
+      <if test="oneStudentGrade != null">
+        one_student_grade = #{oneStudentGrade,jdbcType=VARCHAR},
       </if>
-      <if test="student1Qq != null">
-        student1_QQ = #{student1Qq,jdbcType=VARCHAR},
+      <if test="oneStudentQq != null">
+        one_student_qq = #{oneStudentQq,jdbcType=VARCHAR},
       </if>
-      <if test="student2No != null">
-        student2_no = #{student2No,jdbcType=VARCHAR},
+      <if test="twoStudentNo != null">
+        two_student_no = #{twoStudentNo,jdbcType=VARCHAR},
       </if>
-      <if test="student2Name != null">
-        student2_name = #{student2Name,jdbcType=VARCHAR},
+      <if test="twoStudentName != null">
+        two_student_name = #{twoStudentName,jdbcType=VARCHAR},
       </if>
-      <if test="student2Specialty != null">
-        student2_specialty = #{student2Specialty,jdbcType=VARCHAR},
+      <if test="twoStudentSpecialty != null">
+        two_student_specialty = #{twoStudentSpecialty,jdbcType=VARCHAR},
       </if>
-      <if test="student2Phone != null">
-        student2_phone = #{student2Phone,jdbcType=VARCHAR},
+      <if test="twoStudentPhone != null">
+        two_student_phone = #{twoStudentPhone,jdbcType=VARCHAR},
       </if>
-      <if test="student2Email != null">
-        student2_email = #{student2Email,jdbcType=VARCHAR},
+      <if test="twoStudentEmail != null">
+        two_student_email = #{twoStudentEmail,jdbcType=VARCHAR},
       </if>
-      <if test="student2Department != null">
-        student2_department = #{student2Department,jdbcType=VARCHAR},
+      <if test="twoStudentDepartment != null">
+        two_student_department = #{twoStudentDepartment,jdbcType=VARCHAR},
       </if>
-      <if test="student2Grade != null">
-        student2_grade = #{student2Grade,jdbcType=VARCHAR},
+      <if test="twoStudentGrade != null">
+        two_student_grade = #{twoStudentGrade,jdbcType=VARCHAR},
       </if>
-      <if test="student2Qq != null">
-        student2_QQ = #{student2Qq,jdbcType=VARCHAR},
+      <if test="twoStudentQq != null">
+        two_student_qq = #{twoStudentQq,jdbcType=VARCHAR},
       </if>
       <if test="teacherName != null">
         teacher_name = #{teacherName,jdbcType=VARCHAR},
@@ -631,7 +631,7 @@
         teacher_department = #{teacherDepartment,jdbcType=VARCHAR},
       </if>
       <if test="teacherQq != null">
-        teacher_QQ = #{teacherQq,jdbcType=VARCHAR},
+        teacher_qq = #{teacherQq,jdbcType=VARCHAR},
       </if>
       <if test="worksNo != null">
         works_no = #{worksNo,jdbcType=VARCHAR},
@@ -650,7 +650,7 @@
   </update>
   <update id="updateByPrimaryKey" parameterType="com.example.competition.dao.model.Report">
     update report
-    set report_status = #{reportStatus,jdbcType=TINYINT},
+    set report_status = #{reportStatus,jdbcType=INTEGER},
       main_student_no = #{mainStudentNo,jdbcType=VARCHAR},
       main_student_name = #{mainStudentName,jdbcType=VARCHAR},
       main_student_specialty = #{mainStudentSpecialty,jdbcType=VARCHAR},
@@ -658,28 +658,28 @@
       main_student_email = #{mainStudentEmail,jdbcType=VARCHAR},
       main_student_department = #{mainStudentDepartment,jdbcType=VARCHAR},
       main_student_grade = #{mainStudentGrade,jdbcType=VARCHAR},
-      main_student_QQ = #{mainStudentQq,jdbcType=VARCHAR},
-      student1_no = #{student1No,jdbcType=VARCHAR},
-      student1_name = #{student1Name,jdbcType=VARCHAR},
-      student1_specialty = #{student1Specialty,jdbcType=VARCHAR},
-      student1_phone = #{student1Phone,jdbcType=VARCHAR},
-      student1_email = #{student1Email,jdbcType=VARCHAR},
-      student1_department = #{student1Department,jdbcType=VARCHAR},
-      student1_grade = #{student1Grade,jdbcType=VARCHAR},
-      student1_QQ = #{student1Qq,jdbcType=VARCHAR},
-      student2_no = #{student2No,jdbcType=VARCHAR},
-      student2_name = #{student2Name,jdbcType=VARCHAR},
-      student2_specialty = #{student2Specialty,jdbcType=VARCHAR},
-      student2_phone = #{student2Phone,jdbcType=VARCHAR},
-      student2_email = #{student2Email,jdbcType=VARCHAR},
-      student2_department = #{student2Department,jdbcType=VARCHAR},
-      student2_grade = #{student2Grade,jdbcType=VARCHAR},
-      student2_QQ = #{student2Qq,jdbcType=VARCHAR},
+      main_student_qq = #{mainStudentQq,jdbcType=VARCHAR},
+      one_student_no = #{oneStudentNo,jdbcType=VARCHAR},
+      one_student_name = #{oneStudentName,jdbcType=VARCHAR},
+      one_student_specialty = #{oneStudentSpecialty,jdbcType=VARCHAR},
+      one_student_phone = #{oneStudentPhone,jdbcType=VARCHAR},
+      one_student_email = #{oneStudentEmail,jdbcType=VARCHAR},
+      one_student_department = #{oneStudentDepartment,jdbcType=VARCHAR},
+      one_student_grade = #{oneStudentGrade,jdbcType=VARCHAR},
+      one_student_qq = #{oneStudentQq,jdbcType=VARCHAR},
+      two_student_no = #{twoStudentNo,jdbcType=VARCHAR},
+      two_student_name = #{twoStudentName,jdbcType=VARCHAR},
+      two_student_specialty = #{twoStudentSpecialty,jdbcType=VARCHAR},
+      two_student_phone = #{twoStudentPhone,jdbcType=VARCHAR},
+      two_student_email = #{twoStudentEmail,jdbcType=VARCHAR},
+      two_student_department = #{twoStudentDepartment,jdbcType=VARCHAR},
+      two_student_grade = #{twoStudentGrade,jdbcType=VARCHAR},
+      two_student_qq = #{twoStudentQq,jdbcType=VARCHAR},
       teacher_name = #{teacherName,jdbcType=VARCHAR},
       teacher_phone = #{teacherPhone,jdbcType=VARCHAR},
       teacher_email = #{teacherEmail,jdbcType=VARCHAR},
       teacher_department = #{teacherDepartment,jdbcType=VARCHAR},
-      teacher_QQ = #{teacherQq,jdbcType=VARCHAR},
+      teacher_qq = #{teacherQq,jdbcType=VARCHAR},
       works_no = #{worksNo,jdbcType=VARCHAR},
       works_name = #{worksName,jdbcType=VARCHAR},
       create_time = #{createTime,jdbcType=TIMESTAMP},

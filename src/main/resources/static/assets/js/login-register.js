@@ -8,9 +8,6 @@ var loginVerify2=false;
 var tip="";
 
 
-$(document).ready(function () {
-    // $("#logout").attr("href",projectName+"/logout");
-});
 
 //隐藏提示小图
 function hideIcon() {
@@ -122,10 +119,10 @@ function addIcon(status, loginOrRegister, number) {
     if (loginOrRegister == "login") {
         if (status == "true") {
             if (number == "1") {
-                $("#loginIcon1").find("img").attr("src", "assets/img/trueIcon.png");
+                $("#loginIcon1").find("img").attr("src", projectName+"/assets/img/trueIcon.png");
                 $("#loginIcon1").show();
             } else if (number == "2") {
-                $("#loginIcon2").find("img").attr("src", "assets/img/trueIcon.png");
+                $("#loginIcon2").find("img").attr("src", projectName+"/assets/img/trueIcon.png");
                 $("#loginIcon2").show();
             }
         } else if (status == "false") {
@@ -133,31 +130,31 @@ function addIcon(status, loginOrRegister, number) {
                 $("#loginIcon1").find("img").attr("src", "assets/img/errorIcon.png");
                 $("#loginIcon1").show();
             } else if (number == "2") {
-                $("#loginIcon2").find("img").attr("src", "assets/img/errorIcon.png");
+                $("#loginIcon2").find("img").attr("src", projectName+"/assets/img/errorIcon.png");
                 $("#loginIcon2").show();
             }
         }
     } else if (loginOrRegister == "register") {
         if (status == "true") {
             if (number == "1") {
-                $("#registerIcon1").find("img").attr("src", "assets/img/trueIcon.png");
+                $("#registerIcon1").find("img").attr("src",  projectName+"assets/img/trueIcon.png");
                 $("#registerIcon1").show();
             } else if (number == "2") {
-                $("#registerIcon2").find("img").attr("src", "assets/img/trueIcon.png");
+                $("#registerIcon2").find("img").attr("src",  projectName+"assets/img/trueIcon.png");
                 $("#registerIcon2").show();
             } else if (number == "3") {
-                $("#registerIcon3").find("img").attr("src", "assets/img/trueIcon.png");
+                $("#registerIcon3").find("img").attr("src",  projectName+"assets/img/trueIcon.png");
                 $("#registerIcon3").show();
             }
         } else if (status == "false") {
             if (number =="1") {
-                $("#registerIcon1").find("img").attr("src", "assets/img/errorIcon.png");
+                $("#registerIcon1").find("img").attr("src",  projectName+"assets/img/errorIcon.png");
                 $("#registerIcon1").show();
             } else if (number == "2") {
-                $("#registerIcon2").find("img").attr("src", "assets/img/errorIcon.png");
+                $("#registerIcon2").find("img").attr("src",  projectName+"assets/img/errorIcon.png");
                 $("#registerIcon2").show();
             } else if (number == "3") {
-                $("#registerIcon3").find("img").attr("src", "assets/img/errorIcon.png");
+                $("#registerIcon3").find("img").attr("src",  projectName+"assets/img/errorIcon.png");
                 $("#registerIcon3").show();
             }
         }
