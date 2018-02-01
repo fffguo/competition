@@ -26,16 +26,21 @@ public class ReportRepositoryTest {
         report.setMainStudentGrade("2018");
         report.setMainStudentSpecialty("jisuanji");
         report.setMainStudentQq("5957");
+        report.setReportStatus(1);
         report.setMainStudentPhone("111111");
         report.setMainStudentName("qqq");
+        report.setMainStudentNo("11p");
         report.setOneStudentNo("415");
         report.setMainStudentEmail("sss");
         report.setMainStudentDepartment("dd");
         report.setTeacherDepartment("ww");
         report.setTeacherEmail("www");
-        report.setTeacherName("Wwwww");
+        report.setTeacherName("22");
         report.setTeacherPhone("wwaa");
+        report.setWorksName("test");
         report.setTeacherQq("qqq");
+        report.setTwoStudentName("Wwe");
+        report.setWorksNo("W");
 //        Report result=repository.save(report);
 //        System.out.println(result);
     }

@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html xmlns:shiro="http://www.pollix.at/thymeleaf/shiro" xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="utf-8"/>
@@ -15,6 +15,91 @@
 
 </head>
 <body>
+<!--TODO detailModal-->
+<div style="width: 600px" class="modal fade" id="detailModal"
+     tabindex="-1"
+     role="dialog" aria-labelledby="detailModal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"
+                        aria-hidden="true">&times;
+                </button>
+                <h4 class="modal-title" id="modalTitle" style="text-align: center">标题</h4>
+            </div>
+            <div class="modal-body">
+                <div class="container">
+                    <div class="col-md-12 column">
+                        <h4 style="text-align: left;color: green;">项目概览：</h4>
+                        <h5 style="text-align: left">项目编号：<span></span><input type="hidden" id="worksNo"></h5>
+                        <h5 style="text-align: left">项目名称：<span></span><input type="hidden" id="worksName"></h5>
+                        <h5 style="text-align: left">项目状态：<span></span><input type="hidden" id="reportStatus"></h5>
+                        <h5 style="text-align: left">申请时间：<span></span><input type="hidden" id="createTime"></h5>
+                        <h5 style="text-align: left">更新时间：<span></span><input type="hidden" id="updateTime"></h5>
+                    </div>
+                    <div class="col-md-12 column">
+                        <h4 style="text-align: left;color: green;">指导老师:</h4>
+                        <h5 style="text-align: left">姓名：<span></span><input type="hidden" id="teacherName"></h5>
+                        <h5 style="text-align: left">院系：<span></span><input type="hidden" id="teacherDepartment"></h5>
+                        <h5 style="text-align: left">手机号：<span></span><input type="hidden" id="teacherPhone"></h5>
+                        <h5 style="text-align: left">邮箱：<span></span><input type="hidden" id="teacherEmail"></h5>
+                        <h5 style="text-align: left">QQ：<span></span><input type="hidden" id="teacherQq"></h5>
+                    </div>
+                    <div class="col-md-12 column">
+                        <h4 style="text-align: left;color: green;">项目负责人:</h4>
+                        <h5 style="text-align: left">学号：<span></span><input type="hidden" id="mainStudentNo"></h5>
+                        <h5 style="text-align: left">姓名：<span></span><input type="hidden" id="mainStudentName"></h5>
+                        <h5 style="text-align: left">年级：<span></span><input type="hidden" id="mainStudentGrade"></h5>
+                        <h5 style="text-align: left">专业：<span></span><input type="hidden" id="mainStudentSpecialty"></h5>
+                        <h5 style="text-align: left">院系：<span></span><input type="hidden" id="mainStudentDepartment"></h5>
+                        <h5 style="text-align: left">手机号：<span></span><input type="hidden" id="mainStudentPhone"></h5>
+                        <h5 style="text-align: left">邮箱：<span></span><input type="hidden" id="mainStudentEmail"></h5>
+                        <h5 style="text-align: left">QQ：<span></span><input type="hidden" id="mainStudentQq"></h5>
+                    </div>
+                    <div class="col-md-12 column">
+                        <h4 style="text-align: left;color: green;">学生成员:</h4>
+                        <h5 style="text-align: left">学号：<span></span><input type="hidden" id="oneStudentNo"></h5>
+                        <h5 style="text-align: left">姓名：<span></span><input type="hidden" id="oneStudentName"></h5>
+                        <h5 style="text-align: left">年级：<span></span><input type="hidden" id="oneStudentGrade"></h5>
+                        <h5 style="text-align: left">专业：<span></span><input type="hidden" id="oneStudentSpecialty"></h5>
+                        <h5 style="text-align: left">院系：<span></span><input type="hidden" id="oneStudentDepartment"></h5>
+                        <h5 style="text-align: left">手机号：<span></span><input type="hidden" id="oneStudentPhone"></h5>
+                        <h5 style="text-align: left">邮箱：<span></span><input type="hidden" id="oneStudentEmail"></h5>
+                        <h5 style="text-align: left">QQ：<span></span><input type="hidden" id="oneStudentQq"></h5>
+                    </div>
+                    <div class="col-md-12 column">
+                        <h4 style="text-align: left;color: green;">学生成员:</h4>
+                        <h5 style="text-align: left">学号：<span></span><input type="hidden" id="twoStudentNo"></h5>
+                        <h5 style="text-align: left">姓名：<span></span><input type="hidden" id="twoStudentName"></h5>
+                        <h5 style="text-align: left">年级：<span></span><input type="hidden" id="twoStudentGrade"></h5>
+                        <h5 style="text-align: left">专业：<span></span><input type="hidden" id="twoStudentSpecialty"></h5>
+                        <h5 style="text-align: left">院系：<span></span><input type="hidden" id="twoStudentDepartment"></h5>
+                        <h5 style="text-align: left">手机号：<span></span><input type="hidden" id="twoStudentPhone"></h5>
+                        <h5 style="text-align: left">邮箱：<span></span><input type="hidden" id="twoStudentEmail"></h5>
+                        <h5 style="text-align: left">QQ：<span></span><input type="hidden" id="twoStudentQq"></h5>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button style="margin-left: 5px" type="button"
+                        class="btn btn-default" data-dismiss="modal">关闭
+                </button>
+                <button id="modalCheck" type="button" class="btn btn-danger"
+                        data-dismiss="modal"
+                        onclick="">
+                    拒绝
+                </button>
+                <button id="modalPass" type="button" class="btn btn-primary"
+                        data-dismiss="modal"
+                        onclick="">
+                    通过
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 <div id="wrapper">
     <div th:include="web-model::top"></div>
     <div th:include="web-model::left"></div>
@@ -56,8 +141,8 @@
                                             <i style="cursor:pointer;"
                                                class="material-icons tooltipped"
                                                data-position="top" data-delay="50"
-                                               data-tooltip="详情" data-toggle="modal" data-target="#"
-                                               th:onclick="'setDataTarget('+${report.reportId}+',this)'">description</i>
+                                               data-tooltip="详情" data-toggle="modal" data-target="#detailModal"
+                                               th:onclick="'getReportDetail('+${report.reportId}+')'">description</i>
                                         </th>
                                         <th class="center" th:text="${report.worksName}">项目名称</th>
                                         <th class="center" th:text="${report.mainStudentName}">负责人姓名</th>
@@ -66,150 +151,7 @@
                                             项目成员
                                         </th>
                                         <th class="center" th:text="${report.mainStudentDepartment}">分院</th>
-                                        <!--TODO detailModal-->
-                                        <div style="width: 600px" class="modal fade" th:id="${report.reportId}"
-                                             tabindex="-1"
-                                             role="dialog" aria-labelledby="detailModal" aria-hidden="true">
-                                            <div class="modal-dialog">
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <button type="button" class="close" data-dismiss="modal"
-                                                                aria-hidden="true">&times;
-                                                        </button>
-                                                        <h4 class="modal-title" id="detailModal" style="text-align: center"
-                                                            th:text="${report.worksName}">标题</h4>
-                                                    </div>
-                                                    <div class="modal-body">
-                                                        <div class="container">
-                                                            <div class="col-md-12 column">
-                                                                <h4 style="text-align: left;color: green;">项目概览：</h4>
-                                                                <h5 style="text-align: left">项目编号：<span
-                                                                        th:text="${report.worksNo}"></span></h5>
-                                                                <h5 style="text-align: left">项目名称：<span
-                                                                        th:text="${report.worksName}"></span></h5>
-                                                                <h5 style="text-align: left">项目状态：<span
-                                                                        th:text="${report.reportStatus}"></span>
-                                                                </h5>
-                                                                <h5 style="text-align: left">申请时间：<span
-                                                                        th:text="${report.createTime}"></span></h5>
-                                                            </div>
-                                                            <div class="col-md-12 column">
-                                                                <h4 style="text-align: left;color: green;">指导老师:</h4>
-                                                                <h5 style="text-align: left">姓名：<span
-                                                                        th:text="${report.teacherName}"></span></h5>
-                                                                <h5 style="text-align: left">院系：<span
-                                                                        th:text="${report.teacherDepartment}"></span>
-                                                                </h5>
-                                                                <h5 style="text-align: left">手机号：<span
-                                                                        th:text="${report.teacherPhone}"></span>
-                                                                </h5>
-                                                                <h5 style="text-align: left">邮箱：<span
-                                                                        th:text="${report.teacherEmail}"></span>
-                                                                </h5>
-                                                                <h5 style="text-align: left">QQ：<span
-                                                                        th:text="${report.teacherQq}"></span></h5>
-                                                            </div>
-                                                            <div class="col-md-12 column">
-                                                                <h4 style="text-align: left;color: green;">项目负责人:</h4>
-                                                                <h5 style="text-align: left">学号：<span
-                                                                        th:text="${report.mainStudentNo}"></span>
-                                                                </h5>
-                                                                <h5 style="text-align: left">姓名：<span
-                                                                        th:text="${report.mainStudentName}"></span>
-                                                                </h5>
-                                                                <h5 style="text-align: left">年级：<span
-                                                                        th:text="${report.mainStudentGrade}"></span>
-                                                                </h5>
-                                                                <h5 style="text-align: left">专业：<span
-                                                                        th:text="${report.mainStudentSpecialty}"></span>
-                                                                </h5>
-                                                                <h5 style="text-align: left">院系：<span
-                                                                        th:text="${report.mainStudentDepartment}"></span>
-                                                                </h5>
-                                                                <h5 style="text-align: left">手机号：<span
-                                                                        th:text="${report.mainStudentPhone}"></span>
-                                                                </h5>
-                                                                <h5 style="text-align: left">邮箱：<span
-                                                                        th:text="${report.mainStudentEmail}"></span>
-                                                                </h5>
-                                                                <h5 style="text-align: left">QQ：<span
-                                                                        th:text="${report.mainStudentQq}"></span>
-                                                                </h5>
-                                                            </div>
-                                                            <div class="col-md-12 column">
-                                                                <h4 style="text-align: left;color: green;">学生成员:</h4>
-                                                                <h5 style="text-align: left">学号：<span
-                                                                        th:text="${report.oneStudentNo}"></span>
-                                                                </h5>
-                                                                <h5 style="text-align: left">姓名：<span
-                                                                        th:text="${report.oneStudentName}"></span>
-                                                                </h5>
-                                                                <h5 style="text-align: left">年级：<span
-                                                                        th:text="${report.oneStudentGrade}"></span>
-                                                                </h5>
-                                                                <h5 style="text-align: left">专业：<span
-                                                                        th:text="${report.oneStudentSpecialty}"></span>
-                                                                </h5>
-                                                                <h5 style="text-align: left">院系：<span
-                                                                        th:text="${report.oneStudentDepartment}"></span>
-                                                                </h5>
-                                                                <h5 style="text-align: left">手机号：<span
-                                                                        th:text="${report.oneStudentPhone}"></span>
-                                                                </h5>
-                                                                <h5 style="text-align: left">邮箱：<span
-                                                                        th:text="${report.oneStudentEmail}"></span>
-                                                                </h5>
-                                                                <h5 style="text-align: left">QQ：<span
-                                                                        th:text="${report.oneStudentQq}"></span>
-                                                                </h5>
-                                                            </div>
-                                                            <div class="col-md-12 column">
-                                                                <h4 style="text-align: left;color: green;">学生成员:</h4>
-                                                                <h5 style="text-align: left">学号：<span
-                                                                        th:text="${report.twoStudentNo}"></span>
-                                                                </h5>
-                                                                <h5 style="text-align: left">姓名：<span
-                                                                        th:text="${report.twoStudentName}"></span>
-                                                                </h5>
-                                                                <h5 style="text-align: left">年级：<span
-                                                                        th:text="${report.twoStudentGrade}"></span>
-                                                                </h5>
-                                                                <h5 style="text-align: left">专业：<span
-                                                                        th:text="${report.twoStudentSpecialty}"></span>
-                                                                </h5>
-                                                                <h5 style="text-align: left">院系：<span
-                                                                        th:text="${report.twoStudentDepartment}"></span>
-                                                                </h5>
-                                                                <h5 style="text-align: left">手机号：<span
-                                                                        th:text="${report.twoStudentPhone}"></span>
-                                                                </h5>
-                                                                <h5 style="text-align: left">邮箱：<span
-                                                                        th:text="${report.twoStudentEmail}"></span>
-                                                                </h5>
-                                                                <h5 style="text-align: left">QQ：<span
-                                                                        th:text="${report.twoStudentQq}"></span>
-                                                                </h5>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="modal-footer">
-                                                        <button style="margin-left: 5px" type="button"
-                                                                class="btn btn-default" data-dismiss="modal">关闭
-                                                        </button>
-                                                        <button type="button" class="btn btn-danger"
-                                                                data-dismiss="modal"
-                                                                th:onclick="'setStatus('+${report.reportId}+',2,this)'">
-                                                            拒绝
-                                                        </button>
-                                                        <button type="button" class="btn btn-primary"
-                                                                data-dismiss="modal"
-                                                                th:onclick="'setStatus('+${report.reportId}+',1,this)'">
-                                                            通过
-                                                        </button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+
                                     </tr>
                                     </tbody>
                                 </table>
