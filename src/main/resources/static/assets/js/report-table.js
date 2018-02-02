@@ -35,6 +35,7 @@ function modalSetStatus(reportId, status) {
         success: function (data) {
             if (data.code == 1) {
                 Materialize.toast(data.data, 4000);
+                setIconColor(status,reportId)
             }
             if (data.code == 0) {
                 Materialize.toast(data.message, 4000);
@@ -404,6 +405,11 @@ function read2Edit() {
 function editCancel() {
     hideInput();
     edit2Read();
+}
+
+//导出excel
+function exportExcel(){
+    window.open(projectName+"/report/excel");
 }
 
 
