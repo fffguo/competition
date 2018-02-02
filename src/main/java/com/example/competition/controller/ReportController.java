@@ -84,7 +84,9 @@ public class ReportController {
     }
 
     @PostMapping("/update")
+    @ResponseBody
     public ResultVO<String> update(Report report){
+        System.out.println(report.toString());
         if(StringUtils.isEmpty(report.getReportId())){
             log.error("【更新报名信息】，Id不能为空：reportId={}",report.getReportId());
             return ResultVOUtil.error(ResultVOEnum.ERROR.getCode(),"Id不能为空");
@@ -95,6 +97,7 @@ public class ReportController {
             return ResultVOUtil.error(ResultVOEnum.ERROR.getCode(),"报名信息不存在");
         }
         try {
+            report.setCreateTime(result.getCreateTime());
             reportService.save(report);
         }catch (Exception e){
             log.error("【更新报名信息】，更新失败：reportId={}，message={}",report.getReportId(),e.getMessage());
