@@ -6130,7 +6130,8 @@ button.close {
     display: none;
     overflow: hidden;
     -webkit-overflow-scrolling: touch;
-    outline: 0
+    outline: 0;
+
 }
 
 .modal.fade .modal-dialog {

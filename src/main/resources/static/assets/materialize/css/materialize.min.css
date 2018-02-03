@@ -5188,8 +5188,10 @@ button.btn-floating {
     /*background-color: #fafafa;*/
     padding: 0;
     max-height: 80%;
-    width: 25%;
+    width: 100%;
+    /*width: 25%;*/
     margin: auto;
+    /*overflow-y: hidden;*/
     overflow-y: auto;
     border-radius: 2px;
     will-change: top, opacity

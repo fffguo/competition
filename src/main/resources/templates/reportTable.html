@@ -24,84 +24,90 @@
 </head>
 <body>
 <!--TODO detailModal-->
-<div style="width: 600px" class="modal fade" id="detailModal"
-     tabindex="-1"
-     role="dialog" aria-labelledby="detailModal" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button  type="button" class="btn btn-info" onclick="edit()" id="edit">编辑</button>
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true" onclick="" id="modalCloseRightTop">&times;</button>
-                <h4 class="modal-title" id="modalTitle" style="text-align: center">标题</h4>
-            </div>
-            <div class="modal-body">
-                <div class="container">
-                    <div class="col-md-12 column inputH5">
-                        <h4 style="text-align: left;color: green;">项目概览：</h4>
-                        <input type="hidden" id="modalReportId" value="">
-                        <h5 style="text-align: left">项目编号：<span></span><input type="hidden" id="worksNo" ></h5>
-                        <h5 style="text-align: left">项目名称：<span></span><input type="hidden" id="worksName" ></h5>
-                        <h5 style="text-align: left">项目状态：<span></span><input disabled type="hidden" id="reportStatus" ></h5>
-                        <h5 style="text-align: left">申请时间：<span></span><input disabled type="hidden" id="createTime" ></h5>
-                        <h5 style="text-align: left">更新时间：<span></span><input disabled type="hidden" id="updateTime" ></h5>
-                    </div>
-                    <div class="col-md-12 column inputH5">
-                        <h4 style="text-align: left;color: green;">指导老师:</h4>
-                        <h5 style="text-align: left">姓&emsp;名：<span></span><input type="hidden" id="teacherName" ></h5>
-                        <h5 style="text-align: left">院&emsp;系：<span></span><input type="hidden" id="teacherDepartment" ></h5>
-                        <h5 style="text-align: left">手机号：<span></span><input type="hidden" id="teacherPhone" ></h5>
-                        <h5 style="text-align: left">邮&emsp;箱：<span></span><input type="hidden" id="teacherEmail" ></h5>
-                        <h5 style="text-align: left">Q&emsp;&ensp;Q：<span></span><input type="hidden" id="teacherQq" ></h5>
-                    </div>
-                    <div class="col-md-12 column inputH5">
-                        <h4 style="text-align: left;color: green;">项目负责人:</h4>
-                        <h5 style="text-align: left">学&emsp;号：<span></span><input type="hidden" id="mainStudentNo" ></h5>
-                        <h5 style="text-align: left">姓&emsp;名：<span></span><input type="hidden" id="mainStudentName" ></h5>
-                        <h5 style="text-align: left">年&emsp;级：<span></span><input type="hidden" id="mainStudentGrade" ></h5>
-                        <h5 style="text-align: left">专&emsp;业：<span></span><input type="hidden" id="mainStudentSpecialty" ></h5>
-                        <h5 style="text-align: left">院&emsp;系：<span></span><input type="hidden" id="mainStudentDepartment" ></h5>
-                        <h5 style="text-align: left">手机号：<span></span><input type="hidden" id="mainStudentPhone" ></h5>
-                        <h5 style="text-align: left">邮&emsp;箱：<span></span><input type="hidden" id="mainStudentEmail" ></h5>
-                        <h5 style="text-align: left">Q&emsp;&ensp;Q：<span></span><input type="hidden" id="mainStudentQq" ></h5>
-                    </div>
-                    <div class="col-md-12 column inputH5">
-                        <h4 style="text-align: left;color: green;">学生成员:</h4>
-                        <h5 style="text-align: left">学&emsp;号：<span></span><input type="hidden" id="oneStudentNo" ></h5>
-                        <h5 style="text-align: left">姓&emsp;名：<span></span><input type="hidden" id="oneStudentName" ></h5>
-                        <h5 style="text-align: left">年&emsp;级：<span></span><input type="hidden" id="oneStudentGrade" ></h5>
-                        <h5 style="text-align: left">专&emsp;业：<span></span><input type="hidden" id="oneStudentSpecialty" ></h5>
-                        <h5 style="text-align: left">院&emsp;系：<span></span><input type="hidden" id="oneStudentDepartment" ></h5>
-                        <h5 style="text-align: left">手机号：<span></span><input type="hidden" id="oneStudentPhone" ></h5>
-                        <h5 style="text-align: left">邮&emsp;箱：<span></span><input type="hidden" id="oneStudentEmail" ></h5>
-                        <h5 style="text-align: left">Q&emsp;&ensp;Q：<span></span><input type="hidden" id="oneStudentQq" ></h5>
-                    </div>
-                    <div class="col-md-12 column inputH5">
-                        <h4 style="text-align: left;color: green;">学生成员:</h4>
-                        <h5 style="text-align: left">学&emsp;号：<span></span><input type="hidden" id="twoStudentNo" ></h5>
-                        <h5 style="text-align: left">姓&emsp;名：<span></span><input type="hidden" id="twoStudentName" ></h5>
-                        <h5 style="text-align: left">年&emsp;级：<span></span><input type="hidden" id="twoStudentGrade" ></h5>
-                        <h5 style="text-align: left">专&emsp;业：<span></span><input type="hidden" id="twoStudentSpecialty" ></h5>
-                        <h5 style="text-align: left">院&emsp;系：<span></span><input type="hidden" id="twoStudentDepartment" ></h5>
-                        <h5 style="text-align: left">手机号：<span></span><input type="hidden" id="twoStudentPhone" ></h5>
-                        <h5 style="text-align: left">邮&emsp;箱：<span></span><input type="hidden" id="twoStudentEmail" ></h5>
-                        <h5 style="text-align: left">Q&emsp;&ensp;Q：<span></span><input type="hidden" id="twoStudentQq" ></h5>
+<div class="modal fade" id="detailModal"
+         tabindex="-1"
+         role="dialog" aria-labelledby="detailModal" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button  type="button" class="btn btn-info" onclick="edit()" id="edit">编辑</button>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true" onclick="" id="modalCloseRightTop">&times;</button>
+                    <h4 class="modal-title" id="modalTitle" style="text-align: center">标题</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="container">
+                        <div class="col-md-12 column inputH5">
+                            <h4 style="text-align: left;color: green;">项目概览：</h4>
+                            <input type="hidden" id="modalReportId" value="">
+                            <h5 style="text-align: left">项目编号：<span></span><input type="hidden" id="worksNo" ></h5>
+                            <h5 style="text-align: left">项目名称：<span></span><input type="hidden" id="worksName" ></h5>
+                            <h5 style="text-align: left">项目状态：<span></span><input disabled type="hidden" id="reportStatus" ></h5>
+                            <h5 style="text-align: left">申请时间：<span></span><input disabled type="hidden" id="createTime" ></h5>
+                            <h5 style="text-align: left">更新时间：<span></span><input disabled type="hidden" id="updateTime" ></h5>
+                        </div>
+                        <div class="col-md-12 column inputH5">
+                            <h4 style="text-align: left;color: green;">指导老师:</h4>
+                            <h5 style="text-align: left">姓&emsp;名：<span></span><input type="hidden" id="teacherName" ></h5>
+                            <h5 style="text-align: left">院&emsp;系：<span></span><input type="hidden" id="teacherDepartment" ></h5>
+                            <h5 style="text-align: left">手机号：<span></span><input type="hidden" id="teacherPhone" ></h5>
+                            <h5 style="text-align: left">邮&emsp;箱：<span></span><input type="hidden" id="teacherEmail" ></h5>
+                            <h5 style="text-align: left">Q&emsp;&ensp;Q：<span></span><input type="hidden" id="teacherQq" ></h5>
+                        </div>
+                        <div class="col-md-12 column inputH5">
+                            <h4 style="text-align: left;color: green;">项目负责人:</h4>
+                            <h5 style="text-align: left">学&emsp;号：<span></span><input type="hidden" id="mainStudentNo" ></h5>
+                            <h5 style="text-align: left">姓&emsp;名：<span></span><input type="hidden" id="mainStudentName" ></h5>
+                            <h5 style="text-align: left">年&emsp;级：<span></span><input type="hidden" id="mainStudentGrade" ></h5>
+                            <h5 style="text-align: left">专&emsp;业：<span></span><input type="hidden" id="mainStudentSpecialty" ></h5>
+                            <h5 style="text-align: left">院&emsp;系：<span></span><input type="hidden" id="mainStudentDepartment" ></h5>
+                            <h5 style="text-align: left">手机号：<span></span><input type="hidden" id="mainStudentPhone" ></h5>
+                            <h5 style="text-align: left">邮&emsp;箱：<span></span><input type="hidden" id="mainStudentEmail" ></h5>
+                            <h5 style="text-align: left">Q&emsp;&ensp;Q：<span></span><input type="hidden" id="mainStudentQq" ></h5>
+                        </div>
+                        <div class="col-md-12 column inputH5">
+                            <h4 style="text-align: left;color: green;">学生成员:</h4>
+                            <h5 style="text-align: left">学&emsp;号：<span></span><input type="hidden" id="oneStudentNo" ></h5>
+                            <h5 style="text-align: left">姓&emsp;名：<span></span><input type="hidden" id="oneStudentName" ></h5>
+                            <h5 style="text-align: left">年&emsp;级：<span></span><input type="hidden" id="oneStudentGrade" ></h5>
+                            <h5 style="text-align: left">专&emsp;业：<span></span><input type="hidden" id="oneStudentSpecialty" ></h5>
+                            <h5 style="text-align: left">院&emsp;系：<span></span><input type="hidden" id="oneStudentDepartment" ></h5>
+                            <h5 style="text-align: left">手机号：<span></span><input type="hidden" id="oneStudentPhone" ></h5>
+                            <h5 style="text-align: left">邮&emsp;箱：<span></span><input type="hidden" id="oneStudentEmail" ></h5>
+                            <h5 style="text-align: left">Q&emsp;&ensp;Q：<span></span><input type="hidden" id="oneStudentQq" ></h5>
+                        </div>
+                        <div class="col-md-12 column inputH5">
+                            <h4 style="text-align: left;color: green;">学生成员:</h4>
+                            <h5 style="text-align: left">学&emsp;号：<span></span><input type="hidden" id="twoStudentNo" ></h5>
+                            <h5 style="text-align: left">姓&emsp;名：<span></span><input type="hidden" id="twoStudentName" ></h5>
+                            <h5 style="text-align: left">年&emsp;级：<span></span><input type="hidden" id="twoStudentGrade" ></h5>
+                            <h5 style="text-align: left">专&emsp;业：<span></span><input type="hidden" id="twoStudentSpecialty" ></h5>
+                            <h5 style="text-align: left">院&emsp;系：<span></span><input type="hidden" id="twoStudentDepartment" ></h5>
+                            <h5 style="text-align: left">手机号：<span></span><input type="hidden" id="twoStudentPhone" ></h5>
+                            <h5 style="text-align: left">邮&emsp;箱：<span></span><input type="hidden" id="twoStudentEmail" ></h5>
+                            <h5 style="text-align: left">Q&emsp;&ensp;Q：<span></span><input type="hidden" id="twoStudentQq" ></h5>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="modal-footer">
-                <button id="modalClose" style="margin-left: 5px" type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-                <button id="modalCheck" type="button" class="btn btn-danger" data-dismiss="modal" onclick="">拒绝</button>
-                <button id="modalPass" type="button" class="btn btn-primary" data-dismiss="modal" onclick="">通过</button>
+                <div class="modal-footer">
+                    <button id="modalClose" style="margin-left: 5px" type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                    <button id="modalCheck" type="button" class="btn btn-danger" data-dismiss="modal" onclick="">拒绝</button>
+                    <button id="modalPass" type="button" class="btn btn-primary" data-dismiss="modal" onclick="">通过</button>
+                </div>
             </div>
         </div>
     </div>
-</div>
 
 
 <div id="wrapper">
     <div th:include="web-model::top"></div>
     <div th:include="web-model::left"></div>
     <div id="page-wrapper">
+        <div class="header">
+            <h4 class="page-header" style="text-align: center" th:if="${status} eq 0">报名信息表（待审核）</h4>
+            <h4 class="page-header" style="text-align: center" th:if="${status} eq 1">报名信息表（已通过）</h4>
+            <h4 class="page-header" style="text-align: center" th:if="${status} eq 2">报名信息表（未通过）</h4>
+            <h4 class="page-header" style="text-align: center" th:if="${status} eq 3">报名信息表（已删除）</h4>
+        </div>
         <div id="page-inner">
             <div class="row">
                 <div class="col-md-12">
@@ -119,7 +125,7 @@
                                         <th class="center">报名申请</th>
                                         <th class="center">项目编号</th>
                                         <th class="center">项目名称</th>
-                                        <th class="center">项目状态</th>
+                                        <!--<th class="center">项目状态</th>-->
                                         <th class="center">负责人姓名</th>
                                         <th class="center">指导老师姓名</th>
                                         <th class="center">项目成员</th>
@@ -151,10 +157,10 @@
                                         </th>
                                         <th class="center" th:text="${report.worksNo}">项目编号</th>
                                         <th class="center" th:text="${report.worksName}">项目名称</th>
-                                        <th class="center" th:if="${report.reportStatus} eq 0">待审核</th>
-                                        <th class="center" th:if="${report.reportStatus} eq 1">已通过</th>
-                                        <th class="center" th:if="${report.reportStatus} eq 2">未通过</th>
-                                        <th class="center" th:if="${report.reportStatus} eq 3">已删除</th>
+                                        <!--<th class="center" th:if="${report.reportStatus} eq 0">待审核</th>-->
+                                        <!--<th class="center" th:if="${report.reportStatus} eq 1">已通过</th>-->
+                                        <!--<th class="center" th:if="${report.reportStatus} eq 2">未通过</th>-->
+                                        <!--<th class="center" th:if="${report.reportStatus} eq 3">已删除</th>-->
                                         <th class="center" th:text="${report.mainStudentName}">负责人姓名</th>
                                         <th class="center" th:text="${report.teacherName}">指导老师姓名</th>
                                         <th class="center" th:text="${report.oneStudentName+' '+report.twoStudentName}">
