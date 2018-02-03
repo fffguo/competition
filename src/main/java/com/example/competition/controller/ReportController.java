@@ -1,21 +1,20 @@
 package com.example.competition.controller;
 
-import com.alibaba.fastjson.JSONArray;
 import com.example.competition.VO.ResultVO;
 import com.example.competition.dao.entity.Report;
 import com.example.competition.enums.ResultVOEnum;
 import com.example.competition.service.ReportService;
 import com.example.competition.utils.BeanUtil;
+import com.example.competition.utils.DateUtil;
 import com.example.competition.utils.ExcelUtil;
 import com.example.competition.utils.ResultVOUtil;
-import com.google.gson.JsonArray;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
+import org.thymeleaf.util.DateUtils;
 
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletRequest;
@@ -98,7 +97,6 @@ public class ReportController {
     @PostMapping("/update")
     @ResponseBody
     public ResultVO<String> update(Report report) {
-        System.out.println(report.toString());
         if (StringUtils.isEmpty(report.getReportId())) {
             log.error("【更新报名信息】，Id不能为空：reportId={}", report.getReportId());
             return ResultVOUtil.error(ResultVOEnum.ERROR.getCode(), "Id不能为空");
@@ -134,13 +132,24 @@ public class ReportController {
     }
 
     @GetMapping("/excel")
-    public String exportExcel(HttpServletRequest request, HttpServletResponse response) throws IOException, IllegalAccessException, IntrospectionException, InvocationTargetException {
-        String fileName = "excel文件";
+    public String exportExcel(@RequestParam("status") Integer status,HttpServletResponse response) throws IOException, IllegalAccessException, IntrospectionException, InvocationTargetException {
+        String fileName ="";
+        if(status.equals(0)){
+            fileName="报名信息表（未审核）";
+        }else if(status.equals(1)){
+            fileName="报名信息表（已通过）";
+        }else if(status.equals(2)){
+            fileName="报名信息表（未通过）";
+        }else if(status.equals(3)){
+            fileName="报名信息表（已删除）";
+        }else if(status.equals(-1)){
+            fileName="报名信息总表";
+        }
         //填充projects数据
-        List<Report> reports = createData();
-        List<Map<String, Object>> list = createExcelRecord(reports);
-        String columnNames[] = {"报名表id","项目编号","项目名字", "报名表状态", "学生负责人学号", "学生负责人名字", "学生负责人专业", "学生负责人手机号", "学生负责人email", "学生负责人院系", "学生负责人年级", "学生负责任人QQ", "学生成员1学号", "学生成员1姓名", "学生成员1专业", "学生成员1手机号", "学生成员1email", "学生成员1院系", "学生成员1年级", "学生成员1QQ", "学生成员2学号", "学生成员2名字", "学生成员2专业", "学生成员2手机号", "学生成员2email", "学生成员2院系", "学生成员2年级", "学生成员2QQ", "教师名字", "教师手机号", "教师email", "教师院系", "教师QQ", "申请时间", "更新时间"};//列名
-        String keys[] = {"reportId", "worksNo", "worksName", "reportStatus", "mainStudentNo", "mainStudentName", "mainStudentSpecialty", "mainStudentPhone", "mainStudentEmail", "mainStudentDepartment", "mainStudentGrade", "mainStudentQq", "oneStudentNo", "oneStudentName", "oneStudentSpecialty", "oneStudentPhone", "oneStudentEmail", "oneStudentDepartment", "oneStudentGrade", "oneStudentQq", "twoStudentNo", "twoStudentName", "twoStudentSpecialty", "twoStudentPhone", "twoStudentEmail", "twoStudentDepartment", "twoStudentGrade", "twoStudentQq", "teacherName", "teacherPhone", "teacherEmail", "teacherDepartment", "teacherQq", "createTime", "updateTime"};//map中的key
+        List<Report> reports = createData(status);
+        List<Map<String, Object>> list = createExcelRecord(reports,fileName);
+        String columnNames[] = {"序号","项目编号","项目名字", "报名表状态", "学生负责人学号", "学生负责人名字", "学生负责人专业", "学生负责人手机号", "学生负责人email", "学生负责人院系", "学生负责人年级", "学生负责任人QQ", "学生成员1学号", "学生成员1姓名", "学生成员1专业", "学生成员1手机号", "学生成员1email", "学生成员1院系", "学生成员1年级", "学生成员1QQ", "学生成员2学号", "学生成员2名字", "学生成员2专业", "学生成员2手机号", "学生成员2email", "学生成员2院系", "学生成员2年级", "学生成员2QQ", "教师名字", "教师手机号", "教师email", "教师院系", "教师QQ", "申请时间", "更新时间"};//列名
+        String keys[] = {"id", "worksNo", "worksName", "reportStatus", "mainStudentNo", "mainStudentName", "mainStudentSpecialty", "mainStudentPhone", "mainStudentEmail", "mainStudentDepartment", "mainStudentGrade", "mainStudentQq", "oneStudentNo", "oneStudentName", "oneStudentSpecialty", "oneStudentPhone", "oneStudentEmail", "oneStudentDepartment", "oneStudentGrade", "oneStudentQq", "twoStudentNo", "twoStudentName", "twoStudentSpecialty", "twoStudentPhone", "twoStudentEmail", "twoStudentDepartment", "twoStudentGrade", "twoStudentQq", "teacherName", "teacherPhone", "teacherEmail", "teacherDepartment", "teacherQq", "createTime", "updateTime"};//map中的key
         ByteArrayOutputStream os = new ByteArrayOutputStream();
         try {
             ExcelUtil.createWorkBook(list, keys, columnNames).write(os);
@@ -176,21 +185,28 @@ public class ReportController {
         return null;
     }
 
-    private List<Report> createData() {
-        return reportService.findAll(null);
+    private List<Report> createData(Integer status) {
+        Report report=new Report();
+        if(!status.equals(-1)){
+            report.setReportStatus(status);
+        }
+        return reportService.findAll(report);
     }
 
-    private List<Map<String, Object>> createExcelRecord(List<Report> reports) throws IllegalAccessException, IntrospectionException, InvocationTargetException {
+    private List<Map<String, Object>> createExcelRecord(List<Report> reports,String sheetName) throws IllegalAccessException, IntrospectionException, InvocationTargetException {
         List<Map<String, Object>> listmap = new ArrayList<>();
         Map<String, Object> map = new HashMap<>();
-        map.put("sheetName", "报名信息总表");
+        map.put("sheetName", sheetName);
         listmap.add(map);
-        for (Report report : reports) {
-            Map<String, Object> mapValue =BeanUtil.convertBean(report);
-            if(report.getReportStatus()==0) mapValue.put("reportStatus","待审核");
-            if(report.getReportStatus()==1) mapValue.put("reportStatus","已通过");
-            if(report.getReportStatus()==2) mapValue.put("reportStatus","未通过");
-            if(report.getReportStatus()==3) mapValue.put("reportStatus","已删除");
+        for (int i=0;i<reports.size();i++) {
+            Map<String, Object> mapValue =BeanUtil.convertBean(reports.get(i));
+            if(reports.get(i).getReportStatus()==0) mapValue.put("reportStatus","待审核");
+            if(reports.get(i).getReportStatus()==1) mapValue.put("reportStatus","已通过");
+            if(reports.get(i).getReportStatus()==2) mapValue.put("reportStatus","未通过");
+            if(reports.get(i).getReportStatus()==3) mapValue.put("reportStatus","已删除");
+            mapValue.put("id",i+1);
+            mapValue.put("createTime", DateUtil.date2String(reports.get(i).getCreateTime(),"yyyy/MM/dd HH:mm"));
+            mapValue.put("updateTime", DateUtil.date2String(reports.get(i).getUpdateTime(),"yyyy/MM/dd HH:mm"));
             listmap.add(mapValue);
         }
         return listmap;

@@ -2,11 +2,10 @@ package com.example.competition.service.impl;
 
 import com.example.competition.dao.entity.Report;
 import com.example.competition.dao.repository.ReportRepository;
-import com.example.competition.enums.ReportStatusEnum;
 import com.example.competition.service.ReportService;
+import com.example.competition.utils.DateUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.util.CollectionUtils;
 import org.springframework.util.StringUtils;
 
 import java.util.List;
@@ -40,6 +39,8 @@ public class ReportServiceImpl implements ReportService {
 
     @Override
     public Report findOne(Integer id) {
-        return reportRepository.findOne(id);
+        Report report=reportRepository.findOne(id);
+        report.setCreateTime(DateUtil.data2Data(report.getCreateTime()));
+        return report;
     }
 }

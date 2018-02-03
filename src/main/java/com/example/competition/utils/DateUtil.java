@@ -15,7 +15,7 @@ import java.util.Date;
  * @创建时间：2018/1/16 11:12
  */
 @Slf4j
-public class DataUtil {
+public class DateUtil {
 
     /**
      * 数据库Timestamp转换为String
@@ -75,13 +75,7 @@ public class DataUtil {
      * @return
      */
     public static Date data2Data(Date date){
-        DateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        try {
-            return sdf.parse(sdf.format(date));
-        } catch (ParseException e) {
-            log.error("【日期转换失败】，date={}",date.toString());
-            e.printStackTrace();
-        }
         return null;
     }
+
 }

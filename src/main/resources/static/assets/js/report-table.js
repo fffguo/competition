@@ -1,3 +1,5 @@
+$(document).ready(function () {
+})
 
 //设置状态
 function setStatus(reportId, status, _this) {
@@ -408,9 +410,10 @@ function editCancel() {
 }
 
 //导出excel
-function exportExcel(){
-    window.open(projectName+"/report/excel");
+function exportExcel(status){
+    window.open(projectName+"/report/excel?status="+status);
 }
+
 
 
 //时间戳转data

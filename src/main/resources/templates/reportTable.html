@@ -109,7 +109,7 @@
                         <div class="card-action">
                             <i style="cursor:pointer;" class="tooltipped material-icons" data-position="right" data-delay="50"
                                data-tooltip="审核通过后，自动开通账户。账号：项目负责人学号，密码：123456">info_outline</i>
-                            <img style="width: 25px;height: 25px;margin-right: 10px;float: right;cursor:pointer;" onclick="exportExcel()" class="tooltipped" data-delay="50" data-tooltip="导出excel" data-position="top" th:src="@{/assets/img/excel.png}"/>
+                            <img style="width: 25px;height: 25px;margin-right: 10px;float: right;cursor:pointer;" th:onclick="'exportExcel('+${status}+')'" class="tooltipped" data-delay="50" data-tooltip="导出excel" data-position="top" th:src="@{/assets/img/excel.png}"/>
                         </div>
                         <div class="card-content">
                             <div class="table-responsive">
@@ -117,11 +117,15 @@
                                     <thead>
                                     <tr>
                                         <th class="center">报名申请</th>
+                                        <th class="center">项目编号</th>
                                         <th class="center">项目名称</th>
+                                        <th class="center">项目状态</th>
                                         <th class="center">负责人姓名</th>
                                         <th class="center">指导老师姓名</th>
                                         <th class="center">项目成员</th>
                                         <th class="center">分院</th>
+                                        <th class="center">申请时间</th>
+                                        <th class="center">更新时间</th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -145,13 +149,20 @@
                                                data-tooltip="详情" data-toggle="modal" data-target="#detailModal"
                                                th:onclick="'road('+${report.reportId}+')'">description</i>
                                         </th>
+                                        <th class="center" th:text="${report.worksNo}">项目编号</th>
                                         <th class="center" th:text="${report.worksName}">项目名称</th>
+                                        <th class="center" th:if="${report.reportStatus} eq 0">待审核</th>
+                                        <th class="center" th:if="${report.reportStatus} eq 1">已通过</th>
+                                        <th class="center" th:if="${report.reportStatus} eq 2">未通过</th>
+                                        <th class="center" th:if="${report.reportStatus} eq 3">已删除</th>
                                         <th class="center" th:text="${report.mainStudentName}">负责人姓名</th>
                                         <th class="center" th:text="${report.teacherName}">指导老师姓名</th>
                                         <th class="center" th:text="${report.oneStudentName+' '+report.twoStudentName}">
                                             项目成员
                                         </th>
                                         <th class="center" th:text="${report.mainStudentDepartment}">分院</th>
+                                        <th class="center" th:text="${#dates.format(report.createTime, 'yyyy-MM-dd HH:mm:ss')}">申请时间</th>
+                                        <th class="center" th:text="${#dates.format(report.updateTime, 'yyyy-MM-dd HH:mm:ss')}">更新时间</th>
 
                                     </tr>
                                     </tbody>
