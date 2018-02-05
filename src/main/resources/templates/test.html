@@ -28,37 +28,34 @@
 
 </head>
 <body>
+<div class="row">
+    <form class="col s12" th:action="@{/login}" method="post" id="loginForm">
+        <div class="row">
+            <div class="input-field col s12">
+                <img th:src="@{/assets/img/account.png}" class="prefix" alt="账号" style="width: 30px;height:30px;bottom: 20px">
+                <input id="username" type="text" class="validate" name="username" onblur="loginVerifyLoginName()">
+                <label for="username" data-error="wrong" data-success="right">用户名</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <!--<i class="material-icons prefix">mode_edit</i>-->
+                <img th:src="@{/assets/img/password.png}" class="prefix" alt="密码" style="width: 30px; height:30px;bottom: 20px">
+                <input id="password" type="password" class="validate" name="password" onblur="loginVerifyPassword()">
+                <label for="password" data-error="wrong" data-success="right">密码</label>
+            </div>
+        </div>
+        <div class="row">
+            <p style="padding-left: 14px;">
+                <input type="checkbox" id="rememberMe" name="rememberMe" />
+                <label for="rememberMe">记住我!</label>
+            </p>
+            <button type="button" class="btn btn-primary btn-block" style="margin-bottom: 20px"
+                    onclick="login()">现在登录
+            </button>
+        </div>
+    </form>
+</div>
 
-<ul id="slide-out" class="side-nav">
-    <li><a href="#!">第一导航链接</a></li>
-    <li><a href="#!">第二导航链接</a></li>
-    <li class="no-padding">
-        <ul class="collapsible collapsible-accordion">
-            <li>
-                <a class="collapsible-header">下拉按钮<i class="material-icons">arrow_drop_down</i></a>
-                <div class="collapsible-body">
-                    <ul>
-                        <li><a href="#!">一</a></li>
-                        <li><a href="#!">二</a></li>
-                        <li><a href="#!">三</a></li>
-                        <li><a href="#!">四</a></li>
-                    </ul>
-                </div>
-            </li>
-        </ul>
-    </li>
-</ul>
-<ul class="right hide-on-med-and-down">
-    <li><a href="#!">第一导航链接</a></li>
-    <li><a href="#!">第二导航链接</a></li>
-    <li><a class="dropdown-button" href="#!" data-activates="dropdown1">下拉按钮<i class="material-icons right">arrow_drop_down</i></a></li>
-    <ul id='dropdown1' class='dropdown-content'>
-        <li><a href="#!">一</a></li>
-        <li><a href="#!">二</a></li>
-        <li><a href="#!">三</a></li>
-        <li><a href="#!">四</a></li>
-    </ul>
-</ul>
-<a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>
 </body>
 </html>

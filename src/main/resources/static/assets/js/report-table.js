@@ -1,6 +1,27 @@
 $(document).ready(function () {
 })
 
+//modal开始添加报名详情
+function addDetail() {
+    delSpan();//清空span
+    showInput();//显示input
+    delInput();//清空input值
+    hideH5();//隐藏input
+    button2Add();//按钮转新增
+}
+//modal隐藏h5
+function hideH5() {
+    $("#createTime").parent().hide();
+    $("#updateTime").parent().hide();
+    $("#reportStatus").parent().hide();
+}
+//modal显示h5
+function showH5() {
+    $("#createTime").parent().show();
+    $("#updateTime").parent().show();
+    $("#reportStatus").parent().show();
+}
+
 //设置状态
 function setStatus(reportId, status, _this) {
     $.ajax({
@@ -49,7 +70,6 @@ function modalSetStatus(reportId, status) {
 //modal保存详情模板
 function baseSave(reportStatus) {
     $("#edit").attr("data-dismiss","modal");
-
     var reportId = $("#modalReportId").val();
     var worksName = $("#worksName").val();
     var worksNo = $("#worksNo").val();
@@ -110,14 +130,15 @@ function baseSave(reportStatus) {
             if (data.code==0){
                 Materialize.toast(data.message, 4000);
             }
-            editCancel();
         },
     });
 }
+
 //modal保存并通过
 function saveAndPass() {
     baseSave(1);
 }
+
 //modal保存详情
 function save() {
     var reportStatus = $("#reportStatus").val();
@@ -128,10 +149,83 @@ function save() {
     baseSave(reportStatus);//执行保存
 }
 
+//modal保存并通过
+function saveAndPass() {
+    baseSave(1);
+}
+
+//modal新增详情模板
+function baseInsert(reportStatus) {
+    $("#edit").attr("data-dismiss","modal");
+    var worksName = $("#worksName").val();
+    var worksNo = $("#worksNo").val();
+    var teacherName = $("#teacherName").val();
+    var teacherDepartment = $("#teacherDepartment").val();
+    var teacherPhone = $("#teacherPhone").val();
+    var teacherEmail = $("#teacherEmail").val();
+    var teacherQq = $("#teacherQq").val();
+    var mainStudentNo = $("#mainStudentNo").val();
+    var mainStudentName = $("#mainStudentName").val();
+    var mainStudentGrade = $("#mainStudentGrade").val();
+    var mainStudentSpecialty = $("#mainStudentSpecialty").val();
+    var mainStudentDepartment = $("#mainStudentDepartment").val();
+    var mainStudentPhone = $("#mainStudentPhone").val();
+    var mainStudentEmail = $("#mainStudentEmail").val();
+    var mainStudentQq = $("#mainStudentQq").val();
+    var oneStudentNo = $("#oneStudentNo").val();
+    var oneStudentName = $("#oneStudentName").val();
+    var oneStudentGrade = $("#oneStudentGrade").val();
+    var oneStudentSpecialty = $("#oneStudentSpecialty").val();
+    var oneStudentDepartment = $("#oneStudentDepartment").val();
+    var oneStudentPhone = $("#oneStudentPhone").val();
+    var oneStudentEmail = $("#oneStudentEmail").val();
+    var oneStudentQq = $("#oneStudentQq").val();
+    var twoStudentNo = $("#twoStudentNo").val();
+    var twoStudentName = $("#twoStudentName").val();
+    var twoStudentGrade = $("#twoStudentGrade").val();
+    var twoStudentSpecialty = $("#twoStudentSpecialty").val();
+    var twoStudentDepartment = $("#twoStudentDepartment").val();
+    var twoStudentPhone = $("#twoStudentPhone").val();
+    var twoStudentEmail = $("#twoStudentEmail").val();
+    var twoStudentQq = $("#twoStudentQq").val();
+    $.ajax({
+        type: "post",
+        url: projectName + "/report/insert",
+        data: "worksName="+worksName
+        + "&worksNo=" + worksNo + "&teacherName=" + teacherName
+        + "&teacherDepartment=" + teacherDepartment + "&teacherPhone=" + teacherPhone
+        + "&teacherEmail=" + teacherEmail + "&teacherQq=" + teacherQq
+        + "&mainStudentNo=" + mainStudentNo + "&mainStudentName=" + mainStudentName
+        + "&mainStudentGrade=" + mainStudentGrade + "&mainStudentSpecialty=" + mainStudentSpecialty
+        + "&mainStudentDepartment=" + mainStudentDepartment + "&mainStudentPhone=" + mainStudentPhone
+        + "&mainStudentEmail=" + mainStudentEmail + "&mainStudentQq=" + mainStudentQq
+        + "&oneStudentNo=" + oneStudentNo + "&oneStudentName=" + oneStudentName
+        + "&oneStudentGrade=" + oneStudentGrade + "&oneStudentSpecialty=" + oneStudentSpecialty
+        + "&oneStudentDepartment=" + oneStudentDepartment + "&oneStudentPhone=" + oneStudentPhone
+        + "&oneStudentEmail=" + oneStudentEmail + "&oneStudentQq=" + oneStudentQq
+        + "&twoStudentNo=" + twoStudentNo + "&twoStudentName=" + twoStudentName
+        + "&twoStudentGrade=" + twoStudentGrade + "&twoStudentSpecialty=" + twoStudentSpecialty
+        + "&twoStudentDepartment=" + twoStudentDepartment + "&twoStudentPhone=" + twoStudentPhone
+        + "&twoStudentEmail=" + twoStudentEmail + "&twoStudentQq=" + twoStudentQq
+        + "&reportStatus=" + reportStatus ,
+        dataType: "json",
+        success: function (data) {
+            if(data.code==1){//成功
+                Materialize.toast(data.data, 4000);
+            }
+            if (data.code==0){//失败
+                Materialize.toast(data.message, 4000);
+            }
+        },
+    });
+}
+
 //modal开始查看详情
 function road(reportId) {
+    hideInput();//隐藏input
     addValueSpan(reportId);//modal赋值span
-    edit2Read(reportId);//modal按钮转换，编辑转预览
+    button2Read(reportId);//modal按钮转换，编辑转预览
+    showH5();
 }
 
 //modal开始编辑详情
@@ -139,7 +233,8 @@ function edit() {
     addValueInput();//赋值input
     showInput();//显示input
     delSpan();//清空span
-    read2Edit();//按钮预览转编辑
+    button2Edit();//按钮预览转编辑
+    showH5();//显示h5
 }
 
 //modal赋值input
@@ -197,6 +292,45 @@ function addValueInput() {
             }
         },
     });
+}
+
+//modal清空input
+function delInput() {
+    $("#modalTitle").text("新增报名信息");
+    $("#worksName").val("");
+    $("#worksNo").val("");
+    $("#createTime").val("");
+    $("#updateTime").val("");
+    $("#teacherName").val("");
+    $("#teacherDepartment").val("");
+    $("#teacherPhone").val("");
+    $("#teacherEmail").val("");
+    $("#teacherQq").val("");
+    $("#mainStudentNo").val("");
+    $("#mainStudentName").val("");
+    $("#mainStudentGrade").val("");
+    $("#mainStudentSpecialty").val("");
+    $("#mainStudentDepartment").val("");
+    $("#mainStudentPhone").val("");
+    $("#mainStudentEmail").val("");
+    $("#mainStudentQq").val("");
+    $("#oneStudentNo").val("");
+    $("#oneStudentName").val("");
+    $("#oneStudentGrade").val("");
+    $("#oneStudentSpecialty").val("");
+    $("#oneStudentDepartment").val("");
+    $("#oneStudentPhone").val("");
+    $("#oneStudentEmail").val("");
+    $("#oneStudentQq").val("");
+    $("#twoStudentNo").val("");
+    $("#twoStudentName").val("");
+    $("#twoStudentGrade").val("");
+    $("#twoStudentSpecialty").val("");
+    $("#twoStudentDepartment").val("");
+    $("#twoStudentPhone").val("");
+    $("#twoStudentEmail").val("");
+    $("#twoStudentQq").val("");
+    $("#reportStatus").val("");
 }
 
 //modal显示input
@@ -376,7 +510,7 @@ function delSpan() {
 }
 
 //modal按钮转换，编辑转预览
-function edit2Read(reportId) {
+function button2Read(reportId) {
     $("#edit").text("编辑");
     $("#edit").attr("onclick", "edit()");
     $("#edit").removeAttr("data-dismiss");
@@ -390,7 +524,7 @@ function edit2Read(reportId) {
 }
 
 //modal按钮转换，预览转编辑
-function read2Edit() {
+function button2Edit() {
     $("#edit").text("保存");
     $("#edit").attr("onclick", "save()");
     $("#modalCheck").attr("onclick", "save()");
@@ -399,22 +533,24 @@ function read2Edit() {
     $("#modalPass").attr("onclick", "saveAndPass()");
     $("#modalPass").text("保存并通过");
     $("#modalClose").text("取消");
-    $("#modalClose").attr("onclick", "editCancel()");
-    $("#modalCloseRightTop").attr("onclick", "editCancel()")
 }
 
-//modal取消编辑
-function editCancel() {
-    hideInput();
-    edit2Read();
+//modal按钮转换，预览转新增
+function button2Add() {
+    $("#edit").text("保存");
+    $("#edit").attr("onclick", "baseInsert(0)");
+    $("#modalCheck").text("保存");
+    $("#modalCheck").attr("onclick", "baseInsert(0)");
+    $("#modalCheck").attr("class", "btn btn-info");
+    $("#modalPass").text("保存并通过");
+    $("#modalPass").attr("onclick", "baseInsert(1)");
+    $("#modalClose").text("取消");
 }
 
 //导出excel
 function exportExcel(status){
     window.open(projectName+"/report/excel?status="+status);
 }
-
-
 
 //时间戳转data
 function timestampToTime(timestamp) {

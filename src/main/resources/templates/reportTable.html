@@ -31,7 +31,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <button  type="button" class="btn btn-info" onclick="edit()" id="edit">编辑</button>
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true" onclick="" id="modalCloseRightTop">&times;</button>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true" onclick="addDetail()" id="modalCloseRightTop">&times;</button>
                     <h4 class="modal-title" id="modalTitle" style="text-align: center">标题</h4>
                 </div>
                 <div class="modal-body">
@@ -39,52 +39,52 @@
                         <div class="col-md-12 column inputH5">
                             <h4 style="text-align: left;color: green;">项目概览：</h4>
                             <input type="hidden" id="modalReportId" value="">
-                            <h5 style="text-align: left">项目编号：<span></span><input type="hidden" id="worksNo" ></h5>
-                            <h5 style="text-align: left">项目名称：<span></span><input type="hidden" id="worksName" ></h5>
-                            <h5 style="text-align: left">项目状态：<span></span><input disabled type="hidden" id="reportStatus" ></h5>
-                            <h5 style="text-align: left">申请时间：<span></span><input disabled type="hidden" id="createTime" ></h5>
-                            <h5 style="text-align: left">更新时间：<span></span><input disabled type="hidden" id="updateTime" ></h5>
+                            <h5 style="text-align: left">项目编号：<span></span><input type="hidden" id="worksNo" class="validate" ></h5>
+                            <h5 style="text-align: left">项目名称：<span></span><input type="hidden" id="worksName" class="validate" ></h5>
+                            <h5 style="text-align: left">项目状态：<span></span><input disabled type="hidden" id="reportStatus" class="validate"></h5>
+                            <h5 style="text-align: left">申请时间：<span></span><input disabled type="hidden" id="createTime" class="validate"></h5>
+                            <h5 style="text-align: left">更新时间：<span></span><input disabled type="hidden" id="updateTime" class="validate"></h5>
                         </div>
                         <div class="col-md-12 column inputH5">
                             <h4 style="text-align: left;color: green;">指导老师:</h4>
-                            <h5 style="text-align: left">姓&emsp;名：<span></span><input type="hidden" id="teacherName" ></h5>
-                            <h5 style="text-align: left">院&emsp;系：<span></span><input type="hidden" id="teacherDepartment" ></h5>
-                            <h5 style="text-align: left">手机号：<span></span><input type="hidden" id="teacherPhone" ></h5>
-                            <h5 style="text-align: left">邮&emsp;箱：<span></span><input type="hidden" id="teacherEmail" ></h5>
-                            <h5 style="text-align: left">Q&emsp;&ensp;Q：<span></span><input type="hidden" id="teacherQq" ></h5>
+                            <h5 style="text-align: left">姓&emsp;名：<span></span><input type="hidden" id="teacherName" class="validate"></h5>
+                            <h5 style="text-align: left">院&emsp;系：<span></span><input type="hidden" id="teacherDepartment" class="validate"></h5>
+                            <h5 style="text-align: left">手机号：<span></span><input type="hidden" id="teacherPhone" class="validate"></h5>
+                            <h5 style="text-align: left">邮&emsp;箱：<span></span><input type="hidden" id="teacherEmail" class="validate"></h5>
+                            <h5 style="text-align: left">Q&emsp;&ensp;Q：<span></span><input type="hidden" id="teacherQq" class="validate"></h5>
                         </div>
                         <div class="col-md-12 column inputH5">
                             <h4 style="text-align: left;color: green;">项目负责人:</h4>
-                            <h5 style="text-align: left">学&emsp;号：<span></span><input type="hidden" id="mainStudentNo" ></h5>
-                            <h5 style="text-align: left">姓&emsp;名：<span></span><input type="hidden" id="mainStudentName" ></h5>
-                            <h5 style="text-align: left">年&emsp;级：<span></span><input type="hidden" id="mainStudentGrade" ></h5>
-                            <h5 style="text-align: left">专&emsp;业：<span></span><input type="hidden" id="mainStudentSpecialty" ></h5>
-                            <h5 style="text-align: left">院&emsp;系：<span></span><input type="hidden" id="mainStudentDepartment" ></h5>
-                            <h5 style="text-align: left">手机号：<span></span><input type="hidden" id="mainStudentPhone" ></h5>
-                            <h5 style="text-align: left">邮&emsp;箱：<span></span><input type="hidden" id="mainStudentEmail" ></h5>
-                            <h5 style="text-align: left">Q&emsp;&ensp;Q：<span></span><input type="hidden" id="mainStudentQq" ></h5>
+                            <h5 style="text-align: left">学&emsp;号：<span></span><input type="hidden" id="mainStudentNo" class="validate"></h5>
+                            <h5 style="text-align: left">姓&emsp;名：<span></span><input type="hidden" id="mainStudentName" class="validate"></h5>
+                            <h5 style="text-align: left">年&emsp;级：<span></span><input type="hidden" id="mainStudentGrade" class="validate"></h5>
+                            <h5 style="text-align: left">专&emsp;业：<span></span><input type="hidden" id="mainStudentSpecialty" class="validate"></h5>
+                            <h5 style="text-align: left">院&emsp;系：<span></span><input type="hidden" id="mainStudentDepartment" class="validate"></h5>
+                            <h5 style="text-align: left">手机号：<span></span><input type="hidden" id="mainStudentPhone" class="validate"></h5>
+                            <h5 style="text-align: left">邮&emsp;箱：<span></span><input type="hidden" id="mainStudentEmail" class="validate"></h5>
+                            <h5 style="text-align: left">Q&emsp;&ensp;Q：<span></span><input type="hidden" id="mainStudentQq" class="validate"></h5>
                         </div>
                         <div class="col-md-12 column inputH5">
                             <h4 style="text-align: left;color: green;">学生成员:</h4>
-                            <h5 style="text-align: left">学&emsp;号：<span></span><input type="hidden" id="oneStudentNo" ></h5>
-                            <h5 style="text-align: left">姓&emsp;名：<span></span><input type="hidden" id="oneStudentName" ></h5>
-                            <h5 style="text-align: left">年&emsp;级：<span></span><input type="hidden" id="oneStudentGrade" ></h5>
-                            <h5 style="text-align: left">专&emsp;业：<span></span><input type="hidden" id="oneStudentSpecialty" ></h5>
-                            <h5 style="text-align: left">院&emsp;系：<span></span><input type="hidden" id="oneStudentDepartment" ></h5>
-                            <h5 style="text-align: left">手机号：<span></span><input type="hidden" id="oneStudentPhone" ></h5>
-                            <h5 style="text-align: left">邮&emsp;箱：<span></span><input type="hidden" id="oneStudentEmail" ></h5>
-                            <h5 style="text-align: left">Q&emsp;&ensp;Q：<span></span><input type="hidden" id="oneStudentQq" ></h5>
+                            <h5 style="text-align: left">学&emsp;号：<span></span><input type="hidden" id="oneStudentNo" class="validate"></h5>
+                            <h5 style="text-align: left">姓&emsp;名：<span></span><input type="hidden" id="oneStudentName" class="validate"></h5>
+                            <h5 style="text-align: left">年&emsp;级：<span></span><input type="hidden" id="oneStudentGrade" class="validate"></h5>
+                            <h5 style="text-align: left">专&emsp;业：<span></span><input type="hidden" id="oneStudentSpecialty" class="validate"></h5>
+                            <h5 style="text-align: left">院&emsp;系：<span></span><input type="hidden" id="oneStudentDepartment" class="validate"></h5>
+                            <h5 style="text-align: left">手机号：<span></span><input type="hidden" id="oneStudentPhone" class="validate"></h5>
+                            <h5 style="text-align: left">邮&emsp;箱：<span></span><input type="hidden" id="oneStudentEmail" class="validate"></h5>
+                            <h5 style="text-align: left">Q&emsp;&ensp;Q：<span></span><input type="hidden" id="oneStudentQq" class="validate"></h5>
                         </div>
                         <div class="col-md-12 column inputH5">
                             <h4 style="text-align: left;color: green;">学生成员:</h4>
-                            <h5 style="text-align: left">学&emsp;号：<span></span><input type="hidden" id="twoStudentNo" ></h5>
-                            <h5 style="text-align: left">姓&emsp;名：<span></span><input type="hidden" id="twoStudentName" ></h5>
-                            <h5 style="text-align: left">年&emsp;级：<span></span><input type="hidden" id="twoStudentGrade" ></h5>
-                            <h5 style="text-align: left">专&emsp;业：<span></span><input type="hidden" id="twoStudentSpecialty" ></h5>
-                            <h5 style="text-align: left">院&emsp;系：<span></span><input type="hidden" id="twoStudentDepartment" ></h5>
-                            <h5 style="text-align: left">手机号：<span></span><input type="hidden" id="twoStudentPhone" ></h5>
-                            <h5 style="text-align: left">邮&emsp;箱：<span></span><input type="hidden" id="twoStudentEmail" ></h5>
-                            <h5 style="text-align: left">Q&emsp;&ensp;Q：<span></span><input type="hidden" id="twoStudentQq" ></h5>
+                            <h5 style="text-align: left">学&emsp;号：<span></span><input type="hidden" id="twoStudentNo" class="validate"></h5>
+                            <h5 style="text-align: left">姓&emsp;名：<span></span><input type="hidden" id="twoStudentName" class="validate"></h5>
+                            <h5 style="text-align: left">年&emsp;级：<span></span><input type="hidden" id="twoStudentGrade" class="validate"></h5>
+                            <h5 style="text-align: left">专&emsp;业：<span></span><input type="hidden" id="twoStudentSpecialty" class="validate"></h5>
+                            <h5 style="text-align: left">院&emsp;系：<span></span><input type="hidden" id="twoStudentDepartment" class="validate"></h5>
+                            <h5 style="text-align: left">手机号：<span></span><input type="hidden" id="twoStudentPhone" class="validate"></h5>
+                            <h5 style="text-align: left">邮&emsp;箱：<span></span><input type="hidden" id="twoStudentEmail" class="validate"></h5>
+                            <h5 style="text-align: left">Q&emsp;&ensp;Q：<span></span><input type="hidden" id="twoStudentQq" class="validate"></h5>
                         </div>
                     </div>
                 </div>
@@ -116,6 +116,7 @@
                             <i style="cursor:pointer;" class="tooltipped material-icons" data-position="right" data-delay="50"
                                data-tooltip="审核通过后，自动开通账户。账号：项目负责人学号，密码：123456">info_outline</i>
                             <img style="width: 25px;height: 25px;margin-right: 10px;float: right;cursor:pointer;" th:onclick="'exportExcel('+${status}+')'" class="tooltipped" data-delay="50" data-tooltip="导出excel" data-position="top" th:src="@{/assets/img/excel.png}"/>
+                            <img style="width: 25px;height: 25px;margin-right: 10px;float: right;cursor:pointer;" onclick="addDetail()" class="tooltipped" data-delay="50" data-tooltip="添加报名信息" data-position="top" th:src="@{/assets/img/add-detail.png}" data-toggle="modal" data-target="#detailModal"/>
                         </div>
                         <div class="card-content">
                             <div class="table-responsive">

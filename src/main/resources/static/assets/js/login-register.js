@@ -2,47 +2,31 @@ var pathName=window.document.location.pathname;
 var projectName=pathName.substring(0,pathName.substr(1).indexOf('/')+1);
 var loginVerify1=false;
 var loginVerify2=false;
-// var registerVerify1=false;
-// var registerVerify2=false;
-// var registerVerify3=false;
-var tip="";
-
-
-
-//隐藏提示小图
-function hideIcon() {
-    $(".icon").hide();
-}
 
 //登录，验证loginName
 function loginVerifyLoginName() {
-    if($("#loginOne").val().trim()==""){
-        addIcon("false","login","1");
-        loginVerify1=false;
-        tip="学号不能为空！";
+    if($("#username").val().trim()==""){
+        $("#username").next().attr("data-error","wrong");
     }else{
-        addIcon("true","login","1");
+        $("#username").next().attr("data-success","success");
         loginVerify1=true;
     }
 }
 //登录，验证password
 function loginVerifyPassword() {
-    if($("#loginTwo").val().trim()==""){
-        addIcon("false","login","2");
-        loginVerify2=false;
-        tip="密码不能为空！";
+    if($("#password").val().trim()==""){
+        $("#password").next().attr("data-error","wrong");
     }else{
-        addIcon("true","login","2");
+        $("#password").next().attr("data-success","success");
         loginVerify2=true;
     }
 }
+
 //登录
 function login() {
     loginVerifyPassword();
     loginVerifyLoginName();
-    if(!(loginVerify1==true&&loginVerify2==true)){
-        alert(tip);
-    } else {
+    if((loginVerify1==true&&loginVerify2==true)){
         $("#loginForm").submit();
     }
 }
@@ -112,52 +96,3 @@ function login() {
 //         alert(tip);
 //     }
 // }
-
-
-//  错误/正确，登录/注册，小图位置
-function addIcon(status, loginOrRegister, number) {
-    if (loginOrRegister == "login") {
-        if (status == "true") {
-            if (number == "1") {
-                $("#loginIcon1").find("img").attr("src", projectName+"/assets/img/trueIcon.png");
-                $("#loginIcon1").show();
-            } else if (number == "2") {
-                $("#loginIcon2").find("img").attr("src", projectName+"/assets/img/trueIcon.png");
-                $("#loginIcon2").show();
-            }
-        } else if (status == "false") {
-            if (number == "1") {
-                $("#loginIcon1").find("img").attr("src", "assets/img/errorIcon.png");
-                $("#loginIcon1").show();
-            } else if (number == "2") {
-                $("#loginIcon2").find("img").attr("src", projectName+"/assets/img/errorIcon.png");
-                $("#loginIcon2").show();
-            }
-        }
-    } else if (loginOrRegister == "register") {
-        if (status == "true") {
-            if (number == "1") {
-                $("#registerIcon1").find("img").attr("src",  projectName+"assets/img/trueIcon.png");
-                $("#registerIcon1").show();
-            } else if (number == "2") {
-                $("#registerIcon2").find("img").attr("src",  projectName+"assets/img/trueIcon.png");
-                $("#registerIcon2").show();
-            } else if (number == "3") {
-                $("#registerIcon3").find("img").attr("src",  projectName+"assets/img/trueIcon.png");
-                $("#registerIcon3").show();
-            }
-        } else if (status == "false") {
-            if (number =="1") {
-                $("#registerIcon1").find("img").attr("src",  projectName+"assets/img/errorIcon.png");
-                $("#registerIcon1").show();
-            } else if (number == "2") {
-                $("#registerIcon2").find("img").attr("src",  projectName+"assets/img/errorIcon.png");
-                $("#registerIcon2").show();
-            } else if (number == "3") {
-                $("#registerIcon3").find("img").attr("src",  projectName+"assets/img/errorIcon.png");
-                $("#registerIcon3").show();
-            }
-        }
-    }
-
-}
