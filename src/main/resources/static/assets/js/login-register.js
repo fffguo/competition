@@ -1,25 +1,39 @@
 var pathName=window.document.location.pathname;
 var projectName=pathName.substring(0,pathName.substr(1).indexOf('/')+1);
+var urlPath=window.location.href;
 var loginVerify1=false;
 var loginVerify2=false;
 
 //登录，验证loginName
 function loginVerifyLoginName() {
     if($("#username").val().trim()==""){
-        $("#username").next().attr("data-error","wrong");
+        loginNameSetError("学号不能为空");
     }else{
+        $("#username").attr("class","validate valid");
         $("#username").next().attr("data-success","success");
         loginVerify1=true;
     }
 }
+//登录名设置错误提示
+function loginNameSetError(tip) {
+    $("#username").attr("class","validate invalid");
+    $("#username").next().attr("data-error",tip);
+}
+//密码设置错误提示
+function passwordSetError(tip) {
+    $("#password").attr("class","validate invalid");
+    $("#password").next().attr("data-error",tip);
+}
 //登录，验证password
 function loginVerifyPassword() {
     if($("#password").val().trim()==""){
-        $("#password").next().attr("data-error","wrong");
+        passwordSetError("密码不能为空");
     }else{
+        $("#password").attr("class","validate valid");
         $("#password").next().attr("data-success","success");
         loginVerify2=true;
     }
+
 }
 
 //登录
@@ -27,10 +41,24 @@ function login() {
     loginVerifyPassword();
     loginVerifyLoginName();
     if((loginVerify1==true&&loginVerify2==true)){
-        $("#loginForm").submit();
+        var username=$("#username").val();
+        var password=$("#password").val();
+        var rememberMe=$("#rememberMe").val();
+        $.ajax({
+            type:"post",
+            url:projectName+"/login",
+            data:"username="+username+"&password="+password+"&rememberMe="+rememberMe+"&urlPath="+urlPath,
+            dataType:"json",
+            success:function (data) {
+                if(data.code==0){
+                    loginNameSetError(data.message);
+                }else if(data.code==1){
+                    window.location.href=data.data;
+                }
+            },
+        });
     }
 }
-
 //注册 ，验证loginName是否可用
 // function verifyLoginName() {
 //     var loginName = $("#registerMail").val();

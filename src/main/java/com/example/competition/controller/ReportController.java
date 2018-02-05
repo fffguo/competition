@@ -14,10 +14,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
-import org.thymeleaf.util.DateUtils;
 
 import javax.servlet.ServletOutputStream;
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.beans.IntrospectionException;
 import java.io.*;
@@ -46,6 +44,7 @@ public class ReportController {
         modelMap.put("reportList", reportService.findAll(report));
         modelMap.put("status", status);
         modelMap.put("reportTableClass" + status, "active-menu");
+        modelMap.put("reportTableUlClass", "collapse in");
         modelMap.put("reportTableClass", "waves-effect waves-dark active-menu");
         return "reportTable";
     }

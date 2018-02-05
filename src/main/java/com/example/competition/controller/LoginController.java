@@ -1,10 +1,15 @@
 package com.example.competition.controller;
 
+import com.example.competition.VO.ResultVO;
+import com.example.competition.enums.ErrorEnum;
+import com.example.competition.exception.CompetitionException;
 import com.example.competition.service.impl.AccountServiceImpl;
+import com.example.competition.utils.ResultVOUtil;
 import com.example.competition.utils.ShiroUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
+import org.apache.shiro.authc.IncorrectCredentialsException;
 import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -30,16 +35,20 @@ public class LoginController {
      * 登录
      */
     @PostMapping("/login")
-    public String login(@RequestParam(value = "username") String username,
-                        @RequestParam(value = "password") String password,
-                        @RequestParam(value = "rememberMe", defaultValue = "false") boolean rememberMe) {
+    @ResponseBody
+    public ResultVO<String> login(@RequestParam(value = "username") String username,
+                          @RequestParam(value = "password") String password,
+                          @RequestParam(value = "rememberMe", defaultValue = "false") boolean rememberMe,
+                          @RequestParam(value = "urlPath") String urlPath) {
         Subject subject = SecurityUtils.getSubject();
         try {
             subject.login(shiroUtil.getToken(username,password,rememberMe));
-        } catch (AuthenticationException e) {
-            e.printStackTrace();
+        } catch (IncorrectCredentialsException e) {
+            return ResultVOUtil.error(ErrorEnum.ACCOUNT_PASSWORD_ERROR);
+        }catch (CompetitionException e){
+            return ResultVOUtil.error(ErrorEnum.ACCOUNT_PASSWORD_ERROR);//账号不存在
         }
-        return "index";
+        return ResultVOUtil.success(urlPath);
     }
 
 
@@ -47,7 +56,7 @@ public class LoginController {
     @GetMapping("/logout")
     public String logout() {
         SecurityUtils.getSubject().logout();
-        return "index";
+        return "redirect:index.html";
     }
 
 

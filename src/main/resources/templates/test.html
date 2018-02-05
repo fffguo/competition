@@ -13,7 +13,7 @@
     <!--<link th:href="@{/assets/css/custom-styles.css}" rel="stylesheet"/>-->
     <!--<link th:href="@{/assets/js/Lightweight-Chart/cssCharts.css}" rel="stylesheet">-->
     <script th:src="@{/assets/js/jquery-3.2.1.min.js}"></script>
-    <!--<script th:src="@{/assets/js/bootstrap.min.js}"></script>-->
+    <script th:src="@{/assets/js/bootstrap.min.js}"></script>
     <script th:src="@{/assets/materialize/js/materialize.min.js}"></script>
     <!--<script th:src="@{/assets/js/jquery.metisMenu.js}"></script>-->
     <!--<script th:src="@{/assets/js/morris/raphael-2.1.0.min.js}"></script>-->
@@ -29,33 +29,18 @@
 </head>
 <body>
 <div class="row">
-    <form class="col s12" th:action="@{/login}" method="post" id="loginForm">
+    <form class="col s12">
         <div class="row">
             <div class="input-field col s12">
-                <img th:src="@{/assets/img/account.png}" class="prefix" alt="账号" style="width: 30px;height:30px;bottom: 20px">
-                <input id="username" type="text" class="validate" name="username" onblur="loginVerifyLoginName()">
-                <label for="username" data-error="wrong" data-success="right">用户名</label>
+                <input id="email" type="text" class="validate invalid">
+                <label for="email" data-error="wrong" >邮件</label>
             </div>
-        </div>
-        <div class="row">
             <div class="input-field col s12">
-                <!--<i class="material-icons prefix">mode_edit</i>-->
-                <img th:src="@{/assets/img/password.png}" class="prefix" alt="密码" style="width: 30px; height:30px;bottom: 20px">
-                <input id="password" type="password" class="validate" name="password" onblur="loginVerifyPassword()">
-                <label for="password" data-error="wrong" data-success="right">密码</label>
+                <input id="t" type="email" class="validate">
+                <label for="t" data-success="succ" >邮件</label>
             </div>
-        </div>
-        <div class="row">
-            <p style="padding-left: 14px;">
-                <input type="checkbox" id="rememberMe" name="rememberMe" />
-                <label for="rememberMe">记住我!</label>
-            </p>
-            <button type="button" class="btn btn-primary btn-block" style="margin-bottom: 20px"
-                    onclick="login()">现在登录
-            </button>
         </div>
     </form>
 </div>
-
 </body>
 </html>

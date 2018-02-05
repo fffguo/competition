@@ -23,7 +23,7 @@
                                 <div class="input-field col s12">
                                     <img th:src="@{/assets/img/account.png}" class="prefix" alt="账号" style="width: 30px;height:30px;bottom: 20px">
                                     <input id="username" type="text" class="validate" name="username" onblur="loginVerifyLoginName()">
-                                    <label for="username">用户名</label>
+                                    <label for="username" >用户名</label>
                                 </div>
                             </div>
                             <div class="row">
@@ -45,37 +45,7 @@
                             </div>
                         </form>
                     </div>
-
-                    <!--<form class="bs-example bs-example-form" role="form" id="loginForm"  th:action="@{/login}" method="post">-->
-
-                        <!--<div class="input-group" style="margin-bottom: 24px ;" id="loginLoginName">-->
-                    <!--<span class="input-group-addon">-->
-                         <!--<img th:src="@{/assets/img/account.png}" alt="账号" style="width: 22px" height="22px">-->
-                    <!--</span>-->
-                            <!--<input type="text" name="username" class="form-control" placeholder="请输入学号：" id="loginOne"-->
-                                   <!--onblur="loginVerifyLoginName()">-->
-                            <!--<span class="input-group-addon icon" id="loginIcon1">-->
-                            <!--<img th:src="@{/assets/img/errorIcon.png}" style="width: 22px" height="22px">-->
-                        <!--</span>-->
-                            <!--</button>-->
-                        <!--</div>-->
-                        <!--<div class="input-group" style="margin-bottom: 24px;margin-top: 18px">-->
-                    <!--<span class="input-group-addon">-->
-                        <!--<img th:src="@{/assets/img/password.png}" alt="密码" style="width: 22px" height="24px">-->
-                    <!--</span>-->
-                            <!--<input type="password" name="password" class="form-control" placeholder="请输入密码：" id="loginTwo"-->
-                                   <!--onblur="loginVerifyPassword()">-->
-                            <!--<span class="input-group-addon icon" id="loginIcon2">-->
-                            <!--<img th:src="@{/assets/img/errorIcon.png}" style="width: 22px" height="22px">-->
-                        <!--</span>-->
-                        <!--</div>-->
-
-                    <!--</form>-->
                 </div>
-                <!--<div class="modal-footer">-->
-                <!--&lt;!&ndash;<a href="javascript: showRegisterForm();">创建一个账号？</a>&ndash;&gt;-->
-                <!--<a href="javascript:(0);" data-target="#registerModel"  data-dismiss="modal" data-toggle="modal"  >创建一个账号？</a>-->
-                <!--</div>-->
             </div><!-- /.modal-content -->
         </div><!-- /.modal -->
     </div>
@@ -360,7 +330,7 @@
                 </li>
                 <li shiro:hasRole="root">
                     <a href="#" th:class="${reportTableClass}"  class="waves-effect waves-dark"><i class="fa fa-table"></i>报名表<span class="fa arrow"></span></a>
-                    <ul class="nav nav-second-level">
+                    <ul th:class="'nav nav-second-level'+${reportTableUlClass}"  aria-expanded="true">
                         <li shiro:hasPermission="root:reportTable:0">
                             <a th:href="@{/report/link?status=0}" href="#" th:class="${reportTableClass0}" >待审核</a>
                         </li>
@@ -400,4 +370,5 @@
     </nav>
 </div>
 </body>
+
 </html>
