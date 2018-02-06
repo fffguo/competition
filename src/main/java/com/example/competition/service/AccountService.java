@@ -11,20 +11,16 @@ import org.springframework.stereotype.Service;
  */
 
 public interface AccountService {
-    /** 更新密码 */
-    Account updatePassword(String loginName,String password);
 
-    /** 验证账号信息 */
-    Account verifyAccount(Account account);
-
-    /** 创建账号 */
-    Account createAccount(Account account);
-
-    /** 查询账号信息 */
-    Account findOne(Account account);
 
     /** 查询查询用户信息 */
     User findOne(User user);
+
+    /** 创建用户 */
+    User createUser(Integer reportId);
+
+    /** 删除账户 */
+    User delUser(Integer reportId);
 
 
 }

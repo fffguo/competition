@@ -4,18 +4,17 @@ import lombok.Getter;
 
 /**
  * @作者：刘富国
- * @创建时间：2018/1/18 15:25
+ * @创建时间：2018/2/6 17:13
  */
 @Getter
-public enum StudentStatusEnum {
-    STOP(0, "禁用"),
-    NORMAL(1, "正常"),
-    DELETE(2, "删除"),
-    ;
+public enum  UserRoleRelStatusEnum {
+    BIND(1, "绑定"),
+    UNBIND(0, "解绑"),
+            ;
     private Integer code;
     private String message;
 
-    StudentStatusEnum(Integer code, String message) {
+    UserRoleRelStatusEnum(Integer code, String message) {
         this.code = code;
         this.message = message;
     }

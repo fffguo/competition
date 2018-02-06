@@ -3,7 +3,7 @@ package com.example.competition.dao.model;
 import java.util.Date;
 
 public class User {
-    private Long userId;
+    private Integer userId;
 
     private Integer userStatus;
 
@@ -13,15 +13,17 @@ public class User {
 
     private String passwordSalt;
 
+    private Integer detailId;
+
     private Date createTime;
 
     private Date updateTime;
 
-    public Long getUserId() {
+    public Integer getUserId() {
         return userId;
     }
 
-    public void setUserId(Long userId) {
+    public void setUserId(Integer userId) {
         this.userId = userId;
     }
 
@@ -55,6 +57,14 @@ public class User {
 
     public void setPasswordSalt(String passwordSalt) {
         this.passwordSalt = passwordSalt == null ? null : passwordSalt.trim();
+    }
+
+    public Integer getDetailId() {
+        return detailId;
+    }
+
+    public void setDetailId(Integer detailId) {
+        this.detailId = detailId;
     }
 
     public Date getCreateTime() {

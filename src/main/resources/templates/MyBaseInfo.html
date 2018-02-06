@@ -11,12 +11,12 @@
 <head>
     <meta charset="utf-8"/>
     <title>报名审批</title>
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'/>
     <link th:href="@{/assets/materialize/css/materialize.min.css}" rel="stylesheet" media="screen,projection"/>
     <link th:href="@{/assets/css/bootstrap.css}" rel="stylesheet"/>
     <link th:href="@{/assets/css/font-awesome.css}" rel="stylesheet"/>
-    <!--<link th:href="@{/assets/js/morris/morris-0.4.3.min.css}" rel="stylesheet"/>-->
+    <link th:href="@{/assets/js/morris/morris-0.4.3.min.css}" rel="stylesheet"/>
     <link th:href="@{/assets/css/custom-styles.css}" rel="stylesheet"/>
     <link th:href="@{/assets/js/Lightweight-Chart/cssCharts.css}" rel="stylesheet">
     <style>
@@ -32,46 +32,43 @@
 </head>
 <body>
 
-
 <div id="wrapper">
-    <div th:include="web-model::top"></div>
+    <div th:include="web-model::top" ></div>
+
     <div th:include="web-model::left"></div>
+
     <div id="page-wrapper">
         <div class="header">
-            <h4 class="page-header" style="text-align: center">1234</h4>
+            <h4 class="page-header" style="text-align: center" >基础信息</h4>
         </div>
         <div id="page-inner">
             <div class="row">
                 <div class="col-md-12">
-                    <div class="card">
-                        <div class="card-action">
-sdaf
-                        </div>
-                        <div class="card-content">
-asdf
-                        </div>
+                    <div class="card" >
+                        <div class="card-action">test</div>
+                        <div class="card-content">test</div>
                     </div>
-
-                    <footer><p>Copyright &copy; 2018.Company name All rights reserved.<a target="_blank"
-                                                                                         href="https://www.baidu.com">云中央制作小组</a>
-                    </p></footer>
                 </div>
-                <!-- /. PAGE INNER  -->
             </div>
+
+            <footer><p>Copyright &copy; 2018.Company name All rights reserved.<a target="_blank"
+                                                                                 href="https://www.baidu.com">云中央制作小组</a>
+            </p></footer>
         </div>
-        <script th:src="@{/assets/js/jquery-3.2.1.min.js}"></script>
-        <script th:src="@{/assets/js/bootstrap.min.js}"></script>
-        <script th:src="@{/assets/materialize/js/materialize.min.js}"></script>
-        <script th:src="@{/assets/js/jquery.metisMenu.js}"></script>
-        <script th:src="@{/assets/js/morris/raphael-2.1.0.min.js}"></script>
-        <script th:src="@{/assets/js/morris/morris.js}"></script>
-        <script th:src="@{/assets/js/easypiechart.js}"></script>
-        <script th:src="@{/assets/js/easypiechart-data.js}"></script>
-        <script th:src="@{/assets/js/Lightweight-Chart/jquery.chart.js}"></script>
-        <script th:src="@{/assets/js/dataTables/jquery.dataTables.js}"></script>
-        <script th:src="@{/assets/js/dataTables/dataTables.bootstrap.js}"></script>
-        <script th:src="@{/assets/js/custom-scripts.js}"></script>
-        <script th:src="@{/assets/js/report-table.js}"></script>
+        <!-- /. PAGE INNER  -->
+    </div>
+
+</div>
+<script th:src="@{/assets/js/jquery-3.2.1.min.js}"></script>
+<script th:src="@{/assets/js/bootstrap.min.js}"></script>
+<script th:src="@{/assets/materialize/js/materialize.min.js}"></script>
+<script th:src="@{/assets/js/jquery.metisMenu.js}"></script>
+<script th:src="@{/assets/js/morris/raphael-2.1.0.min.js}"></script>
+<script th:src="@{/assets/js/morris/morris.js}"></script>
+<script th:src="@{/assets/js/easypiechart.js}"></script>
+<script th:src="@{/assets/js/easypiechart-data.js}"></script>
+<script th:src="@{/assets/js/Lightweight-Chart/jquery.chart.js}"></script>
+<script th:src="@{/assets/js/custom-scripts.js}"></script>
 </body>
 </html>
 

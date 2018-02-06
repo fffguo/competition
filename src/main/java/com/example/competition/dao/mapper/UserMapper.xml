@@ -2,25 +2,14 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.competition.dao.mapper.UserMapper">
     <resultMap id="BaseResultMap" type="com.example.competition.dao.model.User">
-        <id column="user_id" jdbcType="BIGINT" property="userId"/>
+        <id column="user_id" jdbcType="INTEGER" property="userId"/>
         <result column="user_status" jdbcType="INTEGER" property="userStatus"/>
         <result column="username" jdbcType="VARCHAR" property="username"/>
         <result column="password" jdbcType="VARCHAR" property="password"/>
         <result column="password_salt" jdbcType="VARCHAR" property="passwordSalt"/>
+        <result column="detail_id" jdbcType="INTEGER" property="detailId"/>
         <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
         <result column="update_time" jdbcType="TIMESTAMP" property="updateTime"/>
-    </resultMap>
-    <resultMap id="userRoleResultMap" type="com.example.competition.dao.dto.UserRoleDTO">
-        <id column="user_id" jdbcType="BIGINT" property="userId"/>
-        <result column="user_status" jdbcType="INTEGER" property="userStatus"/>
-        <result column="username" jdbcType="VARCHAR" property="username"/>
-        <result column="password" jdbcType="VARCHAR" property="password"/>
-        <result column="password_salt" jdbcType="VARCHAR" property="passwordSalt"/>
-        <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
-        <result column="update_time" jdbcType="TIMESTAMP" property="updateTime"/>
-        <collection property="roles" ofType="com.example.competition.dao.model.Role">
-            <result column="role_name" jdbcType="VARCHAR" property="roleName"/>
-        </collection>
     </resultMap>
     <sql id="Example_Where_Clause">
         <where>
@@ -83,7 +72,8 @@
         </where>
     </sql>
     <sql id="Base_Column_List">
-    user_id, user_status, username, password, password_salt, create_time, update_time
+    user_id, user_status, username, password, password_salt, detail_id, create_time, 
+    update_time
   </sql>
     <select id="selectByExample" parameterType="com.example.competition.dao.model.UserExample"
             resultMap="BaseResultMap">
@@ -100,15 +90,15 @@
             order by ${orderByClause}
         </if>
     </select>
-    <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
         select
         <include refid="Base_Column_List"/>
         from user
-        where user_id = #{userId,jdbcType=BIGINT}
+        where user_id = #{userId,jdbcType=INTEGER}
     </select>
-    <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from user
-    where user_id = #{userId,jdbcType=BIGINT}
+    where user_id = #{userId,jdbcType=INTEGER}
   </delete>
     <delete id="deleteByExample" parameterType="com.example.competition.dao.model.UserExample">
         delete from user
@@ -118,11 +108,11 @@
     </delete>
     <insert id="insert" parameterType="com.example.competition.dao.model.User">
     insert into user (user_id, user_status, username, 
-      password, password_salt, create_time, 
-      update_time)
-    values (#{userId,jdbcType=BIGINT}, #{userStatus,jdbcType=INTEGER}, #{username,jdbcType=VARCHAR}, 
-      #{password,jdbcType=VARCHAR}, #{passwordSalt,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, 
-      #{updateTime,jdbcType=TIMESTAMP})
+      password, password_salt, detail_id, 
+      create_time, update_time)
+    values (#{userId,jdbcType=INTEGER}, #{userStatus,jdbcType=INTEGER}, #{username,jdbcType=VARCHAR}, 
+      #{password,jdbcType=VARCHAR}, #{passwordSalt,jdbcType=VARCHAR}, #{detailId,jdbcType=INTEGER}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP})
   </insert>
     <insert id="insertSelective" parameterType="com.example.competition.dao.model.User">
         insert into user
@@ -142,6 +132,9 @@
             <if test="passwordSalt != null">
                 password_salt,
             </if>
+            <if test="detailId != null">
+                detail_id,
+            </if>
             <if test="createTime != null">
                 create_time,
             </if>
@@ -151,7 +144,7 @@
         </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
             <if test="userId != null">
-                #{userId,jdbcType=BIGINT},
+                #{userId,jdbcType=INTEGER},
             </if>
             <if test="userStatus != null">
                 #{userStatus,jdbcType=INTEGER},
@@ -164,6 +157,9 @@
             </if>
             <if test="passwordSalt != null">
                 #{passwordSalt,jdbcType=VARCHAR},
+            </if>
+            <if test="detailId != null">
+                #{detailId,jdbcType=INTEGER},
             </if>
             <if test="createTime != null">
                 #{createTime,jdbcType=TIMESTAMP},
@@ -184,7 +180,7 @@
         update user
         <set>
             <if test="record.userId != null">
-                user_id = #{record.userId,jdbcType=BIGINT},
+                user_id = #{record.userId,jdbcType=INTEGER},
             </if>
             <if test="record.userStatus != null">
                 user_status = #{record.userStatus,jdbcType=INTEGER},
@@ -197,6 +193,9 @@
             </if>
             <if test="record.passwordSalt != null">
                 password_salt = #{record.passwordSalt,jdbcType=VARCHAR},
+            </if>
+            <if test="record.detailId != null">
+                detail_id = #{record.detailId,jdbcType=INTEGER},
             </if>
             <if test="record.createTime != null">
                 create_time = #{record.createTime,jdbcType=TIMESTAMP},
@@ -211,11 +210,12 @@
     </update>
     <update id="updateByExample" parameterType="map">
         update user
-        set user_id = #{record.userId,jdbcType=BIGINT},
+        set user_id = #{record.userId,jdbcType=INTEGER},
         user_status = #{record.userStatus,jdbcType=INTEGER},
         username = #{record.username,jdbcType=VARCHAR},
         password = #{record.password,jdbcType=VARCHAR},
         password_salt = #{record.passwordSalt,jdbcType=VARCHAR},
+        detail_id = #{record.detailId,jdbcType=INTEGER},
         create_time = #{record.createTime,jdbcType=TIMESTAMP},
         update_time = #{record.updateTime,jdbcType=TIMESTAMP}
         <if test="_parameter != null">
@@ -237,6 +237,9 @@
             <if test="passwordSalt != null">
                 password_salt = #{passwordSalt,jdbcType=VARCHAR},
             </if>
+            <if test="detailId != null">
+                detail_id = #{detailId,jdbcType=INTEGER},
+            </if>
             <if test="createTime != null">
                 create_time = #{createTime,jdbcType=TIMESTAMP},
             </if>
@@ -244,7 +247,7 @@
                 update_time = #{updateTime,jdbcType=TIMESTAMP},
             </if>
         </set>
-        where user_id = #{userId,jdbcType=BIGINT}
+        where user_id = #{userId,jdbcType=INTEGER}
     </update>
     <update id="updateByPrimaryKey" parameterType="com.example.competition.dao.model.User">
     update user
@@ -252,31 +255,47 @@
       username = #{username,jdbcType=VARCHAR},
       password = #{password,jdbcType=VARCHAR},
       password_salt = #{passwordSalt,jdbcType=VARCHAR},
+      detail_id = #{detailId,jdbcType=INTEGER},
       create_time = #{createTime,jdbcType=TIMESTAMP},
       update_time = #{updateTime,jdbcType=TIMESTAMP}
-    where user_id = #{userId,jdbcType=BIGINT}
+    where user_id = #{userId,jdbcType=INTEGER}
   </update>
 
-    <select id="selectUserAndRole" parameterType="java.util.Map" resultMap="userRoleResultMap">
-    SELECT
+
+<!--*******************************************分割线***************************************************-->
+
+    <resultMap id="userRoleResultMap" type="com.example.competition.dao.dto.UserRoleDTO">
+        <id column="user_id" jdbcType="BIGINT" property="userId"/>
+        <result column="user_status" jdbcType="INTEGER" property="userStatus"/>
+        <result column="username" jdbcType="VARCHAR" property="username"/>
+        <result column="password" jdbcType="VARCHAR" property="password"/>
+        <result column="password_salt" jdbcType="VARCHAR" property="passwordSalt"/>
+        <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
+        <result column="update_time" jdbcType="TIMESTAMP" property="updateTime"/>
+        <collection property="roles" ofType="com.example.competition.dao.model.Role">
+            <result column="role_name" jdbcType="VARCHAR" property="roleName"/>
+        </collection>
+    </resultMap>
+    <select id = "selectUserAndRole" parameterType = "java.util.Map" resultMap = "userRoleResultMap" >
+      SELECT
         u.user_id,
         u.user_status,
         u.username,
-        u.`password`,
+        u.password,
         u.password_salt,
         u.create_time,
         u.update_time,
         r.role_name
-    FROM
-        `user` u
+      FROM
+        user u
         LEFT JOIN user_role_rel urr ON urr.user_id = u.user_id
         LEFT JOIN role r ON r.role_id = urr.role_id
-    WHERE
-        u.user_status = 1
-        AND urr.`status` = 1
+      WHERE
+        (u.user_status = 1 or u.user_status = 0)
+        AND urr.status = 1
         AND r.role_status = 1
         AND u.username = #{username}
-    GROUP BY
-    u.user_id,r.role_name
-  </select>
+      GROUP BY
+        u.user_id,r.role_name
+    </select>
 </mapper>

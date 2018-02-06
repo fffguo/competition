@@ -23,6 +23,8 @@ public class UserRoleDTO{
 
     private String passwordSalt;
 
+    private Integer detailId;
+
     private Date createTime;
 
     private Date updateTime;

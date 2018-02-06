@@ -2,7 +2,9 @@ package com.example.competition.controller;
 
 import com.example.competition.VO.ResultVO;
 import com.example.competition.dao.entity.Report;
+import com.example.competition.dao.entity.User;
 import com.example.competition.enums.ResultVOEnum;
+import com.example.competition.service.AccountService;
 import com.example.competition.service.ReportService;
 import com.example.competition.utils.BeanUtil;
 import com.example.competition.utils.DateUtil;
@@ -36,6 +38,8 @@ public class ReportController {
 
     @Autowired
     private ReportService reportService;
+    @Autowired
+    private AccountService accountService;
 
     @GetMapping("/link")
     public String getReportList(@RequestParam("status") Integer status, ModelMap modelMap) {
@@ -72,8 +76,16 @@ public class ReportController {
             return ResultVOUtil.error(ResultVOEnum.ERROR.getCode(), "更改失败");
         }
         if (status == 1) {
+            User user=accountService.createUser(reportId);
+            if(user==null){
+                return ResultVOUtil.error(ResultVOEnum.ERROR.getCode(),"已通过，但自动注册失败！");
+            }
             return ResultVOUtil.success(report.getWorksName() + "已通过");
         } else if (status == 2) {
+            User user=accountService.delUser(reportId);
+            if(user==null){
+                return ResultVOUtil.error(ResultVOEnum.ERROR.getCode(),"已拒绝，但删除用户失败！");
+            }
             return ResultVOUtil.success(report.getWorksName() + "已拒绝");
         } else if (status == 3) {
             return ResultVOUtil.success(report.getWorksName() + "删除成功");
@@ -105,12 +117,26 @@ public class ReportController {
             log.error("【更新报名信息】，报名信息不存在：reportId={}", report.getReportId());
             return ResultVOUtil.error(ResultVOEnum.ERROR.getCode(), "报名信息不存在");
         }
-        try {
-            report.setCreateTime(result.getCreateTime());
-            reportService.save(report);
-        } catch (Exception e) {
-            log.error("【更新报名信息】，更新失败：reportId={}，message={}", report.getReportId(), e.getMessage());
+        report.setCreateTime(result.getCreateTime());
+        if(report.getReportStatus()==1){
+            User user=accountService.createUser(report.getReportId());
+            if(user==null){
+                return ResultVOUtil.error(ResultVOEnum.ERROR.getCode(),"已通过，但自动注册失败！");
+            }
+        }
+        if(report.getReportStatus()==2){
+            User user=accountService.delUser(report.getReportId());
+            if(user==null){
+                return ResultVOUtil.error(ResultVOEnum.ERROR.getCode(),"已拒绝，但删除用户失败！");
+            }
+        }
+        report=reportService.save(report);
+        if(report==null){
+            log.error("【更新报名信息】，更新失败：reportId={}，", report.getReportId());
             return ResultVOUtil.error(ResultVOEnum.ERROR.getCode(), "保存失败");
+        }
+        if(report.getReportStatus()==1){
+            return ResultVOUtil.success("保存并通过");
         }
         return ResultVOUtil.success("保存成功");
     }

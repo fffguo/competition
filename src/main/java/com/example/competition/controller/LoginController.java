@@ -1,7 +1,9 @@
 package com.example.competition.controller;
 
 import com.example.competition.VO.ResultVO;
+import com.example.competition.dao.entity.User;
 import com.example.competition.enums.ErrorEnum;
+import com.example.competition.enums.UserStatusEnum;
 import com.example.competition.exception.CompetitionException;
 import com.example.competition.service.impl.AccountServiceImpl;
 import com.example.competition.utils.ResultVOUtil;
@@ -29,8 +31,6 @@ import javax.servlet.http.HttpServletRequest;
 public class LoginController {
     @Autowired
     private AccountServiceImpl accountService;
-    @Autowired
-    private ShiroUtil shiroUtil;
     /**
      * 登录
      */
@@ -40,9 +40,16 @@ public class LoginController {
                           @RequestParam(value = "password") String password,
                           @RequestParam(value = "rememberMe", defaultValue = "false") boolean rememberMe,
                           @RequestParam(value = "urlPath") String urlPath) {
+        User user = new User();
+        user.setUsername(username);
+        user = accountService.findOne(user);
+        if (user == null||user.getUserStatus()==UserStatusEnum.DELETE.getCode()) {
+            log.error("【登录】账号不存在，username={}", username);
+            throw new CompetitionException(ErrorEnum.ACCOUNT_NOT_EXIST);
+        }
         Subject subject = SecurityUtils.getSubject();
         try {
-            subject.login(shiroUtil.getToken(username,password,rememberMe));
+            subject.login(ShiroUtil.getToken(username,password,user.getPasswordSalt(),rememberMe));
         } catch (IncorrectCredentialsException e) {
             return ResultVOUtil.error(ErrorEnum.ACCOUNT_PASSWORD_ERROR);
         }catch (CompetitionException e){

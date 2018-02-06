@@ -38,7 +38,7 @@
         <!--<table tableName="group_teacher_rel" domainObjectName="Group_teacher_rel"></table>-->
         <!--<table tableName="groups" domainObjectName="Groups"></table>-->
         <!--<table tableName="specialty" domainObjectName="Specialty"></table>-->
-        <!--<table tableName="student" domainObjectName="Student"></table>-->
+        <!--<table tableName="user_detail" domainObjectName="UserDetail"></table>-->
         <!--<table tableName="teacher" domainObjectName="Teacher"></table>-->
         <table tableName="test" domainObjectName="Test"></table>
         <!--<table tableName="user" domainObjectName="User"></table>-->

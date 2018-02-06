@@ -12,6 +12,9 @@ import lombok.Getter;
 public enum ErrorEnum {
     PARAM_ERROR(1,"参数不正确"),
     PLEASE_NO_REPEAT(2,"请不要重复操作"),
+    INSERT_FAIL(3,"新增失败"),
+    UPDATE_FAIL(4,"更新失败"),
+    INSERT_OR_UPDATE_FAIL(5,"新增或更新失败"),
 
     ACCOUNT_NOT_EXIST(10,"账号不存在"),
     ACCOUNT_UPDATE_FAIL(11,"账号更新失败"),
