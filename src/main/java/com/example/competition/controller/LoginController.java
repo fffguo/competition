@@ -45,7 +45,7 @@ public class LoginController {
         user = accountService.findOne(user);
         if (user == null||user.getUserStatus()==UserStatusEnum.DELETE.getCode()) {
             log.error("【登录】账号不存在，username={}", username);
-            throw new CompetitionException(ErrorEnum.ACCOUNT_NOT_EXIST);
+            throw new CompetitionException(ErrorEnum.USER_NOT_EXIST);
         }
         Subject subject = SecurityUtils.getSubject();
         try {
@@ -55,6 +55,7 @@ public class LoginController {
         }catch (CompetitionException e){
             return ResultVOUtil.error(ErrorEnum.ACCOUNT_PASSWORD_ERROR);//账号不存在
         }
+        SecurityUtils.getSubject().getSession().setAttribute("user",user);
         return ResultVOUtil.success(urlPath);
     }
 

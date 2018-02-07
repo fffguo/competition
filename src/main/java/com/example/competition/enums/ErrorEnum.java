@@ -16,7 +16,7 @@ public enum ErrorEnum {
     UPDATE_FAIL(4,"更新失败"),
     INSERT_OR_UPDATE_FAIL(5,"新增或更新失败"),
 
-    ACCOUNT_NOT_EXIST(10,"账号不存在"),
+    USER_NOT_EXIST(10,"用户不存在"),
     ACCOUNT_UPDATE_FAIL(11,"账号更新失败"),
     ACCOUNT_PASSWORD_ERROR(12,"账号密码错误"),
 

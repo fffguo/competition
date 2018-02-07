@@ -37,6 +37,21 @@ public class AccountServiceImpl implements AccountService {
     private User_role_relRepository user_role_relRepository;
 
     @Override
+    public UserDetail findOne(UserDetail userDetail) {
+        //0.入参校验
+        if(userDetail==null){
+            log.error("【查询用户详情】，入参不能为空");
+            throw new CompetitionException(ErrorEnum.PARAM_ERROR);
+        }
+        //1.根据id查询
+        if(userDetail.getId()!=null){
+            userDetail = userDetailRepository.findOne(userDetail.getId());
+            return userDetail;
+        }
+        return null;
+    }
+
+    @Override
     public User findOne(User user) {
         //1.通过id和status查询
         if(!StringUtils.isEmpty(user.getUserId())&&!StringUtils.isEmpty(user.getUserStatus())){

@@ -20,55 +20,62 @@
     <link th:href="@{/assets/css/custom-styles.css}" rel="stylesheet"/>
     <link th:href="@{/assets/js/Lightweight-Chart/cssCharts.css}" rel="stylesheet">
     <style>
-        .inputH5 h4 {
-            margin: 15px auto;
-        }
-
-        .inputH5 input {
-            width: 400px;
-            margin-bottom: -13px;
+        tr {
+            text-align: center;
         }
     </style>
 </head>
 <body>
 
 <div id="wrapper">
-    <div th:include="web-model::top" ></div>
+    <div th:include="web-model::top"></div>
 
     <div th:include="web-model::left"></div>
 
     <div id="page-wrapper">
         <div class="header">
-            <h4 class="page-header" style="text-align: center" >基础信息</h4>
+            <h4 class="page-header" style="text-align: center">基础信息</h4>
         </div>
         <div id="page-inner">
             <div class="row">
                 <div class="col-md-12">
-                    <div class="card" >
-                        <div class="card-action">test</div>
-                        <div class="card-content">test</div>
+                    <div class="card">
+                        <div class="card-action"></div>
+                        <div class="card-content">
+                            <div class="container">
+                                <div class="col-md-3" style="margin-left: 40%">
+                                    <h4><span>学号：</span><span th:text="${detail.studentNo}"></span></h4>
+                                    <h4><span>姓名：</span><span th:text="${detail.name}"></span></h4>
+                                    <h4><span>专业：</span><span th:text="${detail.studentSpecialty}"></span></h4>
+                                    <h4><span>学院：</span><span th:text="${detail.department}"></span></h4>
+                                    <h4><span>年级：</span><span th:text="${detail.studentGrade}"></span></h4>
+                                    <h4><span>手机：</span><span th:text="${detail.phone}"></span></h4>
+                                    <h4><span>邮箱：</span><span th:text="${detail.email}"></span></h4>
+                                    <h4><span>QQ：</span><span th:text="${detail.qq}"></span></h4>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
+
+                <footer><p>Copyright &copy; 2018.Company name All rights reserved.<a target="_blank"
+                                                                                     href="https://www.baidu.com">云中央制作小组</a>
+                </p></footer>
             </div>
-
-            <footer><p>Copyright &copy; 2018.Company name All rights reserved.<a target="_blank"
-                                                                                 href="https://www.baidu.com">云中央制作小组</a>
-            </p></footer>
+            <!-- /. PAGE INNER  -->
         </div>
-        <!-- /. PAGE INNER  -->
-    </div>
 
-</div>
-<script th:src="@{/assets/js/jquery-3.2.1.min.js}"></script>
-<script th:src="@{/assets/js/bootstrap.min.js}"></script>
-<script th:src="@{/assets/materialize/js/materialize.min.js}"></script>
-<script th:src="@{/assets/js/jquery.metisMenu.js}"></script>
-<script th:src="@{/assets/js/morris/raphael-2.1.0.min.js}"></script>
-<script th:src="@{/assets/js/morris/morris.js}"></script>
-<script th:src="@{/assets/js/easypiechart.js}"></script>
-<script th:src="@{/assets/js/easypiechart-data.js}"></script>
-<script th:src="@{/assets/js/Lightweight-Chart/jquery.chart.js}"></script>
-<script th:src="@{/assets/js/custom-scripts.js}"></script>
+    </div>
+    <script th:src="@{/assets/js/jquery-3.2.1.min.js}"></script>
+    <script th:src="@{/assets/js/bootstrap.min.js}"></script>
+    <script th:src="@{/assets/materialize/js/materialize.min.js}"></script>
+    <script th:src="@{/assets/js/jquery.metisMenu.js}"></script>
+    <script th:src="@{/assets/js/morris/raphael-2.1.0.min.js}"></script>
+    <script th:src="@{/assets/js/morris/morris.js}"></script>
+    <script th:src="@{/assets/js/easypiechart.js}"></script>
+    <script th:src="@{/assets/js/easypiechart-data.js}"></script>
+    <script th:src="@{/assets/js/Lightweight-Chart/jquery.chart.js}"></script>
+    <script th:src="@{/assets/js/custom-scripts.js}"></script>
 </body>
 </html>
 
