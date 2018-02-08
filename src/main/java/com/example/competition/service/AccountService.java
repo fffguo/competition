@@ -1,9 +1,7 @@
 package com.example.competition.service;
 
-import com.example.competition.dao.entity.Account;
 import com.example.competition.dao.entity.User;
 import com.example.competition.dao.entity.UserDetail;
-import org.springframework.stereotype.Service;
 
 /**
  * 账号服务

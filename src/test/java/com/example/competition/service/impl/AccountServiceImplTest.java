@@ -1,6 +1,5 @@
 package com.example.competition.service.impl;
 
-import com.example.competition.dao.entity.Account;
 import com.example.competition.dao.entity.User;
 import com.example.competition.service.AccountService;
 import org.junit.Test;
