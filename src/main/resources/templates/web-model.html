@@ -327,16 +327,17 @@
                 <li shiro:hasRole="test">
                     <a href="tab-panel.html" class="waves-effect waves-dark"><i class="fa fa-qrcode"></i> 不可用</a>
                 </li>
-                <li shiro:hasRole="root">
+                <!--<li shiro:hasRole="root">-->
+                <li shiro:authenticated="">
                     <a href="#" th:class="${reportTableClass}"  class="waves-effect waves-dark"><i class="fa fa-table"></i>报名表<span class="fa arrow"></span></a>
                     <ul th:class="'nav nav-second-level '+${reportTableUlClass}"  aria-expanded="true">
-                        <li shiro:hasPermission="root:reportTable:0">
+                        <li>
                             <a th:href="@{/report/link?status=0}" href="#" th:class="${reportTableClass0}" >待审核</a>
                         </li>
-                        <li shiro:hasPermission="root:reportTable:1">
+                        <li>
                             <a th:href="@{/report/link?status=1}" href="#" th:class="${reportTableClass1}" >已通过</a>
                         </li>
-                        <li shiro:hasPermission="root:reportTable:2">
+                        <li>
                             <a th:href="@{/report/link?status=2}" href="#" th:class="${reportTableClass2}" >未通过</a>
                         </li>
                     </ul>

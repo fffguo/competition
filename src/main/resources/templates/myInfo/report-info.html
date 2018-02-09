@@ -1,11 +1,4 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-<!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 
 <head>
@@ -19,11 +12,6 @@
     <link th:href="@{/assets/js/morris/morris-0.4.3.min.css}" rel="stylesheet"/>
     <link th:href="@{/assets/css/custom-styles.css}" rel="stylesheet"/>
     <link th:href="@{/assets/js/Lightweight-Chart/cssCharts.css}" rel="stylesheet">
-    <style>
-        tr {
-            text-align: center;
-        }
-    </style>
 </head>
 <body>
 
@@ -46,43 +34,45 @@
                                 <div class="col-md-6" style="margin-left: 40%">
                                     <h3 style="text-align: left;color: green;margin-left: -40px">项目概览：</h3>
                                     <h4 style="text-align: left">项目编号：<span th:text="${report.worksNo}"></span></h4>
-                                    <h4 style="text-align: left">项目名称：<span th:text="${report.worksName}"></span><input type="hidden" id="worksName" class="validate" ></h4>
-                                    <h4 style="text-align: left">项目状态：<span th:text="${report.reportStatus}"></span><input disabled type="hidden" id="reportStatus" class="validate"></h4>
-                                    <h4 style="text-align: left">申请时间：<span th:text="${#dates.format(report.createTime, 'yyyy-MM-dd HH:mm:ss')}"></span><input disabled type="hidden" id="createTime" class="validate"></h4>
-                                    <h4 style="text-align: left">更新时间：<span th:text="${#dates.format(report.updateTime, 'yyyy-MM-dd HH:mm:ss')}"></span><input disabled type="hidden" id="updateTime" class="validate"></h4>
+                                    <h4 style="text-align: left">项目名称：<span th:text="${report.worksName}"></span></h4>
+                                    <h4 style="text-align: left" th:if="${report.reportStatus eq 0}">项目状态：<span>待审核</span></h4>
+                                    <h4 style="text-align: left"th:if="${report.reportStatus eq 1}">项目状态：<span>已通过</span></h4>
+                                    <h4 style="text-align: left"th:if="${report.reportStatus eq 2}">项目状态：<span>未通过</span></h4>
+                                    <h4 style="text-align: left">申请时间：<span th:text="${#dates.format(report.createTime, 'yyyy-MM-dd HH:mm:ss')}"></span></h4>
+                                    <h4 style="text-align: left">更新时间：<span th:text="${#dates.format(report.updateTime, 'yyyy-MM-dd HH:mm:ss')}"></span></h4>
                                     <h3 style="text-align: left;color: green;margin-left: -40px">指导老师:</h3>
-                                    <h4 style="text-align: left">姓&emsp;名：<span th:text="${report.teacherName}"></span><input type="hidden" id="teacherName" class="validate"></h4>
-                                    <h4 style="text-align: left">院&emsp;系：<span th:text="${report.teacherDepartment}"></span><input type="hidden" id="teacherDepartment" class="validate"></h4>
-                                    <h4 style="text-align: left">手机号：<span th:text="${report.teacherPhone}"></span><input type="hidden" id="teacherPhone" class="validate"></h4>
-                                    <h4 style="text-align: left">邮&emsp;箱：<span th:text="${report.teacherEmail}"></span><input type="hidden" id="teacherEmail" class="validate"></h4>
-                                    <h4 style="text-align: left">Q&emsp;&ensp;Q： <span th:text="${report.teacherQq}"></span><input type="hidden" id="teacherQq" class="validate"></h4>
+                                    <h4 style="text-align: left">姓&emsp;名：<span th:text="${report.teacherName}"></span></h4>
+                                    <h4 style="text-align: left">院&emsp;系：<span th:text="${report.teacherDepartment}"></span></h4>
+                                    <h4 style="text-align: left">手机号：<span th:text="${report.teacherPhone}"></span></h4>
+                                    <h4 style="text-align: left">邮&emsp;箱：<span th:text="${report.teacherEmail}"></span></h4>
+                                    <h4 style="text-align: left">Q&emsp;&ensp;Q： <span th:text="${report.teacherQq}"></span></h4>
                                     <h3 style="text-align: left;color: green;margin-left: -40px">项目负责人:</h3>
-                                    <h4 style="text-align: left">学&emsp;号：<span th:text="${report.mainStudentNo}"></span><input type="hidden" id="mainStudentNo" class="validate"></h4>
-                                    <h4 style="text-align: left">姓&emsp;名：<span th:text="${report.mainStudentName}"></span><input type="hidden" id="mainStudentName" class="validate"></h4>
-                                    <h4 style="text-align: left">年&emsp;级：<span th:text="${report.mainStudentGrade}"></span><input type="hidden" id="mainStudentGrade" class="validate"></h4>
-                                    <h4 style="text-align: left">专&emsp;业：<span th:text="${report.mainStudentSpecialty}"></span><input type="hidden" id="mainStudentSpecialty" class="validate"></h4>
-                                    <h4 style="text-align: left">院&emsp;系：<span th:text="${report.mainStudentDepartment}"></span><input type="hidden" id="mainStudentDepartment" class="validate"></h4>
-                                    <h4 style="text-align: left">手机号：<span th:text="${report.mainStudentPhone}"></span><input type="hidden" id="mainStudentPhone" class="validate"></h4>
-                                    <h4 style="text-align: left">邮&emsp;箱：<span th:text="${report.mainStudentEmail}"></span><input type="hidden" id="mainStudentEmail" class="validate"></h4>
-                                    <h4 style="text-align: left">Q&emsp;&ensp;Q： <span th:text="${report.mainStudentQq}"></span><input type="hidden" id="mainStudentQq" class="validate"></h4>
+                                    <h4 style="text-align: left">学&emsp;号：<span th:text="${report.mainStudentNo}"></span></h4>
+                                    <h4 style="text-align: left">姓&emsp;名：<span th:text="${report.mainStudentName}"></span></h4>
+                                    <h4 style="text-align: left">年&emsp;级：<span th:text="${report.mainStudentGrade}"></span></h4>
+                                    <h4 style="text-align: left">专&emsp;业：<span th:text="${report.mainStudentSpecialty}"></span></h4>
+                                    <h4 style="text-align: left">院&emsp;系：<span th:text="${report.mainStudentDepartment}"></span></h4>
+                                    <h4 style="text-align: left">手机号：<span th:text="${report.mainStudentPhone}"></span></h4>
+                                    <h4 style="text-align: left">邮&emsp;箱：<span th:text="${report.mainStudentEmail}"></span></h4>
+                                    <h4 style="text-align: left">Q&emsp;&ensp;Q： <span th:text="${report.mainStudentQq}"></span></h4>
                                     <h3 style="text-align: left;color: green;margin-left: -40px">学生成员:</h3>
-                                    <h4 style="text-align: left">学&emsp;号：<span th:text="${report.oneStudentNo}"></span><input type="hidden" id="oneStudentNo" class="validate"></h4>
-                                    <h4 style="text-align: left">姓&emsp;名：<span th:text="${report.oneStudentName}"></span><input type="hidden" id="oneStudentName" class="validate"></h4>
-                                    <h4 style="text-align: left">年&emsp;级：<span th:text="${report.oneStudentGrade}"></span><input type="hidden" id="oneStudentGrade" class="validate"></h4>
-                                    <h4 style="text-align: left">专&emsp;业：<span th:text="${report.oneStudentSpecialty}"></span><input type="hidden" id="oneStudentSpecialty" class="validate"></h4>
-                                    <h4 style="text-align: left">院&emsp;系：<span th:text="${report.oneStudentDepartment}"></span><input type="hidden" id="oneStudentDepartment" class="validate"></h4>
-                                    <h4 style="text-align: left">手机号：<span th:text="${report.oneStudentPhone}"></span><input type="hidden" id="oneStudentPhone" class="validate"></h4>
-                                    <h4 style="text-align: left">邮&emsp;箱：<span th:text="${report.oneStudentEmail}"></span><input type="hidden" id="oneStudentEmail" class="validate"></h4>
-                                    <h4 style="text-align: left">Q&emsp;&ensp;Q： <span th:text="${report.oneStudentQq}"></span><input type="hidden" id="oneStudentQq" class="validate"></h4>
+                                    <h4 style="text-align: left">学&emsp;号：<span th:text="${report.oneStudentNo}"></span></h4>
+                                    <h4 style="text-align: left">姓&emsp;名：<span th:text="${report.oneStudentName}"></span></h4>
+                                    <h4 style="text-align: left">年&emsp;级：<span th:text="${report.oneStudentGrade}"></span></h4>
+                                    <h4 style="text-align: left">专&emsp;业：<span th:text="${report.oneStudentSpecialty}"></span></h4>
+                                    <h4 style="text-align: left">院&emsp;系：<span th:text="${report.oneStudentDepartment}"></span></h4>
+                                    <h4 style="text-align: left">手机号：<span th:text="${report.oneStudentPhone}"></span></h4>
+                                    <h4 style="text-align: left">邮&emsp;箱：<span th:text="${report.oneStudentEmail}"></span></h4>
+                                    <h4 style="text-align: left">Q&emsp;&ensp;Q： <span th:text="${report.oneStudentQq}"></span></h4>
                                     <h3 style="text-align: left;color: green;margin-left: -40px">学生成员:</h3>
-                                    <h4 style="text-align: left">学&emsp;号：<span th:text="${report.twoStudentNo}"></span><input type="hidden" id="twoStudentNo" class="validate"></h4>
-                                    <h4 style="text-align: left">姓&emsp;名：<span th:text="${report.twoStudentName}"></span><input type="hidden" id="twoStudentName" class="validate"></h4>
-                                    <h4 style="text-align: left">年&emsp;级：<span th:text="${report.twoStudentGrade}"></span><input type="hidden" id="twoStudentGrade" class="validate"></h4>
-                                    <h4 style="text-align: left">专&emsp;业：<span th:text="${report.twoStudentSpecialty}"></span><input type="hidden" id="twoStudentSpecialty" class="validate"></h4>
-                                    <h4 style="text-align: left">院&emsp;系：<span th:text="${report.twoStudentDepartment}"></span><input type="hidden" id="twoStudentDepartment" class="validate"></h4>
-                                    <h4 style="text-align: left">手机号：<span th:text="${report.twoStudentPhone}"></span><input type="hidden" id="twoStudentPhone" class="validate"></h4>
-                                    <h4 style="text-align: left">邮&emsp;箱：<span th:text="${report.twoStudentEmail}"></span><input type="hidden" id="twoStudentEmail" class="validate"></h4>
-                                    <h4 style="text-align: left">Q&emsp;&ensp;Q： <span th:text="${report.twoStudentQq}"></span><input type="hidden" id="twoStudentQq" class="validate"></h4>
+                                    <h4 style="text-align: left">学&emsp;号：<span th:text="${report.twoStudentNo}"></span></h4>
+                                    <h4 style="text-align: left">姓&emsp;名：<span th:text="${report.twoStudentName}"></span></h4>
+                                    <h4 style="text-align: left">年&emsp;级：<span th:text="${report.twoStudentGrade}"></span></h4>
+                                    <h4 style="text-align: left">专&emsp;业：<span th:text="${report.twoStudentSpecialty}"></span></h4>
+                                    <h4 style="text-align: left">院&emsp;系：<span th:text="${report.twoStudentDepartment}"></span></h4>
+                                    <h4 style="text-align: left">手机号：<span th:text="${report.twoStudentPhone}"></span></h4>
+                                    <h4 style="text-align: left">邮&emsp;箱：<span th:text="${report.twoStudentEmail}"></span></h4>
+                                    <h4 style="text-align: left">Q&emsp;&ensp;Q： <span th:text="${report.twoStudentQq}"></span></h4>
                                 </div>
                             </div>
                         </div>
@@ -93,10 +83,9 @@
                                                                                      href="https://www.baidu.com">云中央制作小组</a>
                 </p></footer>
             </div>
-            <!-- /. PAGE INNER  -->
         </div>
-
     </div>
+</div>
     <script th:src="@{/assets/js/jquery-3.2.1.min.js}"></script>
     <script th:src="@{/assets/js/bootstrap.min.js}"></script>
     <script th:src="@{/assets/materialize/js/materialize.min.js}"></script>
@@ -107,8 +96,5 @@
     <script th:src="@{/assets/js/easypiechart-data.js}"></script>
     <script th:src="@{/assets/js/Lightweight-Chart/jquery.chart.js}"></script>
     <script th:src="@{/assets/js/custom-scripts.js}"></script>
-</body>
-</html>
-
 </body>
 </html>
