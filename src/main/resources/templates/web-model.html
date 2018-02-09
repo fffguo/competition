@@ -316,7 +316,7 @@
 
             <ul class="nav" id="main-menu">
                 <li>
-                    <a th:href="@{/index.html}" th:class="${indexClass}" class="waves-effect waves-dark "><i class="fa fa-dashboard"></i>主页</a>
+                    <a th:href="@{/index}" th:class="${indexClass}" class="waves-effect waves-dark "><i class="fa fa-dashboard"></i>主页</a>
                 </li>
                 <li shiro:hasRole="test">
                     <a href="ui-elements.html" class="waves-effect waves-dark "><i class="fa fa-desktop"></i>不可用</a>
@@ -344,9 +344,9 @@
                 <li shiro:authenticated="">
                     <a href="#" th:class="${myInfoClass}"  class="waves-effect waves-dark"><i class="fa fa-user"></i>个人信息<span class="fa arrow"></span></a>
                     <ul th:class="'nav nav-second-level '+${myInfoUlClass}"  aria-expanded="true">
-                        <li><a th:href="@{/myInfo/base}" href="#" th:class="${myBaseInfo}" >基础信息</a></li>
-                        <li><a th:href="@{/myInfo/report}" href="#" th:class="${myInfoClass1}" >报名信息</a></li>
-                        <li><a th:href="@{/myInfo/submit}" href="#" th:class="${myInfoClass2}" >作品提交</a></li>
+                        <li><a th:href="@{/myInfo/base}" href="#" th:class="${baseInfo}" >基础信息</a></li>
+                        <li><a th:href="@{/myInfo/report}" href="#" th:class="${reportInfo}" >报名信息</a></li>
+                        <li><a th:href="@{/myInfo/submit}" href="#" th:class="${InfoClass2}" >作品提交</a></li>
                     </ul>
                 </li>
                 <li >

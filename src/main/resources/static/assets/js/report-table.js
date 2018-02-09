@@ -346,7 +346,7 @@ function showInput() {
     $("#teacherQq").attr("type", "text");
     $("#mainStudentNo").attr("type", "text");
     $("#mainStudentName").attr("type", "text");
-    $("#mainStudentGrade").attr("type", "text");
+    $("#mainStudentGrade").attr("type", "text");0
     $("#mainStudentSpecialty").attr("type", "text");
     $("#mainStudentDepartment").attr("type", "text");
     $("#mainStudentPhone").attr("type", "text");

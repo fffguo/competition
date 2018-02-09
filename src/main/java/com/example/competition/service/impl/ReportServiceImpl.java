@@ -40,7 +40,6 @@ public class ReportServiceImpl implements ReportService {
     @Override
     public Report findOne(Integer id) {
         Report report=reportRepository.findOne(id);
-        report.setCreateTime(DateUtil.data2Data(report.getCreateTime()));
         return report;
     }
 }

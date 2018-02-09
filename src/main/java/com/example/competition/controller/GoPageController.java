@@ -13,12 +13,12 @@ import org.springframework.web.bind.annotation.RequestParam;
  */
 @Controller
 public class GoPageController {
-    @GetMapping("/index.html")
+    @GetMapping("/index")
     public String index(ModelMap modelMap) {
         modelMap.put("indexClass","active-menu waves-effect waves-dark");
         return "/index";
     }
-    @GetMapping("/form.html")
+    @GetMapping("/form")
     public String form(){
         return "/form";
     }

@@ -17,8 +17,9 @@ public enum ErrorEnum {
     INSERT_OR_UPDATE_FAIL(5,"新增或更新失败"),
 
     USER_NOT_EXIST(10,"用户不存在"),
-    ACCOUNT_UPDATE_FAIL(11,"账号更新失败"),
-    ACCOUNT_PASSWORD_ERROR(12,"账号密码错误"),
+    USER_DETAIL_NOT_EXIST(11,"用户详情不存在"),
+    ACCOUNT_UPDATE_FAIL(13,"账号更新失败"),
+    ACCOUNT_PASSWORD_ERROR(14,"账号密码错误"),
 
     REPORT_NOT_EXIST(21,"报名信息不存在"),
     REPORT_UPDATE_FAIL(22,"更新报名信息失败")
