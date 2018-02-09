@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -73,5 +74,18 @@ public class MyInfoController {
         }
         modelMap.put("report",report);
         return "/myInfo/report-info";
+    }
+
+    @GetMapping("/submit")
+    public String submit(ModelMap modelMap){
+        modelMap.put("submitInfo", "active-menu");
+        modelMap.put("myInfoUlClass", "collapse in");
+        modelMap.put("myInfoClass", "waves-effect waves-dark active-menu");
+        return "/myInfo/submit-info";
+    }
+
+    @PostMapping("/upload")
+    public String upload(ModelMap modelMap){
+        return "";
     }
 }
